@@ -1,0 +1,1940 @@
+{
+ "about": "Compact digest of data/records.json for the site and the Ask API. Generated from records.json; do not edit by hand.",
+ "moon_base_zone": "inside = oxygen >= 30% and pressure <= 10.2 psi; edge = oxygen >= 29.5% and pressure <= 10.6 psi",
+ "cards": [
+  {
+   "id": "bass",
+   "name": "BASS",
+   "full_name": "Burning and Suppression of Solids",
+   "family": "BASS",
+   "kind": "flight experiment",
+   "roles": [
+    "prevention",
+    "suppression"
+   ],
+   "psi_url": "http://doi.org/10.60555/58h4-dy80",
+   "in_scope": true,
+   "operated": null,
+   "fuel": "Solids: SIBAL cotton-fiberglass fabric, Nomex, Ultem, PMMA, wax-saturated fiberglass, candles",
+   "gravity": "microgravity (ISS, Microgravity Science Glovebox)",
+   "flow": "Fan-driven co-flow, 5 to 50 cm/s",
+   "atmosphere": null,
+   "varied": "Airflow speed, fuel type and geometry, nitrogen suppressant flow (0 to 500 cc/min)",
+   "measured": "Flame shape, spread rate, flame dynamics, time to extinction, radiometer output",
+   "moon_base_coverage": "not stated",
+   "tests_by_zone": {},
+   "findings": {},
+   "caveats": [
+    "Planned test count stated in future tense",
+    "The PSI table is a run log: it lists material only, with no oxygen, airflow or results",
+    "Date problems: one date reads '6/29/`12', one has the year 2103, and 7 dates don't match their GMT day (4/26/2013, 6/1/2013)",
+    "As-run test numbers 24, 85, 89, 90, 91 are used twice",
+    "Many sphere rows don't name the material; the log names PMMA in other sphere rows"
+   ]
+  },
+  {
+   "id": "bass-ii",
+   "name": "BASS-II",
+   "full_name": "Burning and Suppression of Solids - II",
+   "family": "BASS",
+   "kind": "flight experiment",
+   "roles": [
+    "prevention"
+   ],
+   "psi_url": "http://doi.org/10.60555/4qc4-de67",
+   "in_scope": true,
+   "operated": null,
+   "fuel": "Solids: acrylic (PMMA) films, sheets, rods and a sphere section; SIBAL cotton-fiberglass fabric",
+   "gravity": "microgravity (ISS, Microgravity Science Glovebox)",
+   "flow": "Fan-driven duct; 0-55 cm/s in the report's rod tests (the metadata says up to 40 cm/s); concurrent and opposed flow",
+   "atmosphere": "13.6-22.2% oxygen (nitrogen added to cabin air), at about 1 atm",
+   "varied": "Oxygen, airflow speed, and fuel type, thickness and shape",
+   "measured": "Flame video and stills, radiometer, and O2, CO2 and CO before and after each test",
+   "moon_base_coverage": "none: 13.6-22.2% oxygen at about 1 atm",
+   "tests_by_zone": {
+    "outside": 130
+   },
+   "findings": {
+    "outcome": {
+     "text": "Flames always went out when the fan was turned off (at cabin oxygen or lower); materials burned at lower oxygen than on Earth; authors warn fan-off may not work in high-oxygen, low-pressure or partial-gravity atmospheres",
+     "evidence": [
+      {
+       "source": "Burning and Suppression of Solids (BASS) overview (BASS, BASS-II, BASS-M)",
+       "file": "burning-and-suppression-of-solids-bass.pdf",
+       "where": "page 6",
+       "quote": "BASS-II tests produced data on how ambient oxygen, ventilation, and fuel affect combustion and burning.",
+       "kind": "result"
+      },
+      {
+       "source": "Burning and Suppression of Solids (BASS) overview (BASS, BASS-II, BASS-M)",
+       "file": "burning-and-suppression-of-solids-bass.pdf",
+       "where": "page 6",
+       "quote": "With data from microgravity, scientists determined thin and thick fuel spread rates and a formula for transition from thin to thick fuels. Models predict higher spread rates than observed, so need improvement.",
+       "kind": "result"
+      },
+      {
+       "source": "Olson S, Ferkul P, Fernandez-Pello C, Miller F, Wichman I, Bhattacharjee S, T'ien J. Flammability Limits from BASS-II Testing in Microgravity Compared to Normal Gravity Limits. 49th ICES, 2019.",
+       "file": "",
+       "where": "",
+       "quote": "At the other extreme, the flames always quenched when the fan was turned off.",
+       "kind": "result"
+      },
+      {
+       "source": "Olson S, Ferkul P, Fernandez-Pello C, Miller F, Wichman I, Bhattacharjee S, T'ien J. Flammability Limits from BASS-II Testing in Microgravity Compared to Normal Gravity Limits. 49th ICES, 2019.",
+       "file": "",
+       "where": "",
+       "quote": "Flame extinctions occurred under conditions indicating that materials can burn at a lower oxygen concentration in microgravity compared to normal gravity.",
+       "kind": "result"
+      }
+     ]
+    },
+    "airflow_off": {
+     "text": "In the PSI table, 15 tests record the flame going out as the airflow was turned down (at 14.8-20.9% oxygen) and 7 record it blowing out when the airflow was turned up. The report adds two limits: the slower the airflow, the more oxygen a flame needs to survive, and flames have spread steadily with no airflow at all at higher oxygen levels.",
+     "evidence": [
+      {
+       "source": "NASA PSI-25 (BASS-II) experiment table",
+       "file": "PSI-25_Experimental_table_BASS-II.csv",
+       "where": "line 15",
+       "quote": "Bhattacharjee,B14,7/2/2014,183,174m,1 cm wide 200 micron thick PMMA,2,pot 0.9   0.5 and down,5  3  2   ext,250,44,15,none,0,none,0.2,none",
+       "kind": "table"
+      },
+      {
+       "source": "NASA PSI-25 (BASS-II) experiment table",
+       "file": "PSI-25_Experimental_table_BASS-II.csv",
+       "where": "line 52",
+       "quote": "Olson,O4,7/8/2014,189,216m,\"3/8\"\"clear rod\",2,5   0.7   0.5   0.4   0.36 ext,5   down to ext,250,249,14.8,13.6,0.72,1.72,290,OR",
+       "kind": "table"
+      },
+      {
+       "source": "NASA PSI-25 (BASS-II) experiment table",
+       "file": "PSI-25_Experimental_table_BASS-II.csv",
+       "where": "line 80",
+       "quote": "Fernandez-Pello,P5,7/14/2014,195,202m,\"0.5\"\" black rod\",2,Fan pot 1.5 (5cm/s)   0.9   0.4   0.36   0.32   0.308   0.3   0.29   0.28   0 ext,5 down to ext,250>50,313,19.3,17.6,0.32,1.67,0,525",
+       "kind": "table"
+      },
+      {
+       "source": "Olson SL, Ferkul PV, Bhattacharjee S, Miller FJ, Fernandez-Pello C, Link S, T'ien JS, Wichman I. Burning and Suppression of Solids-II (BASS-II) Summary Report. NASA/TM-20210011385, 2021.",
+       "file": "BASS-II_Summary_Report.pdf",
+       "where": "page 66",
+       "quote": "Last image is just before extinction as flow is turned off.",
+       "kind": "result"
+      }
+     ],
+     "our_note": "Our reading, not the report's: Moon Base air (30%+ oxygen) is richer than anything BASS-II tested (22.2% max), so a flame there may survive at airflows that would starve it in station air. BASS-II supports 'fans off' up to about 21% oxygen; it can't confirm it for Moon Base conditions."
+    },
+    "goldilocks_flow": {
+     "text": "A band of gentle airflow, typical of spacecraft ventilation near surfaces, let PMMA burn at lower oxygen in microgravity (13.5%) than Earth's upward-burning test allows (15.4%)",
+     "evidence": [
+      {
+       "source": "Olson SL, Ferkul PV, Bhattacharjee S, Miller FJ, Fernandez-Pello C, Link S, T'ien JS, Wichman I. Burning and Suppression of Solids-II (BASS-II) Summary Report. NASA/TM-20210011385, 2021.",
+       "file": "BASS-II_Summary_Report.pdf",
+       "where": "page 84",
+       "quote": "The minimum O2 concentration of 13.5 percent O2 at a of 8 to 12 s–1 is significantly lower than the observed upward flame spread limit of 15.4 percent O2",
+       "kind": "result"
+      },
+      {
+       "source": "Olson SL, Ferkul PV, Bhattacharjee S, Miller FJ, Fernandez-Pello C, Link S, T'ien JS, Wichman I. Burning and Suppression of Solids-II (BASS-II) Summary Report. NASA/TM-20210011385, 2021.",
+       "file": "BASS-II_Summary_Report.pdf",
+       "where": "page 84",
+       "quote": "indicating the material remains flammable under the weak ventilation only obtainable in microgravity.",
+       "kind": "result"
+      },
+      {
+       "source": "Olson SL, Ferkul PV, Bhattacharjee S, Miller FJ, Fernandez-Pello C, Link S, T'ien JS, Wichman I. Burning and Suppression of Solids-II (BASS-II) Summary Report. NASA/TM-20210011385, 2021.",
+       "file": "BASS-II_Summary_Report.pdf",
+       "where": "page 84",
+       "quote": "This “Goldilocks” zone of flow is unfortunately typical of spacecraft ventilation flows near surfaces.",
+       "kind": "result"
+      }
+     ]
+    },
+    "context": {
+     "text": "Why it matters (Decadal Survey, quoted in the BASS-II poster)",
+     "evidence": [
+      {
+       "source": "Ferkul PV, Bhattacharjee S, Fernandez-Pello C, Miller F, Olson SL, Takahashi F, T'ien JS. Combustion of Solids in Microgravity: Results from the BASS-II Experiment. ASGSR poster, 2014.",
+       "file": "",
+       "where": "page 4",
+       "quote": "Present tests, performed in normal gravity, are not adequate for reduced gravity scenarios.",
+       "kind": "description"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "Sample count conflicts inside the overview: 100 samples vs. the BASS text '41 samples, 89 test points' repeated in the BASS-II section",
+    "Airflow range differs inside the BASS-II poster: 'up to 40 cm/s' (Approach) vs. '0 to 55 cm/s' (Hardware)",
+    "The PSI table lists 129 tests. It records conditions and gas readings, not outcomes: extinction and blowoff appear only as notes in the fan and air columns",
+    "The air-display units aren't stated; notes such as 'Fan pot 1.5 (5cm/s)' suggest cm/s. Flow direction isn't listed in the table",
+    "Pressure isn't listed; the summary report uses 1 atm for the glovebox",
+    "Final O2 is listed as 1.6%, 0.6% and 0.9% for tests B2, P22a and T28a (impossible drops, probably typos); two final O2 cells read 'none'; 13 tests have negative CO readings",
+    "Test O10's date (7/22/2014, day 203) doesn't match its GMT day (213)",
+    "The lowest-oxygen figure varies slightly: 13.6% in the poster and the report's oxygen range, 13.5% in the report's flammability-boundary text",
+    "All tests were at 22.2% oxygen or less; nothing at Moon Base oxygen levels"
+   ]
+  },
+  {
+   "id": "bass-m",
+   "name": "BASS-M",
+   "full_name": "Burning and Suppression of Solids - Milliken",
+   "family": "BASS",
+   "kind": "flight experiment",
+   "roles": [
+    "prevention"
+   ],
+   "psi_url": null,
+   "in_scope": true,
+   "operated": null,
+   "fuel": "44 cotton textile samples, ten flame-retardant treatments plus untreated controls",
+   "gravity": "microgravity (ISS, Microgravity Science Glovebox)",
+   "flow": "Fan-driven duct, 5 to 50 cm/s",
+   "atmosphere": null,
+   "varied": "Textile treatment and airflow",
+   "measured": "Time to extinction vs. textile and airflow; self-extinguishing ability",
+   "moon_base_coverage": "not stated",
+   "tests_by_zone": {},
+   "findings": {},
+   "caveats": [
+    "Not on the challenge's PSI resource list"
+   ]
+  },
+  {
+   "id": "flex",
+   "name": "FLEX",
+   "full_name": "Flame Extinguishment Experiment",
+   "family": "FLEX",
+   "kind": "flight experiment",
+   "roles": [
+    "suppression",
+    "prevention"
+   ],
+   "psi_url": "http://doi.org/10.60555/mbq8-0451",
+   "in_scope": true,
+   "operated": null,
+   "fuel": "Liquid fuel droplets, methanol and heptane, 2 to 5 mm",
+   "gravity": "microgravity (ISS, Combustion Integrated Rack, MDCA droplet apparatus)",
+   "flow": "Still air around a free-floating or tethered droplet",
+   "atmosphere": "Oxygen 10 to 50% (mole fraction 0.10-0.50), 0.5 to 1.0 atm (7.3-14.7 psi); nitrogen diluent; CO2 and helium suppressants",
+   "varied": "Oxygen, diluent, suppressant type and amount, pressure, fuel, droplet size",
+   "measured": "Burning rate, extinction, radiation, soot",
+   "moon_base_coverage": "edge of the zone: 17 tests at 30-34% oxygen and 10.3-10.5 psi (just above the 10.2 psi limit); none strictly inside",
+   "tests_by_zone": {
+    "outside": 259,
+    "edge": 17
+   },
+   "findings": {
+    "outcome": {
+     "text": "Near Moon Base conditions (30-34% oxygen, 10.3-10.5 psi, still air), none of 17 droplet flames went out on their own: 15 broke apart and 2 burned to completion. Methanol kept burning down to about 12-13% oxygen.",
+     "evidence": [
+      {
+       "source": "Flame Extinguishment Experiment (FLEX) overview (FLEX, FLEX-2, FLEX-2J, FLEX-ICE-GA)",
+       "file": "flame-extinguishment-experiment-flex.pdf",
+       "where": "page 1",
+       "quote": "At high oxygen concentrations, however, the chemical times are small enough (relative to the characteristic flow times) such that the droplets will burn to completion rather than exhibiting flame extinction.",
+       "kind": "planned"
+      },
+      {
+       "source": "Flame Extinguishment Experiment (FLEX) overview (FLEX, FLEX-2, FLEX-2J, FLEX-ICE-GA)",
+       "file": "flame-extinguishment-experiment-flex.pdf",
+       "where": "page 1",
+       "quote": "The Flame Extinguishment Experiment (FLEX) experiment was designed to assess and quantify the effectiveness of inert-gas suppressants in microgravity and obtain the most conservative estimate of the limiting oxygen index for steady combustion.",
+       "kind": "description"
+      },
+      {
+       "source": "Nayagam V, Dietrich DL, Hicks MC, Williams FA. Methanol Droplet Combustion in Oxygen-Inert Environments in Microgravity. 8th U.S. National Combustion Meeting, 2013.",
+       "file": "",
+       "where": "page 1",
+       "quote": "The experiments also show that the limiting oxygen index for methanol in these diluent gases is around 12% to 13% oxygen by volume.",
+       "kind": "result"
+      },
+      {
+       "source": "Dietrich DL, Ferkul PV, Bryg VM, Nayagam MV, Hicks MC, Williams FA, Dryer FL, Shaw BD, Choi MY, Avedisian CT. Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011. NASA/TP-2015-216046.",
+       "file": "",
+       "where": "page 17",
+       "quote": "As testing progressed, however, the science team noticed a propensity for the droplets to burn disruptively and not exhibit flame extinction (at a finite-sized droplet diameter).",
+       "kind": "result"
+      }
+     ]
+    },
+    "context": {
+     "text": "NASA archived the data without interpreting it",
+     "evidence": [
+      {
+       "source": "Dietrich DL, Ferkul PV, Bryg VM, Nayagam MV, Hicks MC, Williams FA, Dryer FL, Shaw BD, Choi MY, Avedisian CT. Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011. NASA/TP-2015-216046.",
+       "file": "",
+       "where": "page 23",
+       "quote": "These extensive experimental results are not interpreted here; the intent is merely to make the data readily available for future scientific interpretation.",
+       "kind": "description"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "Ranges written as plans ('will vary'); confirm tested conditions in the PSI data",
+    "Overview has unfilled placeholders",
+    "Some 2009-2010 tests used fuel needles with a coating that contaminated the fuel; the report says disruptive burning may be due to it",
+    "The PSI table matches the FLEX paper value for value for all 274 of its tests; FLEX-216 (N03H201) and FLEX-230 (H01H103) appear only in the paper",
+    "PSI test numbers differ from the paper's FLEX numbers for 119 tests, so tests were matched by FLEX identifier",
+    "The PSI column headings lost their subscripts and superscripts: 'O', 'N' and 'CO' for O2, N2 and CO2, and a burning-rate unit of 'mm' (should be mm²/s)",
+    "The PSI file uses a legacy Windows encoding; a dash marks missing values",
+    "The PSI table repeats the paper's errors, such as test 114's pressure of 0"
+   ]
+  },
+  {
+   "id": "flex-2",
+   "name": "FLEX-2",
+   "full_name": "Flame Extinguishment Experiment - 2",
+   "family": "FLEX",
+   "kind": "flight experiment",
+   "roles": [
+    "modeling"
+   ],
+   "psi_url": "http://doi.org/10.60555/byp8-h018",
+   "in_scope": true,
+   "operated": null,
+   "fuel": "Liquid droplets (1.5-5 mm): isooctane, n-octane, heptane, decane, ethanol, and mixtures (heptane/isooctane, propanol/glycerol)",
+   "gravity": "microgravity (ISS, Combustion Integrated Rack)",
+   "flow": "Still air or a slow flow (0.1-5 cm/s) past the droplet",
+   "atmosphere": "17-30% oxygen in nitrogen or helium, at 0.5-3 atm, per the table (the metadata says 10-40% oxygen)",
+   "varied": "Four test groups: pure fuels, fuel mixtures, convective flow, droplet pairs",
+   "measured": null,
+   "moon_base_coverage": "possible but unconfirmed: the listed ranges include 30% oxygen and 0.5 atm (7.3 psi), but the table doesn't say whether any test combined them",
+   "tests_by_zone": {},
+   "findings": {
+    "outcome": {
+     "text": "Droplets either burn out or the flame goes out at a finite size",
+     "evidence": [
+      {
+       "source": "Flame Extinguishment Experiment (FLEX) overview (FLEX, FLEX-2, FLEX-2J, FLEX-ICE-GA)",
+       "file": "flame-extinguishment-experiment-flex.pdf",
+       "where": "page 3-4",
+       "quote": "The ignited droplets either burn to completion or the flame extinguishes at a finite droplet radius in a quiescent ambient.",
+       "kind": "description"
+      }
+     ]
+    },
+    "context": {
+     "text": "Goal: extend FLEX results to fuels and conditions like those in real engines, as benchmark data for models",
+     "evidence": [
+      {
+       "source": "NASA PSI-68 ISA metadata (i_Investigation.txt): Flame Extinguishment Experiment - 2",
+       "file": "PSI-68_metadata_PSI-132_FLEX-2.zip",
+       "where": "line 70",
+       "quote": "The primary goal of the FLEX-2 flight experiments is to extend the results of FLEX-1 to fuels and environmental conditions that mimic real combustor conditions",
+       "kind": "description"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "FLEX-2J and FLEX-ICE-GA are described in the same overview but are not on the PSI resource list",
+    "The PSI table lists the same ranges for all 8 fuels, so it reads as a test plan; it has no individual tests or results",
+    "The metadata's oxygen range (10-40%) is wider than the table's (17-30%)"
+   ]
+  },
+  {
+   "id": "same",
+   "name": "SAME",
+   "full_name": "Smoke and Aerosol Measurement Experiment",
+   "family": "SAME",
+   "kind": "flight experiment",
+   "roles": [
+    "detection",
+    "modeling"
+   ],
+   "psi_url": "http://doi.org/10.60555/gd4k-8h62",
+   "in_scope": true,
+   "operated": "ISS Expedition 15, September 9 to October 5, 2007",
+   "fuel": "Smoke from heated Teflon, Kapton, silicone rubber, cellulose, and dibutyl-phthalate on a wick (30 samples)",
+   "gravity": "microgravity (ISS, Microgravity Science Glovebox)",
+   "flow": "Air drawn over the sample at 2-8 cm/s while it heated (the hardware's design range)",
+   "atmosphere": null,
+   "varied": "Material, sample temperature, airflow, and smoke aging time (10-1800 s)",
+   "measured": "Particle number, size and mass statistics from three instruments; ISS and Shuttle smoke detector signals; particle samples for the microscope",
+   "moon_base_coverage": "none: smoke from heating without flame, in the ISS glovebox; no Moon Base atmosphere",
+   "tests_by_zone": {},
+   "findings": {
+    "outcome": {
+     "text": "Most smoke particles were smaller than 500 nm. Teflon and Kapton smoke was very fine and hard for light-scattering detectors to see; silicone and lamp-wick smoke carried much of its mass in particles over 1 micron. Holding the smoke (as if it leaked from a closed box) made particles grow. The Shuttle's ionization detector picked up every test.",
+     "evidence": [
+      {
+       "source": "Urban DL, Ruff GA, Sheredy W. Smoke Aerosol Measurement Experiment (SAME) final science report, March 2010, with four conference papers attached (Appendices B-E).",
+       "file": "SAME_Final_Science_report__03_18_10_with_papers_attached.pdf",
+       "where": "page 4",
+       "quote": "The experimental results show that, for the materials tested, a substantial portion of the smoke particles are below 500 nm in diameter.",
+       "kind": "result"
+      },
+      {
+       "source": "Urban DL, Ruff GA, Sheredy W. Smoke Aerosol Measurement Experiment (SAME) final science report, March 2010, with four conference papers attached (Appendices B-E).",
+       "file": "SAME_Final_Science_report__03_18_10_with_papers_attached.pdf",
+       "where": "page 27",
+       "quote": "The small diameters for the Kapton and Teflon will make detection of this smoke challenging for light scattering devices",
+       "kind": "result"
+      },
+      {
+       "source": "Urban DL, Ruff GA, Sheredy W. Smoke Aerosol Measurement Experiment (SAME) final science report, March 2010, with four conference papers attached (Appendices B-E).",
+       "file": "SAME_Final_Science_report__03_18_10_with_papers_attached.pdf",
+       "where": "page 27",
+       "quote": "The aging results show substantial increase in the average particle sizes",
+       "kind": "result"
+      },
+      {
+       "source": "Urban DL, Ruff GA, Sheredy W. Smoke Aerosol Measurement Experiment (SAME) final science report, March 2010, with four conference papers attached (Appendices B-E).",
+       "file": "SAME_Final_Science_report__03_18_10_with_papers_attached.pdf",
+       "where": "page 28",
+       "quote": "fire sensors must consider large particles in addition to the smaller particles seen with Kapton.",
+       "kind": "result"
+      }
+     ]
+    },
+    "smoke_transport": {
+     "text": "A computer model of the station's US Lab found smoke spreads by air mixing instead of rising to the ceiling, so detection can take a long time and depends on where the source is and what equipment is in the way. In some low-smoke cases a detector never alarmed in the 300 s simulated. The model used the station's normal ventilation.",
+     "evidence": [
+      {
+       "source": "Urban DL, Ruff GA, Sheredy W. Smoke Aerosol Measurement Experiment (SAME) final science report, March 2010, with four conference papers attached (Appendices B-E).",
+       "file": "SAME_Final_Science_report__03_18_10_with_papers_attached.pdf",
+       "where": "page 4",
+       "quote": "The smoke transport model demonstrated that mixing dominates the smoke transport and that consequently detection time lags are longer than in normal gravity.",
+       "kind": "result"
+      },
+      {
+       "source": "Urban DL, Ruff GA, Sheredy W. Smoke Aerosol Measurement Experiment (SAME) final science report, March 2010, with four conference papers attached (Appendices B-E).",
+       "file": "SAME_Final_Science_report__03_18_10_with_papers_attached.pdf",
+       "where": "page 65",
+       "quote": "This scenario is substantially different from that seen in normal gravity where the smoke concentrates near the ceiling and mixing is generally not as complete as seen in Fig. 6.",
+       "kind": "result"
+      },
+      {
+       "source": "Urban DL, Ruff GA, Sheredy W. Smoke Aerosol Measurement Experiment (SAME) final science report, March 2010, with four conference papers attached (Appendices B-E).",
+       "file": "SAME_Final_Science_report__03_18_10_with_papers_attached.pdf",
+       "where": "page 66",
+       "quote": "Numerical modeling of smoke transport in the US Lab Module of the ISS predicted that actual detection times can be quite long and strongly dependent on location and the presence of obstructions.",
+       "kind": "result"
+      },
+      {
+       "source": "Urban DL, Ruff GA, Sheredy W. Smoke Aerosol Measurement Experiment (SAME) final science report, March 2010, with four conference papers attached (Appendices B-E).",
+       "file": "SAME_Final_Science_report__03_18_10_with_papers_attached.pdf",
+       "where": "page 65",
+       "quote": "The smoke source was activated 30 seconds after the simulation was initiated and the simulations were run for an additional 300 seconds.",
+       "kind": "description"
+      }
+     ],
+     "our_note": "Our note, not the source's: with no rising smoke, the ventilation is what carries smoke to detectors. This model kept the fans on; it does not show how detection changes when they are off."
+    },
+    "size_vs_earth": {
+     "text": "Smoke made in low gravity was typically 50% larger (count mean diameter) than under similar conditions on Earth",
+     "evidence": [
+      {
+       "source": "Urban DL, Ruff GA, Sheredy W. Smoke Aerosol Measurement Experiment (SAME) final science report, March 2010, with four conference papers attached (Appendices B-E).",
+       "file": "SAME_Final_Science_report__03_18_10_with_papers_attached.pdf",
+       "where": "page 66",
+       "quote": "Smoke particulate produced in low-gravity was found to be typically 50% large in count mean diameter than similar conditions in normal gravity.",
+       "kind": "result"
+      }
+     ]
+    },
+    "recommendation": {
+     "text": "Future detectors should sort particles by size, or measure more than one size statistic, to catch both fine and coarse smoke while ignoring dust",
+     "evidence": [
+      {
+       "source": "Urban DL, Ruff GA, Sheredy W. Smoke Aerosol Measurement Experiment (SAME) final science report, March 2010, with four conference papers attached (Appendices B-E).",
+       "file": "SAME_Final_Science_report__03_18_10_with_papers_attached.pdf",
+       "where": "page 29",
+       "quote": "Two possible effective means of achieving this size discrimination are to employ a detector that measures more than one moment of the size distribution or to use a detector that can classify the particles into size ranges.",
+       "kind": "result"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "The PSI table does not match the flight log: it lists four Teflon conditions (5 or 10 cm/s airflow, 1 or 2 mg/min weight loss, 1 or 20 min aging) and 'same conditions as 1-4' for the other materials, while the log has 47 test points on 30 samples and the results are for no aging and 720 s aging",
+    "The PSI table lists 10 cm/s, above the hardware's design range of 2-8 cm/s",
+    "The metadata describes an 'igniter' and a 'combustion event', but the report says samples were heated below the ignition point (smoke, no flame)",
+    "The metadata lists the hardware as 'Comparitive Soot Diagnostic Hardware', which is the earlier Shuttle experiment (CSD)",
+    "The report's text calls 189 nm the silicone 'CMD' (count mean diameter), but its Table 1 lists 189 nm as the geometric mean; the count (arithmetic) mean is 257 nm",
+    "The 2008 paper in Appendix E says sizes were all below 300 nm; that fits the unaged results, but aged lamp-wick and silicone smoke in the final table averaged 308 and 422 nm",
+    "SAME and SAME-R disagree for some materials: SAME's count mean sizes are 1.5-2.4 times SAME-R's for Teflon and Kapton smoke and for unaged lamp-wick smoke, while aged lamp-wick and silicone smoke agree within 5% (unaged silicone within 16%). SAME-R later found the same heater setting could heat samples up to 30 C differently, which may explain some of the spread",
+    "The microscope grids came back contaminated with stray particles",
+    "The reference material (DBP) has no row in the results table",
+    "Flight log: one Kapton run was aborted and finished by hand, one missed the start of heating, and one record time reads '39:99'"
+   ]
+  },
+  {
+   "id": "same-r",
+   "name": "SAME-R",
+   "full_name": "Smoke Aerosol Measurement Experiment - Reflight",
+   "family": "SAME",
+   "kind": "flight experiment",
+   "roles": [
+    "detection"
+   ],
+   "psi_url": "http://doi.org/10.60555/2np7-jv14",
+   "in_scope": true,
+   "operated": null,
+   "fuel": "Smoke from Teflon, Kapton, cotton, silicone rubber and Pyrell",
+   "gravity": "microgravity (ISS), compared with ground tests",
+   "flow": "8 cm/s baseline, down to 2 cm/s, and some tests with no airflow while the sample heated",
+   "atmosphere": null,
+   "varied": "Material, heating temperature, airflow, and smoke aging time",
+   "measured": "Particle number, diameter and mass concentration (moments of the size distribution); ISS and Shuttle detectors",
+   "moon_base_coverage": "not stated",
+   "tests_by_zone": {},
+   "findings": {
+    "outcome": {
+     "text": "Teflon and Kapton smoke particles were tiny and hard for light-scattering detectors to see; cotton and silicone smoke was much larger; smoke made in slow or still air had bigger particles",
+     "evidence": [
+      {
+       "source": "Urban DL, Ruff GA, Sheredy W, Meyer M, Cleary T, Yang J, Mulholland G, Yuan ZG. Smoke Aerosol Measurement Experiment Re-flight (SAMER) Final Report, June 2, 2014.",
+       "file": "SAMER_Final_0602_2014.pdf",
+       "where": "page 5",
+       "quote": "The comparatively much smaller diameters for the Kapton and Teflon will make detection of this smoke challenging for light scattering devices, on the other hand the large sizes seen with the lamp wick and silicone would generate very large signals on a light scattering system.",
+       "kind": "result"
+      },
+      {
+       "source": "Urban DL, Ruff GA, Sheredy W, Meyer M, Cleary T, Yang J, Mulholland G, Yuan ZG. Smoke Aerosol Measurement Experiment Re-flight (SAMER) Final Report, June 2, 2014.",
+       "file": "SAMER_Final_0602_2014.pdf",
+       "where": "page 5",
+       "quote": "This suggests that detection of these particles against the background environment will require a detection system capable of measuring more than one moment of the particle size distribution.",
+       "kind": "result"
+      },
+      {
+       "source": "Urban DL, Ruff GA, Sheredy W, Meyer M, Cleary T, Yang J, Mulholland G, Yuan ZG. Smoke Aerosol Measurement Experiment Re-flight (SAMER) Final Report, June 2, 2014.",
+       "file": "SAMER_Final_0602_2014.pdf",
+       "where": "page 5",
+       "quote": "These figures show a strong trend of increased particle size at low flow rates.",
+       "kind": "result"
+      },
+      {
+       "source": "Urban DL, Ruff GA, Sheredy W, Meyer M, Cleary T, Yang J, Mulholland G, Yuan ZG. Smoke Aerosol Measurement Experiment Re-flight (SAMER) Final Report, June 2, 2014.",
+       "file": "SAMER_Final_0602_2014.pdf",
+       "where": "page 5",
+       "quote": "This indicates that smoke trapped in an avionics enclosure can be expected to be substantially larger than smoke released in ventilated areas.",
+       "kind": "result"
+      }
+     ]
+    },
+    "context": {
+     "text": "Why it matters (stated in the report)",
+     "evidence": [
+      {
+       "source": "Urban DL, Ruff GA, Sheredy W, Meyer M, Cleary T, Yang J, Mulholland G, Yuan ZG. Smoke Aerosol Measurement Experiment Re-flight (SAMER) Final Report, June 2, 2014.",
+       "file": "SAMER_Final_0602_2014.pdf",
+       "where": "page 5",
+       "quote": "to have a system that would have the signal gain sensitive enough to trigger an alarm for the lower signal from small particles such as Teflon and Kapton without excessive nuisance alarms from large dust particles is difficult without some level of particle size discrimination.",
+       "kind": "description"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "Teflon's geometric mean diameter is smaller after aging (0.080 vs 0.093 µm), unlike the other materials; its other diameters grew",
+    "All tests ran in station air, so they add nothing to the oxygen-pressure map",
+    "The report's abstract says 66 test points; the PSI table lists 67 runs, matching the report's '67 runs' (two used reused samples)",
+    "The PSI table lists conditions only; particle sizes come from the report's Table 1 (baseline runs)",
+    "Rt/R0 is a heater resistance ratio used as a stand-in for sample temperature",
+    "Test number 57 is used for both a Lampwick and a Teflon row"
+   ]
+  },
+  {
+   "id": "daft",
+   "name": "DAFT",
+   "full_name": "Dust and Aerosol Measurement Feasibility Test (DAFT / DAFT-2)",
+   "family": "DAFT",
+   "kind": "flight experiment",
+   "roles": [
+    "detection"
+   ],
+   "psi_url": "http://doi.org/10.60555/ztgj-d202",
+   "in_scope": true,
+   "operated": null,
+   "fuel": "No fire: background dust and test particles in ISS cabin air",
+   "gravity": "microgravity (ISS cabin)",
+   "flow": null,
+   "atmosphere": "ISS cabin air",
+   "varied": null,
+   "measured": "Ultrafine particle counts (P-Trak counter)",
+   "moon_base_coverage": "not stated",
+   "tests_by_zone": {},
+   "findings": {
+    "outcome": {
+     "text": "First measurement of particles in ISS air: about ten times cleaner than a typical lab or office, thanks to HEPA filters. Pulling Velcro apart near the sampler sent counts above 30,000 particles per cc. The particle counter worked in microgravity, clearing the way for SAME.",
+     "evidence": [
+      {
+       "source": "Urban D, Ruff G, Sheredy W, Funk G, Funk N, Yuan ZG. Dust Aerosol measurement Feasibility Test (DAFT) final report, 24 June 2008.",
+       "file": "DAFT_final_report_6_24_08_as_submitted.doc",
+       "where": "line 28",
+       "quote": "However, these tests did provide the first measurement of the particulate air quality on the ISS.",
+       "kind": "result"
+      },
+      {
+       "source": "Urban D, Ruff G, Sheredy W, Funk G, Funk N, Yuan ZG. Dust Aerosol measurement Feasibility Test (DAFT) final report, 24 June 2008.",
+       "file": "DAFT_final_report_6_24_08_as_submitted.doc",
+       "where": "line 172",
+       "quote": "Overall, the readings from these instruments are almost an order of magnitude below those that would normally be seen in a typical laboratory environment (~ 4,000 - 6,000 pt/cc for P-Trak), but were not totally unexpected, due to the presence of a HEPA filter on the ISS air handling system.",
+       "kind": "result"
+      },
+      {
+       "source": "Urban D, Ruff G, Sheredy W, Funk G, Funk N, Yuan ZG. Dust Aerosol measurement Feasibility Test (DAFT) final report, 24 June 2008.",
+       "file": "DAFT_final_report_6_24_08_as_submitted.doc",
+       "where": "line 218",
+       "quote": "levels in the US Lab atmosphere are very low, about a factor of ten leaner than normal US office conditions.",
+       "kind": "result"
+      },
+      {
+       "source": "Urban D, Ruff G, Sheredy W, Funk G, Funk N, Yuan ZG. Dust Aerosol measurement Feasibility Test (DAFT) final report, 24 June 2008.",
+       "file": "DAFT_final_report_6_24_08_as_submitted.doc",
+       "where": "line 218",
+       "quote": "shows that the P-Trak responded to the Velcro dust quite well, with several readings above the 30,000 pt/cc mark (P-Trak has a maximum count of 500,000 pt/cc).",
+       "kind": "result"
+      }
+     ],
+     "our_note": "Our note: everyday activity like opening Velcro can make particle counts jump, which is why SAME recommends detectors that can tell dust from smoke."
+    },
+    "context": {
+     "text": "DAFT was a quick test that the particle counter planned for SAME would work in microgravity, since it normally relies on gravity to recycle its alcohol",
+     "evidence": [
+      {
+       "source": "NASA PSI-47 ISA metadata (i_Investigation.txt): Dust and Aerosol Measurement Feasibility Test / DAFT-2",
+       "file": "PSI-47_metadata_PSI-126_DAFT_DAFT-2.zip",
+       "where": "line 66",
+       "quote": "The focus of DAFT / DAFT-2 was to mitigate the risk for the Smoke Aerosol Measurement Experiment (SAME).",
+       "kind": "description"
+      },
+      {
+       "source": "Urban D, Ruff G, Sheredy W, Funk G, Funk N, Yuan ZG. Dust Aerosol measurement Feasibility Test (DAFT) final report, 24 June 2008.",
+       "file": "DAFT_final_report_6_24_08_as_submitted.doc",
+       "where": "line 330",
+       "quote": "The DAFT experiment adequately demonstrated the reliability of the modified Ptrak as operated in low-gravity.",
+       "kind": "result"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "The PSI table lists 2 sessions (2005); the report also describes 2006 sessions, one aborted after hardware damage and one deferred",
+    "The report gives early ISS readings as '2 - 5 pt/cc' in one place and as almost ten times below a lab's 4,000-6,000 pt/cc in another",
+    "DAFT tested instruments with a reference dust, not smoke"
+   ]
+  },
+  {
+   "id": "spice",
+   "name": "SPICE",
+   "full_name": "Smoke Point In Co-flow Experiment",
+   "family": "SPICE",
+   "kind": "flight experiment",
+   "roles": [
+    "prevention"
+   ],
+   "psi_url": "http://doi.org/10.60555/9kbh-e962",
+   "in_scope": true,
+   "operated": null,
+   "fuel": "Gas jets: methane, ethylene, propane, propylene, and propylene diluted with nitrogen (75% and 50%)",
+   "gravity": "microgravity (ISS, Microgravity Science Glovebox)",
+   "flow": "Air flowing alongside the fuel jet: 5.4-65 cm/s per the metadata (the table lists -5.92 to 85.28 cm/s)",
+   "atmosphere": "Station cabin air in the glovebox (the thesis assumes about 21% oxygen at 101 kPa)",
+   "varied": "Fuel, nozzle diameter, co-flow speed",
+   "measured": "Smoke points, flame length, flame radiation, airflow speed",
+   "moon_base_coverage": "none: gas-jet flames in station cabin air",
+   "tests_by_zone": {},
+   "findings": {
+    "outcome": {
+     "text": "In microgravity, faster airflow or a smaller burner let a flame grow longer before it released smoke. The thesis counts 52 smoke points; propane was the least sooty fuel and pure propylene the most.",
+     "evidence": [
+      {
+       "source": "Dotson KT. Smoke Points of Microgravity and Normal Gravity Coflow Diffusion Flames. M.S. thesis, University of Maryland, 2009.",
+       "file": "Dotson_umd_0117N_10980.pdf",
+       "where": "page 1",
+       "quote": "In microgravity conditions increasing the coflow velocity or decreasing the burner diameter increased the smoke point flame length.",
+       "kind": "result"
+      },
+      {
+       "source": "Dotson KT. Smoke Points of Microgravity and Normal Gravity Coflow Diffusion Flames. M.S. thesis, University of Maryland, 2009.",
+       "file": "Dotson_umd_0117N_10980.pdf",
+       "where": "page 74",
+       "quote": "The fuel sooting propensities in these flames are as follows: propane < ethylene < 50% propylene < 75% propylene < propylene, however ethylene is less sooty than propane for the 0.76 mm burner.",
+       "kind": "result"
+      },
+      {
+       "source": "Dotson KT. Smoke Points of Microgravity and Normal Gravity Coflow Diffusion Flames. M.S. thesis, University of Maryland, 2009.",
+       "file": "Dotson_umd_0117N_10980.pdf",
+       "where": "page 33",
+       "quote": "# Smoke Points 6 6 20 13 7",
+       "kind": "table"
+      },
+      {
+       "source": "Dotson KT. Smoke Points of Microgravity and Normal Gravity Coflow Diffusion Flames. M.S. thesis, University of Maryland, 2009.",
+       "file": "Dotson_umd_0117N_10980.pdf",
+       "where": "page 33",
+       "quote": "All smoke point flames were attached to the burner, i.e., not lifted.",
+       "kind": "result"
+      }
+     ]
+    },
+    "airflow_and_smoke": {
+     "text": "One explanation offered: more airflow brings more oxygen to burn up soot. On Earth the airflow effect was mixed, and the author says the link is more complicated than expected",
+     "evidence": [
+      {
+       "source": "Dotson KT. Smoke Points of Microgravity and Normal Gravity Coflow Diffusion Flames. M.S. thesis, University of Maryland, 2009.",
+       "file": "Dotson_umd_0117N_10980.pdf",
+       "where": "page 74",
+       "quote": "The effect of coflow velocity could also be explained by increased O2 transport if soot oxidation downstream of the flame sheet is transport limited.",
+       "kind": "result"
+      },
+      {
+       "source": "Dotson KT. Smoke Points of Microgravity and Normal Gravity Coflow Diffusion Flames. M.S. thesis, University of Maryland, 2009.",
+       "file": "Dotson_umd_0117N_10980.pdf",
+       "where": "page 75",
+       "quote": "indicate that the relationship of smoke point to coflow velocity and nozzle diameter is more complicated than initially expected.",
+       "kind": "result"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "The PSI table has 469 rows including 34 exact duplicates (dropped); many flames appear twice with times written differently (colons vs dots) and slightly different values",
+    "Counts disagree: the metadata says 526 flames, the overview says 250 tests and more than 70 smoke points, the thesis counts 52 smoke points, and the table has 435 unique rows",
+    "Some co-flow speeds are impossible or out of range: 8 negative and 15 above the metadata's 65 cm/s maximum (up to 85.28)",
+    "20 rows have no co-flow speed and 7 have no fuel rate; some times are missing, written without a colon, or read 'no ku'",
+    "The table gives day-of-year numbers without a year, and fuel names are inconsistent ('75 % Propylene' vs '75% Propylene')",
+    "These are gas-jet flames studied for soot, not burning materials, so they are kept out of tests.csv"
+   ]
+  },
+  {
+   "id": "slice",
+   "name": "SLICE",
+   "full_name": "Structure & Liftoff In Combustion Experiment",
+   "family": "SLICE",
+   "kind": "flight experiment",
+   "roles": [
+    "modeling"
+   ],
+   "psi_url": "http://doi.org/10.60555/pm12-rg61",
+   "in_scope": true,
+   "operated": "ISS, February 9 to March 23, 2012 (the last day was SPICE testing)",
+   "fuel": "Gas jets: methane (pure, or 70% or 40% in nitrogen), 20% ethylene in nitrogen, and pure ethane",
+   "gravity": "microgravity (ISS, Microgravity Science Glovebox)",
+   "flow": "Air co-flow increased until the flame lifts off",
+   "atmosphere": "Air",
+   "varied": "Fuel, dilution, burner diameter, air speed",
+   "measured": "Still and video images of flame structure",
+   "moon_base_coverage": "none: gas-jet flames in station air",
+   "tests_by_zone": {},
+   "findings": {
+    "context": {
+     "text": "Hypothesis: burner size, airflow speed and fuel change a flame's structure and stability, and space flames differ fundamentally from Earth flames",
+     "evidence": [
+      {
+       "source": "NASA PSI-106 ISA metadata (i_Investigation.txt): Structure and Liftoff In Combustion Experiment",
+       "file": "PSI-106_metadata_PSI-174_SLICE.zip",
+       "where": "line 48",
+       "quote": "The hypothesis is that the structure and stability of laminar diffusion flames in microgravity are significantly influenced by burner diameter, coflow velocity, and fuel composition and are fundamentally different than flames observed on Earth.",
+       "kind": "description"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "Precursor study",
+    "The PSI download has no flame measurements: the table lists test days and fuels only, and findings are in the papers listed in the metadata (not downloaded)",
+    "The metadata says 13 testing experiments; the table lists 12 test days, and the last (March 23) was SPICE testing, not SLICE",
+    "The table includes a day of pure ethane, which the overview's fuel list doesn't mention",
+    "Some table rows split their description across the date and fuel columns"
+   ]
+  },
+  {
+   "id": "acme-bre",
+   "name": "ACME BRE",
+   "full_name": "ACME Burning Rate Emulator",
+   "family": "ACME",
+   "kind": "flight experiment",
+   "roles": [
+    "prevention"
+   ],
+   "psi_url": "http://doi.org/10.60555/vb93-3y72",
+   "in_scope": true,
+   "operated": "ISS Combustion Integrated Rack, Feb-April 2019 and Sept 2020-Jan 2021",
+   "fuel": "Gas (ethylene or methane, some diluted with nitrogen) fed through a porous 25 or 50 mm burner to imitate burning solids and liquids such as PMMA and nylon",
+   "gravity": "microgravity (ISS, Combustion Integrated Rack)",
+   "flow": "No airflow: flames burned in still chamber air",
+   "atmosphere": "21-40% oxygen, including NASA's candidate spacecraft atmospheres (21% at 14.7 psia, 26.5% at 10.2 psia, 34% at 8.2 psia); most elevated-oxygen tests were near 1 atm",
+   "varied": "Oxygen, pressure, fuel, fuel flow and burner size",
+   "measured": "Flame images, surface heat flux, flame radiation, and flame temperature (thin-filament pyrometry)",
+   "moon_base_coverage": "inside: 34% oxygen at 8.2 psia (e.g. test 19070D1, steady burning with no airflow); 26.5-27% at 10.2 psia sits just below the zone's oxygen line",
+   "tests_by_zone": {
+    "outside": 2,
+    "inside": 1
+   },
+   "findings": {
+    "outcome": {
+     "text": "With no airflow, flames in normal air (21% oxygen, 14.7 psia) went out by themselves within 40 s, but at 26.5% oxygen and above they kept burning steadily, including at 34% oxygen and 8.2 psia, inside the Moon Base zone. The authors call it a profound result that a common plastic could burn steadily in these NASA-proposed atmospheres. Pressure mattered little; methane flames went out within a minute in every atmosphere.",
+     "evidence": [
+      {
+       "source": "ACME/BRE Final Report (2022), 1 Feb. 2022 (Advanced Combustion via Microgravity Experiments, Burning Rate Emulator).",
+       "file": "BRE_final_report_20220201.pdf",
+       "where": "page 40",
+       "quote": "All flames ignited in normal atmosphere self-extinguished within 40 s.",
+       "kind": "result"
+      },
+      {
+       "source": "ACME/BRE Final Report (2022), 1 Feb. 2022 (Advanced Combustion via Microgravity Experiments, Burning Rate Emulator).",
+       "file": "BRE_final_report_20220201.pdf",
+       "where": "page 40",
+       "quote": "In contrast, oxygen mole fractions of 0.265 and above resulted in quasi-steady flames.",
+       "kind": "result"
+      },
+      {
+       "source": "ACME/BRE Final Report (2022), 1 Feb. 2022 (Advanced Combustion via Microgravity Experiments, Burning Rate Emulator).",
+       "file": "BRE_final_report_20220201.pdf",
+       "where": "page 18",
+       "quote": "At conditions of 27% oxygen, 10.2 psia and 34% oxygen, 8.2 psia, the flames generally persisted for 3 minutes or more.",
+       "kind": "result"
+      },
+      {
+       "source": "ACME/BRE Final Report (2022), 1 Feb. 2022 (Advanced Combustion via Microgravity Experiments, Burning Rate Emulator).",
+       "file": "BRE_final_report_20220201.pdf",
+       "where": "page 26",
+       "quote": "This is a profound result indicating a common plastic could steadily burn under these NASA proposed atmospheric conditions.",
+       "kind": "result"
+      }
+     ]
+    },
+    "airflow_off": {
+     "text": "BRE flames had no airflow at all. In normal air they went out on their own, as the 'fans off' strategy expects; at 26.5% oxygen and above they kept burning. The report notes that cutting ventilation is an established step in putting out spacecraft fires, yet these flames kept burning without it in the oxygen-rich atmospheres NASA is considering.",
+     "evidence": [
+      {
+       "source": "ACME/BRE Final Report (2022), 1 Feb. 2022 (Advanced Combustion via Microgravity Experiments, Burning Rate Emulator).",
+       "file": "BRE_final_report_20220201.pdf",
+       "where": "page 40",
+       "quote": "Quasi-steady burning corresponding to various condensed-phase materials (such as PMMA and Nylon) was observed in microgravity despite the absence of air flow, where the cessation of ventilation is an established step in putting out spacecraft fires.",
+       "kind": "result"
+      },
+      {
+       "source": "ACME/BRE Final Report (2022), 1 Feb. 2022 (Advanced Combustion via Microgravity Experiments, Burning Rate Emulator).",
+       "file": "BRE_final_report_20220201.pdf",
+       "where": "page 40",
+       "quote": "The ongoing combustion without air flow was notably seen in elevated-oxygen atmospheres which are being considered for use in future spacecraft, whereas such flames in a normal atmosphere of 21% oxygen self-extinguished in a short time.",
+       "kind": "result"
+      },
+      {
+       "source": "NASA PSI-20 ISA metadata (i_Investigation.txt): ACME Burning Rate Emulator",
+       "file": "PSI-20_metadata_PSI-96_ACME_BRE.zip",
+       "where": "line 79",
+       "quote": "The ongoing combustion without air flow was notably seen in elevated-oxygen atmospheres which are being considered for use in future spacecraft",
+       "kind": "description"
+      }
+     ]
+    },
+    "recommendation": {
+     "text": "The authors suggest NASA use its cone-calorimeter flammability test (Test 2) more, since it measures the material properties that predict these flames",
+     "evidence": [
+      {
+       "source": "ACME/BRE Final Report (2022), 1 Feb. 2022 (Advanced Combustion via Microgravity Experiments, Burning Rate Emulator).",
+       "file": "BRE_final_report_20220201.pdf",
+       "where": "page 40",
+       "quote": "they suggest that NASA may want to increase use of its alternative flammability Test 2, with the cone calorimeter, where that test can measure material properties corresponding to the microgravity flames observed with the BRE burner.",
+       "kind": "result"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "ACME overview was written before flight",
+    "The PSI table gives oxygen levels per test day but no pressures; only a few tests' full conditions appear in the report (figure captions), so only 3 BRE tests are in tests.csv",
+    "PSI table date errors: 'Oct 17, 2020' is Sept 17 (test day 20261) and 'Dec 5, 2020' is Oct 5 (20279), per the report's log",
+    "PSI table oxygen typos: '3400%' (March 7, 2019) and '2100%' (April 1, 2019), read as 34% and 21%",
+    "The authors call the results preliminary",
+    "BRE burns gas through a burner to imitate solids; it is an emulation, not a burning material",
+    "Test 19070D1's heat of combustion is 24 kJ/g in one caption and 22 kJ/g in the next",
+    "The metadata's approach section is written as a proposal"
+   ]
+  },
+  {
+   "id": "acme-cld",
+   "name": "ACME CLD Flame",
+   "full_name": "ACME Coflow Laminar Diffusion Flame",
+   "family": "ACME",
+   "kind": "flight experiment",
+   "roles": [
+    "modeling"
+   ],
+   "psi_url": "http://doi.org/10.60555/23e1-9950",
+   "in_scope": true,
+   "operated": "ISS, 2017-11 to 2021-03 (32 test days, 344 flames lit)",
+   "fuel": "Methane and ethylene flames, diluted with nitrogen to between 100% and about 10% fuel",
+   "gravity": "microgravity (ISS, Combustion Integrated Rack)",
+   "flow": "Air co-flow",
+   "atmosphere": "Air co-flow",
+   "varied": "Fuel injection speed and dilution",
+   "measured": "Soot volume fraction, temperature, flame structure",
+   "moon_base_coverage": "none: gas flames; oxygen and pressure not listed",
+   "tests_by_zone": {},
+   "findings": {
+    "outcome": {
+     "text": "Microgravity flames: 5-8x more soot; weak diluted flames more stable than on Earth",
+     "evidence": [
+      {
+       "source": "Advanced Combustion via Microgravity Experiments (ACME) overview",
+       "file": "advanced-combustion-via-microgravity-experiments-acme.pdf",
+       "where": "page 4",
+       "quote": "Soot volume fraction measurements indicate that microgravity flames contain five to eight times more soot than the equivalent normal gravity flames.",
+       "kind": "result"
+      },
+      {
+       "source": "Advanced Combustion via Microgravity Experiments (ACME) overview",
+       "file": "advanced-combustion-via-microgravity-experiments-acme.pdf",
+       "where": "page 4",
+       "quote": "The data has shown that for highly diluted weak flames, microgravity flames are more stable than their normal gravity counterparts.",
+       "kind": "result"
+      },
+      {
+       "source": "Advanced Combustion via Microgravity Experiments (ACME) overview",
+       "file": "advanced-combustion-via-microgravity-experiments-acme.pdf",
+       "where": "page 4",
+       "quote": "The dilution limits are extended allowing for lifted flames at lower fuel concentrations than observed in normal gravity.",
+       "kind": "result"
+      }
+     ]
+    },
+    "context": {
+     "text": "Why it matters (stated by the investigation): knowing what makes these flames go out helps with fire suppression",
+     "evidence": [
+      {
+       "source": "NASA PSI-21 ISA metadata (i_Investigation.txt): ACME Coflow Laminar Diffusion Flame",
+       "file": "PSI-21_metadata_PSI-97_ACME_CLD_Flame.zip",
+       "where": "line 76",
+       "quote": "an understanding of those factors that affect flame extinction in diffusion flames is critical in the suppression of fires and in improving engine efficiency.",
+       "kind": "description"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "The fuel-bottle column was auto-filled by a spreadsheet: names count up (CH5 ... CH14, C2H5 ... C2H11), which aren't real fuels. 26 of 32 rows are affected; read them as CH4 (methane) or C2H4 (ethylene), matching the test type",
+    "The table lists test days, dilution ranges and the number of flames lit; it has no flame measurements or results",
+    "Per the table's own note, the concentration ranges ignore flames that went out before reaching the lowest concentration",
+    "Oxygen and pressure are not listed",
+    "The metadata's approach is written as a plan, not as results"
+   ]
+  },
+  {
+   "id": "acme-efield",
+   "name": "ACME E-FIELD Flames",
+   "full_name": "ACME Electric-Field Effects on Laminar Diffusion Flames",
+   "family": "ACME",
+   "kind": "flight experiment",
+   "roles": [
+    "modeling"
+   ],
+   "psi_url": "http://doi.org/10.60555/se5a-8c73",
+   "in_scope": true,
+   "operated": "ISS, 2018-03 to 2018-11 (coflow burner, then gas-jet burner)",
+   "fuel": "Gas flames (coflow or gas-jet)",
+   "gravity": "microgravity; electric field used to mimic partial gravity",
+   "flow": null,
+   "atmosphere": null,
+   "varied": "Electric field strength (up to 10 kV) and fuel dilution",
+   "measured": "Ion current and flame response time",
+   "moon_base_coverage": "none: oxygen and pressure not listed",
+   "tests_by_zone": {},
+   "findings": {
+    "partial_gravity_link": {
+     "text": "The electric force made flames oscillate the way buoyancy does on Earth, which is how the challenge statement says partial gravity was mimicked",
+     "evidence": [
+      {
+       "source": "ACME/E-FIELD Flames 30-Day Operational Accomplishments Report for ISS Increments 55 and 56, 15 Nov. 2018.",
+       "file": "E-FIELD_Flames_30-day_report_Inc_55-56_20181115.pdf",
+       "where": "page 8",
+       "quote": "The results also show that the electric body force can produce flame oscillations similar to those driven by buoyancy in normal gravity",
+       "kind": "result"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "ACME overview was written before flight",
+    "Test day 18319 (Nov 15, 2018) is listed twice with identical values; the 1 duplicate was dropped",
+    "Several table rows hold only an extra fuel concentration for the day above (merged here)",
+    "The table lists fuel and electrode polarity only; no measurements or results",
+    "The metadata says the research is not aimed at space applications"
+   ]
+  },
+  {
+   "id": "acme-flame-design",
+   "name": "ACME Flame Design",
+   "full_name": "ACME Flame Design",
+   "family": "ACME",
+   "kind": "flight experiment",
+   "roles": [
+    "modeling"
+   ],
+   "psi_url": "http://doi.org/10.60555/w4zy-bt45",
+   "in_scope": true,
+   "operated": null,
+   "fuel": "Ethylene or methane spherical flames",
+   "gravity": "microgravity (ISS, Combustion Integrated Rack)",
+   "flow": null,
+   "atmosphere": "Oxygen-enriched (values not stated)",
+   "varied": "Fuel dilution, fuel flow, oxygen (21-40%) and pressure (about 0.93-1.3 atm)",
+   "measured": null,
+   "moon_base_coverage": "none inside: the 30-40% oxygen tests ran at 13.7-19.3 psi, above the 10.2 psi limit",
+   "tests_by_zone": {
+    "outside": 207
+   },
+   "findings": {
+    "outcome": {
+     "text": "Every flame went out the same way: it grew until heat lost by radiation matched the heat it released, then went out at about 1130 K. Small, steady flames lasted up to 870 s; in one study's ethylene tests at 1 atm, burn times ran 28-336 s.",
+     "evidence": [
+      {
+       "source": "Stocker DP, Axelbaum RL, Sunderland PB, Irace PH. ACME/Flame Design Final Report (6 April 2023)",
+       "file": "PSI-10_Reports_FinalRpt_ACMEFlameDesign.pdf",
+       "where": "page 25",
+       "quote": "Despite this broad range of conditions, all flames extinguish at a critical extinction temperature of 1130 K",
+       "kind": "result"
+      },
+      {
+       "source": "Stocker DP, Axelbaum RL, Sunderland PB, Irace PH. ACME/Flame Design Final Report (6 April 2023)",
+       "file": "PSI-10_Reports_FinalRpt_ACMEFlameDesign.pdf",
+       "where": "page 26",
+       "quote": "Radiative extinction is observed when, at constant reactant flow rate, the flame expands until radiation heat loss approaches the chemical heat release.",
+       "kind": "result"
+      },
+      {
+       "source": "Stocker DP, Axelbaum RL, Sunderland PB, Irace PH. ACME/Flame Design Final Report (6 April 2023)",
+       "file": "PSI-10_Reports_FinalRpt_ACMEFlameDesign.pdf",
+       "where": "page 26",
+       "quote": "Before a flame experiences complete extinction, it may enter an oscillatory mode in which part of the flame partially extinguishes and then reforms.",
+       "kind": "result"
+      },
+      {
+       "source": "Stocker DP, Axelbaum RL, Sunderland PB, Irace PH. ACME/Flame Design Final Report (6 April 2023)",
+       "file": "PSI-10_Reports_FinalRpt_ACMEFlameDesign.pdf",
+       "where": "page 25",
+       "quote": "Despite a narrow range of attainable conditions, flames that exhibit steady-state behavior are observed aboard the ISS for up to 870 s, even with the constraint of a finite boundary.",
+       "kind": "result"
+      }
+     ]
+    },
+    "context": {
+     "text": "Why it matters (stated in the final report)",
+     "evidence": [
+      {
+       "source": "Stocker DP, Axelbaum RL, Sunderland PB, Irace PH. ACME/Flame Design Final Report (6 April 2023)",
+       "file": "PSI-10_Reports_FinalRpt_ACMEFlameDesign.pdf",
+       "where": "page 25",
+       "quote": "In microgravity combustion, where buoyancy is not present to accelerate the flow field and strain the flame, radiative extinction is of fundamental importance, and has implications for spacecraft fire safety.",
+       "kind": "description"
+      },
+      {
+       "source": "Stocker DP, Axelbaum RL, Sunderland PB, Irace PH. ACME/Flame Design Final Report (6 April 2023)",
+       "file": "PSI-10_Reports_FinalRpt_ACMEFlameDesign.pdf",
+       "where": "page 19",
+       "quote": "Obtaining extinction data over a wide range of pressures could also be valuable for spacecraft fire safety.",
+       "kind": "description"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "The PSI experiment table lists conditions only; outcomes come from the final report's summaries, not per test",
+    "60 rows are marked RAMP/RAMPED (fuel flow ramped), so their flows are not listed",
+    "Test day 21301 rows list only initial oxygen and pressure",
+    "Normal-flame oxygen was capped at 40% for safety",
+    "The final report says analysis was still underway in 2023"
+   ]
+  },
+  {
+   "id": "acme-s-flame",
+   "name": "ACME s-Flame",
+   "full_name": "ACME Structure and Response of Spherical Diffusion Flames",
+   "family": "ACME",
+   "kind": "flight experiment",
+   "roles": [
+    "modeling"
+   ],
+   "psi_url": "http://doi.org/10.60555/k57n-p030",
+   "in_scope": true,
+   "operated": "ISS, 2019-09 to 2020-07",
+   "fuel": "Hydrogen, methane (soot-free) and ethylene (sooty)",
+   "gravity": "microgravity (ISS, Combustion Integrated Rack)",
+   "flow": null,
+   "atmosphere": "About 21% or 30% oxygen, diluted with nitrogen or helium, at about 1 atm",
+   "varied": "Diluents",
+   "measured": null,
+   "moon_base_coverage": "none: up to about 30% oxygen but at about 1 atm",
+   "tests_by_zone": {},
+   "findings": {
+    "outcome": {
+     "text": "Goal: radiative and convective extinction limits",
+     "evidence": [
+      {
+       "source": "Advanced Combustion via Microgravity Experiments (ACME) overview",
+       "file": "advanced-combustion-via-microgravity-experiments-acme.pdf",
+       "where": "page 6",
+       "quote": "One experiment objective is to identify the extinction limits for both radiative and convective extinction",
+       "kind": "description"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "ACME overview was written before flight",
+    "The atmosphere and fuel columns were auto-filled by a spreadsheet: diluents count up ('N3' to 'N6') in 7 rows; read as N2, as in the report's log",
+    "The May 11, 2020 test day (20132) is labeled as a nitrogen-diluted round, but its atmosphere and fuel are helium-diluted; the report groups it with the helium tests, which it calls part of the first round rather than a second",
+    "The metadata's end date (Nov 24, 2019) is before the 2020 test days",
+    "The table lists conditions only; the 30-day report covers operations, not results"
+   ]
+  },
+  {
+   "id": "acme-cfi-g",
+   "name": "ACME CFI-G",
+   "full_name": "ACME Cool Flames Investigation with Gases",
+   "family": "ACME",
+   "kind": "flight experiment",
+   "roles": [
+    "modeling"
+   ],
+   "psi_url": "http://doi.org/10.60555/cyt1-kh64",
+   "in_scope": true,
+   "operated": null,
+   "fuel": "Gaseous fuel (e.g. propane) around a porous spherical burner",
+   "gravity": "microgravity (ISS, Combustion Integrated Rack)",
+   "flow": null,
+   "atmosphere": "Up to 85% oxygen flowing from the burner (inverse flame)",
+   "varied": null,
+   "measured": null,
+   "moon_base_coverage": "yes: 20 tests inside the Moon Base zone (33.2-39.3% oxygen at 0.51 bar, about 7.3 psi); gas flames, not cabin materials",
+   "tests_by_zone": {
+    "outside": 159,
+    "inside": 20
+   },
+   "findings": {
+    "outcome": {
+     "text": "Inside the Moon Base zone (33.2-39.3% oxygen at 0.51 bar, about 7.3 psi): 17 of 20 flames ignited and burned a median 62 s (up to 274 s); 13 went out on their own and 4 had their fuel cut. At about 21% oxygen and 1 bar, all 21 ignited flames went out on their own after a median 9 s (at most 19 s).",
+     "evidence": [
+      {
+       "source": "NASA PSI-159 (ACME CFI-G) ISA metadata (i_Investigation.txt)",
+       "file": "PSI-159_metadata_PSI-159-ISA.zip",
+       "where": "line 40",
+       "quote": "Perform spherical diffusion flame tests aboard the International Space Station.",
+       "kind": "description"
+      },
+      {
+       "source": "Advanced Combustion via Microgravity Experiments (ACME) overview",
+       "file": "advanced-combustion-via-microgravity-experiments-acme.pdf",
+       "where": "page 6",
+       "quote": "Cool diffusion flames were discovered during droplet combustion experiments aboard the International Space Station (ISS) in 2012",
+       "kind": "description"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "Not a controlled comparison: fuel, fuel dilution and fuel flow rate also differ between tests",
+    "The meaning of the 'TFP' column is not documented in the downloaded files",
+    "Inverse-flame tests (up to 85% oxygen, per the challenge statement) are in a separate table not yet downloaded",
+    "Table entries to check: one row marked self-extinguished says the flow was stopped manually; one row marked 'no hot ignition' lists a 22 s hot flame; two rows show #DIV/0! spreadsheet errors"
+   ]
+  },
+  {
+   "id": "cfi",
+   "name": "CFI",
+   "full_name": "Cool Flames Investigation",
+   "family": "CFI",
+   "kind": "flight experiment",
+   "roles": [
+    "modeling",
+    "detection"
+   ],
+   "psi_url": "http://doi.org/10.60555/m6pj-a914",
+   "in_scope": true,
+   "operated": "ISS, January-September 2017",
+   "fuel": "About 4 mm liquid fuel droplets: n-dodecane, n-dodecane/iso-dodecane mixes (75/25 and 60/40 by mass), and farnesane (a renewable jet fuel)",
+   "gravity": "microgravity (ISS, Combustion Integrated Rack, MDCA droplet apparatus)",
+   "flow": "No imposed airflow: the droplet burns in still chamber gas, as a sphere",
+   "atmosphere": "17-21% oxygen, helium up to 59%, at 0.5-5 atm",
+   "varied": "Pressure, fuel, helium dilution, and free-floating vs fiber-held droplets",
+   "measured": "Droplet burning rate, flame size and dynamics, the droplet size when the flame went out, and flame radiation",
+   "moon_base_coverage": "none inside: the PSI table lists 17% or 21% oxygen; its 0.5 and 0.75 atm tests were low pressure but at 21% oxygen or less",
+   "tests_by_zone": {
+    "outside": 79
+   },
+   "findings": {
+    "outcome": {
+     "text": "Found flames that burn without visible light (cool flames, 700-900 K). Above about 2 atm, flames that went out relit on their own, sometimes several times, until the fuel was gone; the team did not expect this from earlier FLEX tests",
+     "evidence": [
+      {
+       "source": "Nayagam V, Dietrich DL. Cool Flame Investigation (CFI) Science Final Report, 7-23-2020.",
+       "file": "CFI_Science_Final_Report.pdf",
+       "where": "page 3",
+       "quote": "quasi-steady stable flames can be established surrounding a droplet in microgravity under certain conditions, without a visible flame at temperatures in the range of 700 to 900 K, unlike the hot flames where the flame temperature is higher than 1200 K.",
+       "kind": "result"
+      },
+      {
+       "source": "Nayagam V, Dietrich DL. Cool Flame Investigation (CFI) Science Final Report, 7-23-2020.",
+       "file": "CFI_Science_Final_Report.pdf",
+       "where": "page 8",
+       "quote": "Warm flames were observed typically at higher pressures following radiative extinction and the flame is not visible in the color camera.",
+       "kind": "result"
+      },
+      {
+       "source": "Nayagam V, Dietrich DL. Cool Flame Investigation (CFI) Science Final Report, 7-23-2020.",
+       "file": "CFI_Science_Final_Report.pdf",
+       "where": "page 8",
+       "quote": "Subsequently, a hot flame is ignited which quickly extinguishes to form a cool flame.",
+       "kind": "result"
+      },
+      {
+       "source": "Nayagam V, Dietrich DL. Cool Flame Investigation (CFI) Science Final Report, 7-23-2020.",
+       "file": "CFI_Science_Final_Report.pdf",
+       "where": "page 6",
+       "quote": "multiple reignition cycles were observed, where first the hot flame extinguishes due to radiative heat loss followed by cool flame, and then reignition to a hot-flame followed by a cool flame, with this cycle repeating several times until the fuel droplet is completely consumed.",
+       "kind": "result"
+      }
+     ]
+    },
+    "context": {
+     "text": "NASA has not finished analyzing this data",
+     "evidence": [
+      {
+       "source": "Nayagam V, Dietrich DL. Cool Flame Investigation (CFI) Science Final Report, 7-23-2020.",
+       "file": "CFI_Science_Final_Report.pdf",
+       "where": "page 7",
+       "quote": "All the CFI data is yet to be fully analyzed and interpreted using theoretical and numerical models.",
+       "kind": "description"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "The PSI table repeats 8 rows (tests 1285-1289 and 1295-1297); duplicates were dropped",
+    "The report says over two hundred tests were run, with data through FLEX-1431 including farnesane (FLEX-1388 to FLEX-1431); the PSI table has 79 tests (FLEX-1206 to FLEX-1387) and no farnesane",
+    "The metadata says the chamber gas ranged from 0.25 to 0.5 atm; the report's objective says 0.25 to 5 atm and the table lists 0.5-5 atm, so '0.5' is probably a typo for '5'",
+    "The report's helium result is for pure n-dodecane, but every helium test in the PSI table uses an n-dodecane/iso-dodecane mix",
+    "The table has 19 tests at 17% oxygen; the report's test list does not mention 17%",
+    "Tests 1219-1222: oxygen and nitrogen add up to 0.97",
+    "Some times read '12:xx am' in daytime sequences, test 1301 is probably misdated, and one time is incomplete",
+    "The table lists conditions only; findings come from the report's summaries",
+    "Relighting was seen above about 2 atm; Moon Base pressure is about 0.7 atm (10.2 psi), so this is not Moon Base evidence"
+   ]
+  },
+  {
+   "id": "saffire-i",
+   "name": "Saffire-I",
+   "full_name": "Spacecraft Fire Experiment I",
+   "family": "Saffire",
+   "kind": "flight experiment",
+   "roles": [
+    "prevention"
+   ],
+   "psi_url": "http://doi.org/10.60555/0t15-1z43",
+   "in_scope": true,
+   "operated": null,
+   "fuel": "One large SIBAL sample (75% cotton / 25% fiberglass)",
+   "gravity": "microgravity (Cygnus cargo vehicle in free drift after leaving the ISS)",
+   "flow": "20 cm/s, fan-driven duct",
+   "atmosphere": null,
+   "varied": null,
+   "measured": "Flame images, temperatures, flame radiation, pressure, CO2 and O2, airflow",
+   "moon_base_coverage": "not stated",
+   "tests_by_zone": {
+    "outside": 2
+   },
+   "findings": {
+    "outcome": {
+     "text": "Flame spreading with the airflow burned for 420 s; flame spreading against the airflow burned for 70 s",
+     "evidence": [
+      {
+       "source": "NASA PSI-98 (Saffire-I) experiment table",
+       "file": "PSI-98_Experimental_table_SAFFIRE-1.csv",
+       "where": "line 2",
+       "quote": "S1,SIBAL Fabric,0.37,40.6,94,20,21.5 - 21.7,182,8,420,Concurrent,S1C1,S1C2",
+       "kind": "table"
+      },
+      {
+       "source": "NASA PSI-98 (Saffire-I) experiment table",
+       "file": "PSI-98_Experimental_table_SAFFIRE-1.csv",
+       "where": "line 3",
+       "quote": "S2,SIBAL Fabric,0.37,40.6,94,20,~ 21.5,182,8,70,Opposed,S2C1,S2C2",
+       "kind": "table"
+      },
+      {
+       "source": "NASA TechPort project 13543: Spacecraft Fire Safety Demonstration (Saffire)",
+       "file": "TechPort_Report_Download_11_14_2026_8_53_AM_EST.pdf",
+       "where": "page 1",
+       "quote": "This sample burned completely during the tests and yielded information about the fate (flame size and spread rate) of a large-scale fire in low-gravity.",
+       "kind": "result"
+      }
+     ]
+    },
+    "context": {
+     "text": "Why it matters (stated by the investigation)",
+     "evidence": [
+      {
+       "source": "NASA PSI-98 ISA metadata (i_Investigation.txt): Spacecraft Fire Safety Experiment-I",
+       "file": "PSI-98_metadata_PSI-166_SAFFIRE-I.zip",
+       "where": "line 48",
+       "quote": "the use of terrestrial fires and fire standards to design spacecraft fire safety systems presents an inherent risk to the vehicle because of the significant level of uncertainty.",
+       "kind": "description"
+      },
+      {
+       "source": "NASA PSI-98 ISA metadata (i_Investigation.txt): Spacecraft Fire Safety Experiment-I",
+       "file": "PSI-98_metadata_PSI-166_SAFFIRE-I.zip",
+       "where": "line 48",
+       "quote": "There is a significant lack of microgravity data available for spacecraft designers on which to base their fire safety designs and procedures.",
+       "kind": "description"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "Sample length differs between sources: 0.9 m (TechPort) vs. 1 m (Saffire overview)",
+    "Date differs: operated June 2016 (TechPort) vs. 'Mission Completed July 2016' (overview)",
+    "The PSI table lists the sample as 40.6 cm long and 94 cm wide; the metadata says about 0.94 m long and 0.4 m wide (columns look swapped)",
+    "The PSI table lists two burns (S1, S2), while TechPort describes a single large sample",
+    "Pressure was measured but is not listed in the table or metadata"
+   ]
+  },
+  {
+   "id": "saffire-ii",
+   "name": "Saffire-II",
+   "full_name": "Spacecraft Fire Experiment II",
+   "family": "Saffire",
+   "kind": "flight experiment",
+   "roles": [
+    "prevention"
+   ],
+   "psi_url": "http://doi.org/10.60555/2chp-m469",
+   "in_scope": true,
+   "operated": "On the Cygnus cargo vehicle after it left the ISS",
+   "fuel": "Nine 5 x 29 cm samples: silicone (4), cotton-fiberglass SIBAL (2), PMMA with Nomex (1), and thick PMMA (2)",
+   "gravity": "microgravity (Cygnus cargo vehicle in free drift after leaving the ISS)",
+   "flow": "20 cm/s for all nine samples in the PSI table, drawn by fans through a duct; 8 burns with the airflow, 1 against it",
+   "atmosphere": "About 21.5-22.1% oxygen, worked out from measured CO2; pressure not listed",
+   "varied": "Material, thickness, and flow direction",
+   "measured": "Flame images, temperatures, flame radiation, pressure, CO2, O2, airflow",
+   "moon_base_coverage": "none: about 22% oxygen; pressure not listed",
+   "tests_by_zone": {
+    "outside": 9
+   },
+   "findings": {
+    "outcome": {
+     "text": "Silicone did not spread in microgravity in any of its four samples, even though two of them burned completely in the 1-g comparison. Cotton-fiberglass burned the full length at 2.1-2.6 mm/s. Thick PMMA flames stayed anchored at the base and burned slowly for 10-15 minutes; Nomex did not ignite.",
+     "evidence": [
+      {
+       "source": "NASA PSI-99 (Saffire-II) experiment table",
+       "file": "PSI-99_Experimental_table_SAFFIRE-2.csv",
+       "where": "line 2",
+       "quote": "2-1,Silicone,0.27 mm,29 cm,5 cm,20 cm/s,~ 21.5,80 W,9.2 s,Insignificant,Concurrent,~ 0,n/a,Complete,Acceleratory,S1C1,S1C2",
+       "kind": "table"
+      },
+      {
+       "source": "NASA PSI-99 (Saffire-II) experiment table",
+       "file": "PSI-99_Experimental_table_SAFFIRE-2.csv",
+       "where": "line 3",
+       "quote": "2-2,Silicone,0.61 mm,29 cm,5 cm,20 cm/s,~ 22.1,80 W,9.2 s,Insignificant,Concurrent,~ 0,n/a,7.6 cm,1.2 mm/s,n/a,S2C2",
+       "kind": "table"
+      },
+      {
+       "source": "NASA PSI-99 (Saffire-II) experiment table",
+       "file": "PSI-99_Experimental_table_SAFFIRE-2.csv",
+       "where": "line 4",
+       "quote": "2-3,Silicone,1.03 mm,29 cm,5 cm,20 cm/s,~ 22.1,80 W,9.2 s,Insignificant,Concurrent,~ 0,n/a,~ 0,n/a,,S3C2",
+       "kind": "table"
+      },
+      {
+       "source": "NASA PSI-99 (Saffire-II) experiment table",
+       "file": "PSI-99_Experimental_table_SAFFIRE-2.csv",
+       "where": "line 5",
+       "quote": "2-4,Silicone,037 mm,29 cm,5 cm,20 cm/s,~ 22.1,80 W,9.2 s,Insignificant,Opposed,~ 0,n/a,Complete,0.6 mm/s,S4C1,S4C1",
+       "kind": "table"
+      }
+     ]
+    },
+    "context": {
+     "text": "Goal: measure how fast a large fire grows in low gravity and compare low-gravity flammability limits with NASA's normal-gravity screening test",
+     "evidence": [
+      {
+       "source": "NASA PSI-99 ISA metadata (i_Investigation.txt): Spacecraft Fire Experiment-II",
+       "file": "PSI-99_metadata_PSI-167_SAFFIRE-II.zip",
+       "where": "line 58",
+       "quote": "The objectives of SAFFIRE-II are to determine how rapidly a large scale fire grows in low-gravity and to investigate the low-g flammability limits compared to those obtained in NASA’s normal gravity material flammability screening test.",
+       "kind": "description"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "The microgravity column headings read '?-g', probably 'μ-g' with the symbol lost; the microgravity 'Spread Length' column holds rates (mm/s)",
+    "Material is blank for samples 2-6 and 2-9; filled in from the row above",
+    "Thickness for samples 2-4, 2-5 and 2-6 is listed as '037 mm' (decimal point probably missing); sample 2-8 says 'See Fig. 5'",
+    "The metadata says flows of 20 or 30 cm/s, but the table lists 20 cm/s for every sample",
+    "Oxygen was worked out from measured CO2, not read directly; pressure was measured but is not listed",
+    "Sample 2-9's burn length points to note 4 where note 3 (visible damage) seems meant; camera IDs have typos (S56C2, S4C1 listed twice)",
+    "Silicone burn times are listed as 'Insignificant' rather than a number"
+   ]
+  },
+  {
+   "id": "saffire-iii",
+   "name": "Saffire-III",
+   "full_name": "Spacecraft Fire Experiment III",
+   "family": "Saffire",
+   "kind": "flight experiment",
+   "roles": [
+    "prevention"
+   ],
+   "psi_url": "http://doi.org/10.60555/040q-4h36",
+   "in_scope": true,
+   "operated": "On the Cygnus cargo vehicle after it left the ISS",
+   "fuel": "Large SIBAL cotton-fiberglass sheet, 94 x 40.6 cm, listed as .33 cm thick (the same fabric as Saffire-I)",
+   "gravity": "microgravity (Cygnus cargo vehicle in free drift after leaving the ISS)",
+   "flow": "30 cm/s (faster than Saffire-I's 20 cm/s); one burn with the airflow and one against it",
+   "atmosphere": null,
+   "varied": "Flow direction, at a faster airflow than Saffire-I",
+   "measured": "Flame images, temperatures, flame radiation, pressure, CO2, O2, airflow",
+   "moon_base_coverage": "unknown: oxygen and pressure not listed",
+   "tests_by_zone": {
+    "unknown": 2
+   },
+   "findings": {},
+   "caveats": [
+    "The PSI table lists conditions only: no burn times, oxygen, pressure or results",
+    "SIBAL thickness differs across the Saffire tables: 0.37 cm (Saffire-I), '037 mm' (Saffire-II) and .33 cm (Saffire-III)",
+    "This table lists the sheet as 94 cm long and 40.6 cm wide, which supports reading Saffire-I's table as having length and width swapped",
+    "The metadata lists the flight platform as the ISS, though the burns ran on Cygnus after it left; its research-impacts text names Saffire-I"
+   ]
+  },
+  {
+   "id": "saffire-iv",
+   "name": "Saffire-IV",
+   "full_name": "Spacecraft Fire Experiment IV",
+   "family": "Saffire",
+   "kind": "flight experiment",
+   "roles": [
+    "prevention",
+    "detection"
+   ],
+   "psi_url": null,
+   "in_scope": true,
+   "operated": null,
+   "fuel": "SIBAL cloth / cotton jersey and PMMA (acrylic) samples; see tests table",
+   "gravity": "microgravity (Cygnus cargo vehicle in free drift after leaving the ISS)",
+   "flow": "20 cm/s, with fan-off periods; see tests table",
+   "atmosphere": "22% oxygen at 100 kPa (14.5 psi), close to normal air",
+   "varied": "Material, pressure, oxygen; fan turned off mid-test",
+   "measured": "flame size, spread, heat release, smoke and gases (see papers)",
+   "moon_base_coverage": "normal air (22% oxygen, 14.5 psi)",
+   "tests_by_zone": {
+    "outside": 2
+   },
+   "findings": {
+    "outcome": {
+     "text": "Turning the fan off did not reliably put the fire out; it depended on the material",
+     "evidence": [
+      {
+       "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
+       "file": "",
+       "where": "",
+       "quote": "Extinguishment of thin charring fuels at increased oxygen cannot be assumed to occur rapidly in quiescent conditions.",
+       "kind": "result"
+      },
+      {
+       "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
+       "file": "",
+       "where": "",
+       "quote": "Extinguishment of bubbling polymers cannot be assumed to occur rapidly in quiescent conditions",
+       "kind": "result"
+      },
+      {
+       "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
+       "file": "",
+       "where": "",
+       "quote": "In some circumstances, reducing air flow to a small value rather than quiescent conditions may be useful to disperse fuel vapor and help cool the material to enable extinction",
+       "kind": "result"
+      },
+      {
+       "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
+       "file": "",
+       "where": "",
+       "quote": "Overheated materials in quiescent conditions or in low-flow zones in low gravity can produce stratified fuel mixtures that can result in dramatic deflagrations during ignition.",
+       "kind": "result"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "Not on the challenge's PSI resource list; values come from the published papers",
+    "Paper reports preliminary results",
+    "Overview says Saffire-IV burned at different pressures and oxygen levels, but the paper lists both reported IV tests at 100 kPa and 22% oxygen"
+   ]
+  },
+  {
+   "id": "saffire-v",
+   "name": "Saffire-V",
+   "full_name": "Spacecraft Fire Experiment V",
+   "family": "Saffire",
+   "kind": "flight experiment",
+   "roles": [
+    "prevention",
+    "detection"
+   ],
+   "psi_url": null,
+   "in_scope": true,
+   "operated": null,
+   "fuel": "SIBAL cloth / cotton jersey and PMMA (acrylic) samples; see tests table",
+   "gravity": "microgravity (Cygnus cargo vehicle in free drift after leaving the ISS)",
+   "flow": "20 cm/s, with fan-off periods; see tests table",
+   "atmosphere": "25.4-26.2% oxygen at 70.7-72.6 kPa (10.3-10.5 psi)",
+   "varied": "Material, pressure, oxygen; fan turned off mid-test",
+   "measured": "flame size, spread, heat release, smoke and gases (see papers)",
+   "moon_base_coverage": "near the Moon Base zone (25-26% oxygen at 10.3-10.5 psi)",
+   "tests_by_zone": {
+    "outside": 3
+   },
+   "findings": {
+    "outcome": {
+     "text": "Turning the fan off did not reliably put the fire out; it depended on the material",
+     "evidence": [
+      {
+       "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
+       "file": "",
+       "where": "",
+       "quote": "Extinguishment of thin charring fuels at increased oxygen cannot be assumed to occur rapidly in quiescent conditions.",
+       "kind": "result"
+      },
+      {
+       "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
+       "file": "",
+       "where": "",
+       "quote": "Extinguishment of bubbling polymers cannot be assumed to occur rapidly in quiescent conditions",
+       "kind": "result"
+      },
+      {
+       "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
+       "file": "",
+       "where": "",
+       "quote": "In some circumstances, reducing air flow to a small value rather than quiescent conditions may be useful to disperse fuel vapor and help cool the material to enable extinction",
+       "kind": "result"
+      },
+      {
+       "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
+       "file": "",
+       "where": "",
+       "quote": "Overheated materials in quiescent conditions or in low-flow zones in low gravity can produce stratified fuel mixtures that can result in dramatic deflagrations during ignition.",
+       "kind": "result"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "Not on the challenge's PSI resource list; values come from the published papers",
+    "Paper reports preliminary results"
+   ]
+  },
+  {
+   "id": "saffire-vi",
+   "name": "Saffire-VI",
+   "full_name": "Spacecraft Fire Experiment VI",
+   "family": "Saffire",
+   "kind": "flight experiment",
+   "roles": [
+    "prevention",
+    "detection"
+   ],
+   "psi_url": null,
+   "in_scope": true,
+   "operated": null,
+   "fuel": "SIBAL cloth and PMMA (acrylic); see tests table",
+   "gravity": "microgravity (Cygnus cargo vehicle in free drift after leaving the ISS)",
+   "flow": "20 cm/s concurrent; see tests table",
+   "atmosphere": "About 29-31% oxygen at about 54-55 kPa (7.9-8.0 psi); see tests table",
+   "varied": "Material",
+   "measured": "Heat release, CO and CO2, smoke detector response",
+   "moon_base_coverage": "yes: VI-2 and VI-3 are inside the Moon Base zone (30%+ oxygen at 10.2 psi or less)",
+   "tests_by_zone": {
+    "inside": 2,
+    "outside": 1
+   },
+   "findings": {
+    "outcome": {
+     "text": "Smoke and gases, not heat, were the main hazard; CO2 limit exceeded in both PMMA tests; smoke detector alarm level reached at 981 s",
+     "evidence": [
+      {
+       "source": "Urban DL et al. Preliminary Results from the Saffire VI Experiment. ICES-2024-365.",
+       "file": "",
+       "where": "",
+       "quote": "the heat from the fire is not the principal hazard and rather the smoke and gaseous products are a much greater concern.",
+       "kind": "result"
+      },
+      {
+       "source": "Urban DL et al. Preliminary Results from the Saffire VI Experiment. ICES-2024-365.",
+       "file": "",
+       "where": "",
+       "quote": "As can be seen in Table 2, the allowable CO2 level was exceeded by both of the PMMA tests on Saffire VI.",
+       "kind": "result"
+      },
+      {
+       "source": "Urban DL et al. Preliminary Results from the Saffire VI Experiment. ICES-2024-365.",
+       "file": "",
+       "where": "",
+       "quote": "Selecting 1 mg/m3 as a relatively tight alarm threshold, the FFD detector reached that threshold at 981 seconds.",
+       "kind": "result"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "Not on the challenge's PSI resource list; values come from the published papers",
+    "Paper reports preliminary results",
+    "Paper: 'Further work will be needed to extend these results to the partial gravity environment'"
+   ]
+  },
+  {
+   "id": "farouk-hicks",
+   "name": "Cool flame CFD (Farouk & Hicks)",
+   "full_name": "Effect of External Thermo-Convective Perturbation on Cool Flame Dynamics: A Multidimensional Multi-Physics CFD Analysis",
+   "family": "model",
+   "kind": "modeling / analysis study (label as model, not experiment)",
+   "roles": [
+    "modeling"
+   ],
+   "psi_url": "http://doi.org/10.60555/gz0q-b577",
+   "in_scope": true,
+   "operated": null,
+   "fuel": "n-alkane droplets, 1-4 mm and about 0.5 mm (simulated)",
+   "gravity": "microgravity (simulated)",
+   "flow": null,
+   "atmosphere": null,
+   "varied": "Simulated airflow (to mimic droplet drift), added heat, or both; also composition and pressure",
+   "measured": null,
+   "moon_base_coverage": "not applicable: computer model; the metadata gives no oxygen or pressure values",
+   "tests_by_zone": {},
+   "findings": {
+    "outcome": {
+     "text": "Stability maps of when cool flames start, persist or go out (values not in the metadata)",
+     "evidence": [
+      {
+       "source": "NASA PSI-117 ISA metadata (i_Investigation.txt): Effect of External Thermo-Convective Perturbation on Cool Flame Dynamics",
+       "file": "PSI-117_metadata_NEWID-13_Effect_of_External_T.zip",
+       "where": "line 42",
+       "quote": "stability maps that delineated conditions for cool-flame onset, persistence, and quenching",
+       "kind": "result"
+      }
+     ]
+    },
+    "context": {
+     "text": "Why it matters (stated by the study)",
+     "evidence": [
+      {
+       "source": "NASA PSI-117 ISA metadata (i_Investigation.txt): Effect of External Thermo-Convective Perturbation on Cool Flame Dynamics",
+       "file": "PSI-117_metadata_NEWID-13_Effect_of_External_T.zip",
+       "where": "line 67",
+       "quote": "Space Benefits: Potential to improve spacecraft fire-safety modeling by resolving cool-flame/extinction behavior in microgravity",
+       "kind": "description"
+      },
+      {
+       "source": "NASA PSI-117 ISA metadata (i_Investigation.txt): Effect of External Thermo-Convective Perturbation on Cool Flame Dynamics",
+       "file": "PSI-117_metadata_NEWID-13_Effect_of_External_T.zip",
+       "where": "line 50",
+       "quote": "In microgravity, where buoyancy was suppressed, this forcing was anticipated to dominate transport.",
+       "kind": "description"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "Computer-model study with no flight tests of its own; label it as a model on the site",
+    "The downloaded zip holds metadata only (2 small text files), no model outputs"
+   ]
+  },
+  {
+   "id": "desjardin-urban",
+   "name": "BASS flame spread model (DesJardin & Urban)",
+   "full_name": "Concurrent Flame Spread Modeling using Flamelet Generated Manifolds in Microgravity with Comparison to BASS Experiments using Two-Color Tomography",
+   "family": "model",
+   "kind": "modeling / analysis study (label as model, not experiment)",
+   "roles": [
+    "modeling"
+   ],
+   "psi_url": "http://doi.org/10.60555/e9xp-ex83",
+   "in_scope": true,
+   "operated": null,
+   "fuel": "Simulated BASS samples: acrylic (PMMA) sheets, spheres and rods, and wax cylinders",
+   "gravity": "microgravity (simulated)",
+   "flow": null,
+   "atmosphere": null,
+   "varied": null,
+   "measured": null,
+   "moon_base_coverage": "not applicable: computer model",
+   "tests_by_zone": {},
+   "findings": {
+    "context": {
+     "text": "Why it matters (stated by the study)",
+     "evidence": [
+      {
+       "source": "NASA PSI-62 ISA metadata (i_Investigation.txt): Concurrent Flame Spread Modeling using Flamelet Generated Manifolds in Microgravity",
+       "file": "PSI-62_metadata_NEWID-7_Concurrent_Flame_Spr.zip",
+       "where": "line 49",
+       "quote": "including phenomena such as the \"Goldilocks\" flammability zone",
+       "kind": "description"
+      },
+      {
+       "source": "NASA PSI-62 ISA metadata (i_Investigation.txt): Concurrent Flame Spread Modeling using Flamelet Generated Manifolds in Microgravity",
+       "file": "PSI-62_metadata_NEWID-7_Concurrent_Flame_Spr.zip",
+       "where": "line 67",
+       "quote": "This research provides predictive tools for screening new materials' flammability limits, which can lead to the design of safer spacecrafts.",
+       "kind": "description"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "Computer-model study with no flight tests of its own; label it as a model on the site",
+    "The downloaded zip holds metadata only (2 small text files), no model outputs"
+   ]
+  },
+  {
+   "id": "smooke-spice",
+   "name": "SPICE analysis (Smooke, Long & Dietrich)",
+   "full_name": "Computational and Experimental Analysis of SPICE Data Sets",
+   "family": "model",
+   "kind": "modeling / analysis study (reanalyzes SPICE flight images; label as analysis, not a new experiment)",
+   "roles": [
+    "modeling"
+   ],
+   "psi_url": "http://doi.org/10.60555/mzjm-yv57",
+   "in_scope": true,
+   "operated": null,
+   "fuel": "SPICE gas jet flames (heavily sooting)",
+   "gravity": "microgravity flight images plus normal-gravity comparison",
+   "flow": null,
+   "atmosphere": null,
+   "varied": "Model settings (radiation, scattering, boundary conditions, heat transfer to the burner)",
+   "measured": null,
+   "moon_base_coverage": "not applicable: reanalysis of SPICE flames in cabin-like air",
+   "tests_by_zone": {},
+   "findings": {
+    "outcome": {
+     "text": "Expected: microgravity flames longer, cooler and sootier than on Earth (a hypothesis; results are in the paper)",
+     "evidence": [
+      {
+       "source": "NASA PSI-60 ISA metadata (i_Investigation.txt): Computational and Experimental Analysis of SPICE Data Sets",
+       "file": "PSI-60_metadata_NEWID-5_Computational_and_Ex.zip",
+       "where": "line 48",
+       "quote": "Microgravity conditions would produce longer, more diffuse flames with lower temperatures and increased soot concentrations compared to normal gravity",
+       "kind": "description"
+      }
+     ]
+    },
+    "context": {
+     "text": "Why it matters (stated by the study)",
+     "evidence": [
+      {
+       "source": "NASA PSI-60 ISA metadata (i_Investigation.txt): Computational and Experimental Analysis of SPICE Data Sets",
+       "file": "PSI-60_metadata_NEWID-5_Computational_and_Ex.zip",
+       "where": "line 58",
+       "quote": "This ground investigation sought to increase understanding of the issues that control the large discrepancy between soot formation in 1g and in 0g flames.",
+       "kind": "description"
+      },
+      {
+       "source": "NASA PSI-60 ISA metadata (i_Investigation.txt): Computational and Experimental Analysis of SPICE Data Sets",
+       "file": "PSI-60_metadata_NEWID-5_Computational_and_Ex.zip",
+       "where": "line 65",
+       "quote": "For space applications, the results support safer fire detection, suppression, and cleaner combustion technologies critical for long-duration missions.",
+       "kind": "description"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "Reanalysis and modeling of existing SPICE data, not new flight tests",
+    "The downloaded zip holds metadata only (2 small text files), no results files"
+   ]
+  },
+  {
+   "id": "ju-counterflow",
+   "name": "Cool flame transitions (Ju, Reuter & Dietrich)",
+   "full_name": "Quantitative Studies of Cool Flame Transitions at Radiation / Stretch Extinction Using Counterflow Flames",
+   "family": "model",
+   "kind": "ground study: simulations plus lab experiments built on FLEX data (label as model and lab work, not flight tests)",
+   "roles": [
+    "modeling"
+   ],
+   "psi_url": "http://doi.org/10.60555/80qf-vj95",
+   "in_scope": true,
+   "operated": null,
+   "fuel": null,
+   "gravity": "normal gravity (lab) and simulations of FLEX conditions",
+   "flow": null,
+   "atmosphere": null,
+   "varied": "Oxygen concentration, dilution and pressure (simulated up to 20 atm)",
+   "measured": null,
+   "moon_base_coverage": "not applicable: ground and simulation study; its pressure work goes up, not down to Moon Base levels",
+   "tests_by_zone": {},
+   "findings": {
+    "outcome": {
+     "text": "Found an in-between 'warm flame' that controls the switch between cool and hot flames; at higher pressure, cool and warm flames burn over a wider range",
+     "evidence": [
+      {
+       "source": "NASA PSI-142 ISA metadata (i_Investigation.txt): Quantitative Studies of Cool Flame Transitions at Radiation / Stretch Extinction Using Counterflow Flames",
+       "file": "PSI-142_metadata_PSI-164_Quantitative_Studies.zip",
+       "where": "line 72",
+       "quote": "The results showed that the warm flame has a double reaction zone structure and plays a critical role in the transition between cool flames and hot flames.",
+       "kind": "result"
+      },
+      {
+       "source": "NASA PSI-142 ISA metadata (i_Investigation.txt): Quantitative Studies of Cool Flame Transitions at Radiation / Stretch Extinction Using Counterflow Flames",
+       "file": "PSI-142_metadata_PSI-164_Quantitative_Studies.zip",
+       "where": "line 72",
+       "quote": "At elevated pressures, it was found that the flammable region of warm flames and cool flames expands due to the increase in low-temperature and intermediate-temperature reactivity with pressure.",
+       "kind": "result"
+      }
+     ]
+    },
+    "context": {
+     "text": "Why it matters (stated by the study)",
+     "evidence": [
+      {
+       "source": "NASA PSI-142 ISA metadata (i_Investigation.txt): Quantitative Studies of Cool Flame Transitions at Radiation / Stretch Extinction Using Counterflow Flames",
+       "file": "PSI-142_metadata_PSI-164_Quantitative_Studies.zip",
+       "where": "line 72",
+       "quote": "Obtaining a fundamental understanding of the warm diffusion flame is particularly relevant to combustion in highly turbulent flow fields and in microgravity environments, owing to the possibility of long residence times.",
+       "kind": "description"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "Ground study (lab experiments and simulations); no flight tests of its own",
+    "The downloaded zip holds metadata only (2 small text files), no results files",
+    "The zip's file name mentions PSI-164, but its contents identify the study as PSI-142"
+   ]
+  },
+  {
+   "id": "garrick-same",
+   "name": "Smoke model from SAME (Garrick & Hicks)",
+   "full_name": "Utilization of the Smoke Aerosol Measurement Experiment Data for Advanced Modeling and Simulation of Smoke Generation in Micro-Gravity",
+   "family": "model",
+   "kind": "modeling / analysis study (label as model, not experiment)",
+   "roles": [
+    "modeling"
+   ],
+   "psi_url": "http://doi.org/10.60555/q0v5-1v28",
+   "in_scope": true,
+   "operated": null,
+   "fuel": "Simulated dibutyl-phthalate (DBP) vapor from a heated sample (a stand-in for SAME materials)",
+   "gravity": "simulated microgravity and Earth gravity",
+   "flow": null,
+   "atmosphere": null,
+   "varied": null,
+   "measured": null,
+   "moon_base_coverage": "not applicable: computer model of smoke in station-like air",
+   "tests_by_zone": {},
+   "findings": {
+    "outcome": {
+     "text": "Simulated space smoke had bigger particles than Earth smoke: about twice the typical size, plus very large particles that gravity would remove on Earth",
+     "evidence": [
+      {
+       "source": "Garrick SC. Utilization of the SAME Data for Advanced Modeling and Simulation of Smoke Generation in Microgravity. NASA Grant NNX17AF08A Final Report, August 15, 2020.",
+       "file": "NNX17AF08A_FinalReport.pdf",
+       "where": "page 3",
+       "quote": "Without recirculation, the mode particle diameter in microgravity is ∼ 10 µm, or approximately twice that of terrestrial smoke.",
+       "kind": "result"
+      },
+      {
+       "source": "Garrick SC. Utilization of the SAME Data for Advanced Modeling and Simulation of Smoke Generation in Microgravity. NASA Grant NNX17AF08A Final Report, August 15, 2020.",
+       "file": "NNX17AF08A_FinalReport.pdf",
+       "where": "page 3",
+       "quote": "limiting the maximum particle size to ∼ 40 µm and the mode particle size to ∼ 5 µm.",
+       "kind": "result"
+      },
+      {
+       "source": "Garrick SC. Utilization of the SAME Data for Advanced Modeling and Simulation of Smoke Generation in Microgravity. NASA Grant NNX17AF08A Final Report, August 15, 2020.",
+       "file": "NNX17AF08A_FinalReport.pdf",
+       "where": "page 15",
+       "quote": "Microgravity smoke presented in this study contains larger particles than terrestrial smoke.",
+       "kind": "result"
+      }
+     ]
+    },
+    "context": {
+     "text": "Why it matters (stated by the study)",
+     "evidence": [
+      {
+       "source": "Garrick SC. Utilization of the SAME Data for Advanced Modeling and Simulation of Smoke Generation in Microgravity. NASA Grant NNX17AF08A Final Report, August 15, 2020.",
+       "file": "NNX17AF08A_FinalReport.pdf",
+       "where": "page 4",
+       "quote": "systems developed and calibrated for terrestrial use may not perform correctly in microgravity because of inappropriate particle size sensitivities",
+       "kind": "description"
+      },
+      {
+       "source": "Garrick SC. Utilization of the SAME Data for Advanced Modeling and Simulation of Smoke Generation in Microgravity. NASA Grant NNX17AF08A Final Report, August 15, 2020.",
+       "file": "NNX17AF08A_FinalReport.pdf",
+       "where": "page 4",
+       "quote": "Measurements suggest microgravity smoke particles to be 2 − 8 times larger than terrestrial smoke particles",
+       "kind": "description"
+      },
+      {
+       "source": "NASA PSI-115 ISA metadata (i_Investigation.txt): Utilization of the SAME Data for Advanced Modeling and Simulation of Smoke Generation in Micro-Gravity",
+       "file": "PSI-115_metadata_PSI-185_Utilization_of_the_S.zip",
+       "where": "line 65",
+       "quote": "This would directly lead to better smoke detection devices and prevent fires that can lead to loss of materiel and loss of life.",
+       "kind": "description"
+      }
+     ]
+    }
+   },
+   "caveats": [
+    "Computer simulation with a stand-in material (DBP); label as a model, not measurements",
+    "Simulated particle sizes (micrometers) are a different measure from SAME-R's measured diameters and should not be compared directly",
+    "The '2-8 times larger' figure is the report citing earlier measurements (Urban et al., 2005), not this study's own result",
+    "The .dat file is an unlabeled 960 x 240 grid (230,401 values, one more than the grid needs); its quantity isn't stated"
+   ]
+  },
+  {
+   "id": "riaz-pool-boiling",
+   "name": "Pool boiling (MABE / NPBX)",
+   "full_name": "Pool boiling (MABE / NPBX)",
+   "family": "other",
+   "kind": "out of scope",
+   "roles": [],
+   "psi_url": "http://doi.org/10.60555/2bvb-0r98",
+   "in_scope": false,
+   "operated": null,
+   "fuel": null,
+   "gravity": null,
+   "flow": null,
+   "atmosphere": null,
+   "varied": null,
+   "measured": null,
+   "moon_base_coverage": "not stated",
+   "tests_by_zone": {},
+   "findings": {},
+   "caveats": [
+    "Excluded from ranking: fluid physics, not combustion"
+   ]
+  },
+  {
+   "id": "elf6-pronto",
+   "name": "ELF-6 PRONTO (oxide liquids)",
+   "full_name": "ELF-6 PRONTO (oxide liquids)",
+   "family": "other",
+   "kind": "out of scope",
+   "roles": [],
+   "psi_url": "http://doi.org/10.60555/dnga-vp70",
+   "in_scope": false,
+   "operated": null,
+   "fuel": null,
+   "gravity": null,
+   "flow": null,
+   "atmosphere": null,
+   "varied": null,
+   "measured": null,
+   "moon_base_coverage": "not stated",
+   "tests_by_zone": {},
+   "findings": {},
+   "caveats": [
+    "Excluded from ranking: materials science, not combustion"
+   ]
+  }
+ ]
+}
