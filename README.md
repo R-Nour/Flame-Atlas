@@ -33,7 +33,7 @@ Every run is scored against both versions of the key (`data/accuracy_comparison.
 | 5 (repeat of 4) | version 1 | 3,020 / 3,228 (93.6%) | 3,020 / 3,228 (93.6%) | 709 / 881 | 9 |
 | 5 (repeat of 4) | version 2 | 3,058 / 3,104 (98.5%) | 3,077 / 3,228 (95.3%) | 862 / 881 | 9 |
 
-The full report for the latest run, including every value it missed and how often it flagged the known problems in the tables, is `data/accuracy_report.md`. Raw output for runs 2 to 5 is in `data/runs/`.
+The full report for run 4, including every value it missed and how often it flagged the known problems in the tables, is `data/accuracy_report.md`. Raw output for runs 2 to 5 is in `data/runs/`.
 
 ### What changed between runs, and why
 - **Runs 1 and 2.** Run 1 scored 2,120 of 3,228 (65.7%) against key version 1, with 298 rows missing from the output (`data/accuracy_report_run1.md`; its raw output was overwritten by the next run and is not kept). Run 2 scored 2,985 of 3,228 (92.5%) against key version 1, as first scored (2,992, 92.7%, with today's checker). The changes between runs 1 and 2 were to how the script ran: the fixed temperature setting (`temperature=0` in the first version) was removed, rows go to the model in chunks of 15 instead of 40, failed calls are retried up to 6 times with waits, replies may be longer (16,000 tokens instead of 8,000), and the script saves after every chunk and can resume. Run 3 added one general prompt line: `line` must be the number in the row's `L<n>` label, never a value from inside the row, and every row needs an object.
