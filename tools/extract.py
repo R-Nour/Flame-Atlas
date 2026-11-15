@@ -31,8 +31,9 @@ Header (line {hline}):
 Rows, each prefixed with its line number:
 {rows}
 
-For every row above that describes one individual test, return an object with:
-- "line": the line number
+Return exactly one object per row above, in the same order as the rows. Each object has:
+- "row_start": the row's first 30 characters, copied exactly as written (the whole row if it is shorter)
+- "is_test": true if the row describes one individual test; false for a header, note or blank row
 - "test_id": the test's identifier as written
 - "o2_pct": oxygen at the start of the test, in percent (convert fractions such as 0.21 to 21). If the cell gives a range, give its midpoint. null if the table doesn't give oxygen.
 - "pressure_psi": ambient pressure in psi, converted from the table's unit (1 atm = 14.6959 psi; 1 bar = 14.5038 psi; 1 kPa = 0.145038 psi; 1 mmHg = 0.0193368 psi). null if the table doesn't give pressure.
@@ -42,8 +43,16 @@ For every row above that describes one individual test, return an object with:
 {ends}
 - "problems": short notes on anything in this row that looks wrong or inconsistent (impossible values, typos, missing cells, contradictions); [] if none.
 
-Skip header, note and blank rows. Use only what the table says; never guess or fill in values from outside knowledge.
+For a row with "is_test": false, only "row_start" and "is_test" are needed. Use only what the table says; never guess or fill in values from outside knowledge.
 Reply with: {{"tests": [ ... ]}}"""
+
+
+ROW_START_CHARS = 30
+
+
+def norm(x):
+    """Compare row_start ignoring case and extra spaces."""
+    return " ".join(str(x or "").lower().split())
 
 
 def read_lines(path):
@@ -62,54 +71,107 @@ def parse_json(text):
     return json.loads(text[start:end + 1])
 
 
-def ask(client, model, prompt, tries=4):
-    for attempt in range(tries):
+WAITS = [15, 30, 60, 60, 60, 60]  # seconds before retries 1..6
+
+
+def ask(client, model, prompt, validate=None, tries=4):  # 1 attempt + 3 retries
+    api_retries = 0
+    json_tries = 0
+    stop = None
+    while True:
         try:
-            resp = client.messages.create(model=model, max_tokens=8000, temperature=0, system=SYSTEM,
+            resp = client.messages.create(model=model, max_tokens=16000, system=SYSTEM,
                                           messages=[{"role": "user", "content": prompt}])
+            stop = resp.stop_reason
             text = "".join(b.text for b in resp.content if getattr(b, "type", "") == "text")
-            return parse_json(text)
+            got = parse_json(text)
+            if validate:
+                validate(got)
+            return got
         except (anthropic.RateLimitError, anthropic.APIConnectionError, anthropic.InternalServerError) as e:
-            wait = 5 * (attempt + 1)
-            print(f"    API busy ({type(e).__name__}); retrying in {wait}s", file=sys.stderr)
+            if api_retries >= len(WAITS):
+                raise RuntimeError(f"gave up after {len(WAITS)} retries ({type(e).__name__})")
+            wait = WAITS[api_retries]
+            api_retries += 1
+            print(f"    API busy ({type(e).__name__}); retry {api_retries}/{len(WAITS)} in {wait}s", file=sys.stderr, flush=True)
             time.sleep(wait)
         except (ValueError, json.JSONDecodeError) as e:
-            print(f"    reply wasn't valid JSON ({e}); retrying", file=sys.stderr)
+            json_tries += 1
+            if json_tries >= tries:
+                raise RuntimeError(f"gave up after {tries} attempts: {e}")
+            print(f"    bad reply ({e}); stop_reason={stop}; retrying", file=sys.stderr, flush=True)
             prompt += "\n\nReply with valid JSON only."
-    raise RuntimeError("gave up after repeated failures")
+
+
+def save(path, out):
+    tmp = path.with_suffix(".tmp")
+    tmp.write_text(json.dumps(out, indent=1, ensure_ascii=False), encoding="utf-8")
+    tmp.replace(path)
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default="claude-haiku-5-5")
     ap.add_argument("--chunk", type=int, default=40)
+    ap.add_argument("--fresh", action="store_true", help="ignore any existing data/ai_extracted.json and start over")
     args = ap.parse_args()
 
     key = json.loads((DATA / "answer_key.json").read_text(encoding="utf-8"))
     ends = "\n".join(f'  "{k}": {v}' for k, v in key["test_end_values"].items())
     client = anthropic.Anthropic()
-    out = {"model": args.model, "chunk": args.chunk, "run_at": datetime.datetime.now().isoformat(timespec="seconds"), "tests": [], "errors": []}
+    outpath = DATA / "ai_extracted.json"
+    out = {"model": args.model, "chunk": args.chunk, "run_at": datetime.datetime.now().isoformat(timespec="seconds"),
+           "done": [], "tests": [], "errors": []}
+
+    if outpath.exists() and not args.fresh:
+        prev = json.loads(outpath.read_text(encoding="utf-8"))
+        if prev.get("model") == args.model and prev.get("chunk") == args.chunk and "done" in prev:
+            out = prev
+            out["errors"] = []  # failed chunks are not in "done", so they are retried
+            print(f"resuming: {len(out['done'])} chunks already done, {len(out['tests'])} tests")
+        else:
+            print("existing ai_extracted.json can't be resumed (different model/chunk or no progress info); starting over")
+    done = set(out["done"])
 
     for fname, info in key["files"].items():
         lines = read_lines(DATA / "raw" / fname)
         hidx = next(i for i, l in enumerate(lines) if l.strip())
         body = [(i + 1, l) for i, l in enumerate(lines) if i > hidx and l.strip()]
-        print(f"{fname}: {len(body)} rows")
+        print(f"{fname}: {len(body)} rows", flush=True)
         for s in range(0, len(body), args.chunk):
             part = body[s:s + args.chunk]
+            cid = f"{fname}:{part[0][0]}-{part[-1][0]}"
+            if cid in done:
+                print(f"  lines {part[0][0]}-{part[-1][0]}: already done, skipping", flush=True)
+                continue
             prompt = PROMPT.format(inv=info["investigation"], file=fname, hline=hidx + 1, header=lines[hidx], ends=ends,
                                    rows="\n".join(f"L{n}: {l}" for n, l in part))
+            def validate(got, part=part):
+                tests = got.get("tests")
+                if not isinstance(tests, list) or len(tests) != len(part):
+                    raise ValueError(f"expected {len(part)} objects, got {len(tests) if isinstance(tests, list) else 'none'}")
+                for i, (t, (n, l)) in enumerate(zip(tests, part)):
+                    if not isinstance(t, dict) or not isinstance(t.get("is_test"), bool):
+                        raise ValueError(f"row {i + 1} (line {n}): missing or non-boolean is_test")
+                    if norm(t.get("row_start")) != norm(l[:ROW_START_CHARS]):
+                        raise ValueError(f"row {i + 1} (line {n}): row_start {t.get('row_start')!r} != {l[:ROW_START_CHARS]!r}")
             try:
-                got = ask(client, args.model, prompt)
-                for t in got.get("tests", []):
+                got = ask(client, args.model, prompt, validate)
+                for t, (n, _) in zip(got["tests"], part):
+                    if not t["is_test"]:
+                        continue  # header, note or blank row
+                    t["line"] = n  # set from position in the chunk, never from the model
                     t["file"] = fname
                     out["tests"].append(t)
-                print(f"  lines {part[0][0]}-{part[-1][0]}: {len(got.get('tests', []))} tests")
+                out["done"].append(cid)
+                done.add(cid)
+                print(f"  lines {part[0][0]}-{part[-1][0]}: {len(got.get('tests', []))} tests", flush=True)
             except Exception as e:
                 out["errors"].append({"file": fname, "lines": [part[0][0], part[-1][0]], "error": str(e)})
-                print(f"  lines {part[0][0]}-{part[-1][0]}: FAILED ({e})", file=sys.stderr)
+                print(f"  lines {part[0][0]}-{part[-1][0]}: FAILED ({e})", file=sys.stderr, flush=True)
+            save(outpath, out)
 
-    (DATA / "ai_extracted.json").write_text(json.dumps(out, indent=1, ensure_ascii=False), encoding="utf-8")
+    save(outpath, out)
     print(f"wrote data/ai_extracted.json: {len(out['tests'])} tests, {len(out['errors'])} failed chunks")
 
 

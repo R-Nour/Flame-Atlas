@@ -1,0 +1,1430 @@
+{
+ "summary": {
+  "model": "claude-haiku-5-5",
+  "run_at": "2026-11-15T03:40:54",
+  "key_version": 2,
+  "key_frozen": "Version 1 frozen 2026-11-14 before any run. Version 2 corrected the evening of 2026-11-14, after run 3; see 'corrections'.",
+  "main": {
+   "values_correct": 3096,
+   "values_scored": 3104,
+   "accuracy_pct": 99.7,
+   "note": "ambiguous values left out"
+  },
+  "strict": {
+   "values_correct": 3119,
+   "values_scored": 3228,
+   "accuracy_pct": 96.6,
+   "note": "every value, ambiguous ones scored against the key's first reading"
+  },
+  "ambiguous_values": 124,
+  "tests": 881,
+  "tests_fully_correct": 873,
+  "rows_missing_from_ai_output": 0,
+  "ai_rows_not_in_key": 8,
+  "duplicate_ai_rows": 0,
+  "per_field": {
+   "o2_pct": {
+    "correct": 881,
+    "scored": 881,
+    "pct": 100.0
+   },
+   "pressure_psi": {
+    "correct": 880,
+    "scored": 881,
+    "pct": 99.9
+   },
+   "flow_cm_s": {
+    "correct": 13,
+    "scored": 13,
+    "pct": 100.0
+   },
+   "burn_time_s": {
+    "correct": 463,
+    "scored": 463,
+    "pct": 100.0
+   },
+   "test_end": {
+    "correct": 859,
+    "scored": 866,
+    "pct": 99.2
+   }
+  },
+  "per_investigation": {
+   "FLEX": {
+    "correct": 1095,
+    "scored": 1096,
+    "pct": 99.9
+   },
+   "ACME CFI-G": {
+    "correct": 711,
+    "scored": 713,
+    "pct": 99.7
+   },
+   "ACME Flame Design": {
+    "correct": 621,
+    "scored": 621,
+    "pct": 100.0
+   },
+   "Saffire-I": {
+    "correct": 8,
+    "scored": 8,
+    "pct": 100.0
+   },
+   "CFI": {
+    "correct": 237,
+    "scored": 237,
+    "pct": 100.0
+   },
+   "Saffire-II": {
+    "correct": 36,
+    "scored": 36,
+    "pct": 100.0
+   },
+   "Saffire-III": {
+    "correct": 6,
+    "scored": 6,
+    "pct": 100.0
+   },
+   "BASS-II": {
+    "correct": 382,
+    "scored": 387,
+    "pct": 98.7
+   }
+  },
+  "known_problem_rows_flagged": "36 of 37",
+  "clean_rows_flagged": "340 of 844",
+  "failed_chunks": 0
+ },
+ "ambiguous": [
+  {
+   "id": "cfig-21102a1",
+   "investigation": "ACME CFI-G",
+   "field": "test_end",
+   "why": "the row is marked self-extinguished, but its comment says the flow was stopped by hand",
+   "key_first_reading": "went_out",
+   "got": "went_out",
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "cfig-21106f4",
+   "investigation": "ACME CFI-G",
+   "field": "burn_time_s",
+   "why": "the row says no hot ignition, but lists a burn time",
+   "key_first_reading": 22.0,
+   "got": 22,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "cfig-21106f4",
+   "investigation": "ACME CFI-G",
+   "field": "test_end",
+   "why": "the row says no hot ignition, but lists a burn time and a flow-terminated code",
+   "key_first_reading": "no_ignition",
+   "got": "stopped",
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b1",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b2",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b3",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 2.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b4",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b5",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b6",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 3.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b7",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 2.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b8",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b9",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 2.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b10",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b11",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b12",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 2.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b13",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b14",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b15",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b16",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 3.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b17",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b18",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b19",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b20",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b21",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-b22",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-f1",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 9.5,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-f2",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 15.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-f3",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 8.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-f4",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 3.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-m1",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-m2",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 20.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-m3",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-m4",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-m5",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 20.0,
+   "got": 20,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-m6",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": 10,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-m7",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": 10,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-m8",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": 10,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-m9",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": 10,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-m10",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": 10,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-m11",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": 10,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-m13",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 6.0,
+   "got": 6,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-m14",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": 10,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-m15",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": 10,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-m16",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": 10,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-m17",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": 10,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-m18",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": 10,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-m19",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": 10,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-m20",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-o1",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 20.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-o2",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 0.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-o3a",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-o3b",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-o4",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-o5a",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-o5b",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 49.0,
+   "got": 5,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-o10",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-o11",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-o13a",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 49.0,
+   "got": 49,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-o13b",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 7.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-o14",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": 52,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-o15a",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": 57.5,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-o15b",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": 57.5,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-o16",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": 60,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-o17",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 3.0,
+   "got": 49,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-o18",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": 57,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-o19",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": 52,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-o20",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": 49,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-o22",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 4.0,
+   "got": 49,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p1",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": 5,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p2",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": 5,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p3a",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p3b",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p4",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p5",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": 5,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p6",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p8",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p9",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": 5,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p10",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p12",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p13a",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": 5,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p13b",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": 5,
+   "matches_first_reading": true,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p14",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p15",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p16",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p17",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p18",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 2.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p19",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p20",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 2.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p21a",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p21b",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p22a",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p22b",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p23",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 2.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p24",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 2.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-p25",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t1",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t2",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 9.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t3",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t4",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 9.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t5",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t6",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t7",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t9",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t10",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t11",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t12",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t13",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t14",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t15",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 9.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t16",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t17",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 6.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t18",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t19",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 11.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t20",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 11.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t21",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 11.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t22",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t23",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t24",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 10.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t25",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t26",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t27",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t28a",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t28b",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  },
+  {
+   "id": "bass-ii-t29",
+   "investigation": "BASS-II",
+   "field": "flow_cm_s",
+   "why": "the table doesn't state the units of its 'Air display' column",
+   "key_first_reading": 5.0,
+   "got": null,
+   "matches_first_reading": false,
+   "row_missing": false
+  }
+ ],
+ "known_problem_rows_not_flagged": [
+  {
+   "id": "cfig-21106f4",
+   "known_problems": [
+    "Marked 'no hot ignition' but lists a 22 s burn and the comment says 'hot flame'"
+   ]
+  }
+ ],
+ "misses": [
+  {
+   "id": "flex-114",
+   "field": "pressure_psi",
+   "expected": {
+    "value": null
+   },
+   "got": 0,
+   "row_missing": false,
+   "row": "114,C11M201,9/6/2010,19:14:22,Methanol,0,0.2,0.45,0.35,0,3.23,1.68,0.42,18.9,Extinction"
+  },
+  {
+   "id": "cfig-21088p1",
+   "field": "test_end",
+   "expected": {
+    "value": "went_out"
+   },
+   "got": "stopped",
+   "row_missing": false,
+   "row": "Normal,1,ethane,21088 P1,,0.179685675,0.17939183,1.0133,0.5,1,Yes,2039.856766,0.09403323,Yes,8,SE,74.1763366,"
+  },
+  {
+   "id": "cfig-21162f1",
+   "field": "test_end",
+   "expected": {
+    "value": "no_ignition"
+   },
+   "got": "not_recorded",
+   "row_missing": false,
+   "row": "Normal,9,30% ethane,21162 F1,,0.207221235,0.207221235,1.0133,0.3,1.5,No,2108.554829,0.163826567,No,0,-,-,"
+  },
+  {
+   "id": "bass-ii-b14",
+   "field": "test_end",
+   "expected": {
+    "value": "low_flow_out"
+   },
+   "got": "not_recorded",
+   "row_missing": false,
+   "row": "Bhattacharjee,B14,7/2/2014,183,174m,1 cm wide 200 micron thick PMMA,2,pot 0.9   0.5 and down,5  3  2   ext,250,44,15,none,0,none,0.2,none"
+  },
+  {
+   "id": "bass-ii-m17",
+   "field": "test_end",
+   "expected": {
+    "value": "low_flow_out"
+   },
+   "got": "went_out",
+   "row_missing": false,
+   "row": "Miller,M17,7/15/2014,196,166m,2 cm wide PMMA 2 mm thick,2,Fan pot 3.7   1.7   1.5   1.3   0.8   0.6   0.5   0.3ext,10   5   3   0ext,250>50>250,309,18.8,17.1,0.35,1.7,4,485"
+  },
+  {
+   "id": "bass-ii-o4",
+   "field": "test_end",
+   "expected": {
+    "value": "low_flow_out"
+   },
+   "got": "not_recorded",
+   "row_missing": false,
+   "row": "Olson,O4,7/8/2014,189,216m,\"3/8\"\"clear rod\",2,5   0.7   0.5   0.4   0.36 ext,5   down to ext,250,249,14.8,13.6,0.72,1.72,290,OR"
+  },
+  {
+   "id": "bass-ii-o8a",
+   "field": "test_end",
+   "expected": {
+    "value": "low_flow_out"
+   },
+   "got": "went_out",
+   "row_missing": false,
+   "row": "Olson,O8a,6/26/2014,177,208m,\"1/4\"\" clear rod\",2,5   .36  .32  .31   extinguished,,250,133,15.7,15.3,1.23,1.44,436,536"
+  },
+  {
+   "id": "bass-ii-p10",
+   "field": "test_end",
+   "expected": {
+    "value": "low_flow_out"
+   },
+   "got": "went_out",
+   "row_missing": false,
+   "row": "Fernandez-Pello,P10,7/3/2014,184,187m,\"1/4\"\" black rod\",2,48   41,5   pots 0.4   0.36   0.32   0.31   0.30 extinguished,50,221,17,16.4,0.29,0.72,2,44"
+  }
+ ]
+}
