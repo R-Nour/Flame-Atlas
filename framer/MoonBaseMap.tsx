@@ -1,7 +1,7 @@
 // Flame Atlas "Moon Base map": a Framer code component.
 //
 // A scatter of every test in data/tests.csv that lists both oxygen and pressure:
-// pressure (psi) on the x axis, oxygen (%) on the y axis, one colour per investigation.
+// pressure (psi, log scale) on the x axis, oxygen (%) on the y axis, one colour per investigation.
 // The Moon Base zone (oxygen 30% or more at 10.2 psi or less) is shaded darker, and the edge
 // band (oxygen 29.5% or more at 10.6 psi or less) lighter. Hover, tap or focus a point to see
 // its test id, outcome and source.
@@ -155,11 +155,12 @@ export default function MoonBaseMap(props: Props) {
         }
     }, [dataUrl])
 
-    const x0 = Math.min(xMin, xMax - 1)
+    const x0 = Math.max(0.5, Math.min(xMin, xMax - 1))
     const y0 = Math.min(yMin, yMax - 1)
     const pw = W - M.left - M.right
     const ph = H - M.top - M.bottom
-    const sx = (v: number) => M.left + ((v - x0) / (xMax - x0)) * pw
+    const lx = (v: number) => Math.log(v)
+    const sx = (v: number) => M.left + ((lx(v) - lx(x0)) / (lx(xMax) - lx(x0))) * pw
     const sy = (v: number) => M.top + ph - ((v - y0) / (yMax - y0)) * ph
 
     const inView = tests.filter((t) => t.psi >= x0 && t.psi <= xMax && t.o2 >= y0 && t.o2 <= yMax)
@@ -169,7 +170,7 @@ export default function MoonBaseMap(props: Props) {
     const colorOf = (n: string) => COLORS[n] || FALLBACK
 
     const ticksX: number[] = []
-    for (let v = Math.ceil(x0 / 2) * 2; v <= xMax; v += 2) ticksX.push(v)
+    for (const v of [1, 2, 3, 4, 5, 6, 8, 10, 15, 20, 30, 40, 60, 80, 100]) if (v >= x0 && v <= xMax) ticksX.push(v)
     const ticksY: number[] = []
     for (let v = Math.ceil(y0 / 5) * 5; v <= yMax; v += 5) ticksY.push(v)
 
@@ -248,7 +249,7 @@ export default function MoonBaseMap(props: Props) {
                         ))}
                         <rect x={M.left} y={M.top} width={pw} height={ph} fill="none" stroke={textColor} opacity={0.4} />
                         <text x={M.left + pw / 2} y={H - 8} fontSize={12} textAnchor="middle" fill={textColor}>
-                            Pressure (psi)
+                            Pressure (psi, log scale)
                         </text>
                         <text
                             transform={`translate(14 ${M.top + ph / 2}) rotate(-90)`}
@@ -356,8 +357,8 @@ export default function MoonBaseMap(props: Props) {
 
 MoonBaseMap.defaultProps = {
     dataUrl: DATA_URL,
-    xMin: 6,
-    xMax: 16,
+    xMin: 3,
+    xMax: 80,
     yMin: 10,
     yMax: 42,
     textColor: "#1c1917",
@@ -366,8 +367,8 @@ MoonBaseMap.defaultProps = {
 
 addPropertyControls(MoonBaseMap, {
     dataUrl: { type: ControlType.String, title: "Data URL" },
-    xMin: { type: ControlType.Number, title: "Pressure min (psi)", min: 0, max: 20, step: 1 },
-    xMax: { type: ControlType.Number, title: "Pressure max (psi)", min: 8, max: 80, step: 1 },
+    xMin: { type: ControlType.Number, title: "Pressure min (psi)", min: 1, max: 20, step: 1 },
+    xMax: { type: ControlType.Number, title: "Pressure max (psi)", min: 12, max: 100, step: 1 },
     yMin: { type: ControlType.Number, title: "Oxygen min (%)", min: 0, max: 25, step: 1 },
     yMax: { type: ControlType.Number, title: "Oxygen max (%)", min: 31, max: 100, step: 1 },
     textColor: { type: ControlType.Color, title: "Text" },
