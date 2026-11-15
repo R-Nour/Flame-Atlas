@@ -1,0 +1,12 @@
+{
+  "name": "flame-atlas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Flame Atlas: serverless Ask API over NASA microgravity-combustion data",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.8.0"
+  }
+}
