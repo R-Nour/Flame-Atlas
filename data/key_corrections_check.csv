@@ -1,0 +1,12 @@
+#,What changed in the key,Test,File (data/raw),Line,Look for,Key now expects,Same as the file? (Y/N),Notes
+1,Left out: contradicts itself,cfig-21102a1,PSI-159_Experimental_table_CFI-G_Normal_Flames.csv,16,"Marked SE (self-extinguished), but the comment says 'Manually stopped the flow'",How it ended is left out of the score,,
+2,Left out: contradicts itself,cfig-21106f4,PSI-159_Experimental_table_CFI-G_Normal_Flames.csv,39,"Hot ignition 'No', yet burn time 22, code FT and comment 'hot flame'",How it ended and the burn time are left out,,
+3,Left out: unit not stated,(header row),PSI-25_Experimental_table_BASS-II.csv,1,The 'Air display' column name gives no unit,All 121 BASS-II airflow values are left out,,
+4,Burn time is the table's number,cfig-21102c4,PSI-159_Experimental_table_CFI-G_Normal_Flames.csv,21,Hot ignition 'No' and burn time 0,Burn time 0 (version 1 expected blank),,
+5,Oxygen is the exact value,cfig-21291g2,PSI-159_Experimental_table_CFI-G_Normal_Flames.csv,177,XO2 before test (6th column),"38.845523%, that is the cell x 100 (version 1 rounded it to 38.8)",,
+6,Pressure: any of the three listed,fd-19115a1,PSI-10_Experimental_table_Flame_Design_Normal_Flame.csv,2,"pinit, pfinal, pmean in atm: 1.0118, 1.0241, 1.0180","14.87, 15.05 or 14.96 psi (x 14.6959); version 1 took only the mean",,
+7,"How it ended, re-read",bass-ii-m17,PSI-25_Experimental_table_BASS-II.csv,44,"Fan and Air display columns end in 'ext' ('0.3ext', '0ext') after falling settings",Went out as the airflow was turned down (version 1: not recorded),,
+8,"How it ended, re-read",bass-ii-o6,PSI-25_Experimental_table_BASS-II.csv,55,"Fan display column: falling settings, then 'out' ('.305   out .275')",Went out as the airflow was turned down (version 1: not recorded),,
+9,"How it ended, re-read",bass-ii-o12,PSI-25_Experimental_table_BASS-II.csv,62,Air display column says 'no ign at any flow',No ignition (version 1: not recorded),,
+10,"How it ended, re-read",bass-ii-p8,PSI-25_Experimental_table_BASS-II.csv,82,Air display column says 'would not stay lit',Went out (version 1: not recorded),,
+11,Oxygen range: midpoint,saffire-ii-2-8,PSI-99_Experimental_table_SAFFIRE-2.csv,9,Oxygen cell '22.1 to 22.0',"22.05 (the midpoint, as the extraction instructions say)",,
