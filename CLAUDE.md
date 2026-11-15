@@ -8,10 +8,10 @@ Headline question: does shutting off the fans (airflow) still stop a fire in Moo
 The website is built by hand in Framer. This repo holds the data, a small serverless API for the site's "Ask" box, and code components that Framer imports. Submission deadline: Sunday Nov 15, 2026; target 7 PM US Eastern.
 
 ## The data (already built and checked; do not edit by hand)
-- `data/records.json` is the master dataset: 30 investigation cards, 895 tests, 69 sources. Every value carries `evidence` items {source, quote, page or line, check}. Of its 2,971 quotes, 2,906 were machine-checked word for word against the source files and 36 were confirmed against two fetched Saffire papers; the other 29 are DOIs and table cross-checks. Top-level keys: meta, sources, habitats, gaps, limits, coverage, smoke_particles, smoke_tests, jet_flame_runs, investigations, tests.
+- `data/records.json` is the master dataset: 30 investigation cards, 895 tests, 69 sources. Every value carries `evidence` items {source, quote, page or line, check}. Of its 3,141 quotes, 3,076 were machine-checked word for word against the source files; 38 from three online papers were read through an AI web-reading tool and are not machine-checked (5 distinct quotes were confirmed by hand); the other 27 are DOIs and one note. Top-level keys: meta, sources, habitats, gaps, limits, coverage, smoke_particles, smoke_tests, jet_flame_runs, investigations, tests.
 - `data/tests.csv` has one row per test: o2_pct, pressure_kpa, pressure_psi, flow_cm_s, flow_direction, moon_base_zone (inside / edge / outside / unknown), outcome, test_end, burn_time_s, source, source_url.
 - `data/cards_digest.json` is a compact version of the 30 cards (about 100 KB), for the site and the API. Each card has key fields, findings with up to 4 evidence quotes, caveats, and test counts by zone.
-- `data/spot_check.csv` lists 30 values a human is checking against the original files; `data/key_corrections_check.csv` lists every kind of answer-key correction for the same hand check.
+- `data/spot_check.csv` records the hand check of 30 values (all 30 quotes found, 29 values matched; the fixes are listed in records.json under meta.hand_check). `data/key_corrections_check.csv` lists every kind of answer-key correction for the same hand check.
 - `data/answer_key.json` is the answer key for the accuracy test (881 tests from the PSI tables in `data/raw/`), version 2, frozen. `data/answer_key_v1.json` is the original. Never edit either.
 - `data/raw/` holds the original NASA PSI experiment tables (CSV). `PSI-69_Experimental_table_FLEX.csv` is Windows-1252 encoded.
 
@@ -24,9 +24,9 @@ Rules:
 4. Never commit API keys. The key lives only in Vercel environment variables.
 
 ## What the data says (so outputs stay consistent)
-- BASS-II (PSI-25, 13.6-22.2% oxygen, about 1 atm): 17 tests record flames going out as the airflow was turned down; 7 blew out when it was turned up. The summary report adds that the slower the airflow, the more oxygen a flame needs, and that flames have spread with no airflow at all at higher oxygen levels.
-- ACME BRE (PSI-20, no airflow at all): in normal air (21% oxygen, 14.7 psia) every flame went out by itself within 40 s; at 26.5% oxygen and above, flames kept burning steadily, including at 34% oxygen and 8.2 psia (test 19070D1, inside the Moon Base zone). Results are labelled preliminary, and BRE imitates solids with a gas burner.
-- Together: "fans off" works up to about station-air oxygen and stops working somewhere around 26.5% oxygen in still air, so for Moon Base air the answer is "probably not".
+- BASS-II (PSI-25, 13.6-22.2% oxygen, about 1 atm): 17 tests record flames going out as the airflow was turned down; 7 blew out when it was turned up. From its own rod tests, the summary report finds that at low airflow, the slower the airflow, the more oxygen a flame needs; it also cites an earlier space experiment (its Ref. 11) in which flames spread with no airflow at all at higher oxygen levels.
+- ACME BRE (PSI-20, no airflow at all): in normal air (21% oxygen) every flame went out by itself within 40 s; at 26.5% oxygen and above, flames generally kept burning steadily, including at 34% oxygen and 8.2 psia (test 19070D1, inside the Moon Base zone), but one 27% test (19056F1) went out by itself at 45 s. Results are labelled preliminary, and BRE imitates solids with a gas burner.
+- Together: "fans off" works up to about station-air oxygen and stops working reliably somewhere around 26.5% oxygen in still air, so for Moon Base air the answer is "probably not".
 - Detection: SAME's model of smoke in the ISS US Lab found smoke spreads by ventilation mixing and detection can be slow; it never tested fans off. DAFT found ISS air very clean, but Velcro made particle counts jump.
 - The cards' caveats include many data problems found in the PSI files (spreadsheet auto-fill errors, wrong dates, duplicate rows, mislabelled units). These are a feature of the site ("what we found in NASA's data").
 
