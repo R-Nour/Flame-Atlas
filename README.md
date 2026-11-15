@@ -8,12 +8,50 @@ Built for the NASA Space Apps Challenge 2026, "Flame in Freefall".
 - `data/records.json`: 30 investigations, 895 tests and 69 sources (NASA PSI datasets, reports and papers, with DOIs and links).
 - `data/tests.csv`: one row per test, with oxygen, pressure, airflow, Moon Base zone and outcome.
 - `data/cards_digest.json`: a compact summary of each investigation.
+- `data/rankings.json`: the investigations ranked by how directly they inform the headline question, each with a reason and the evidence it relies on.
+- `data/cached_answers.json`: saved answers to the five demo questions, checked by hand, used when the live Ask box can't answer.
 - `data/raw/`: the original NASA PSI experiment tables.
 
 ## How the data was built and checked
 Values were extracted with Claude from NASA PSI experiment tables, metadata and reports. Every value is tied to a verbatim quote with its page or line: 3,141 quotes in all. 3,101 were machine-checked word for word against the source files, and 13 more write out values from two Saffire papers' tables, which were checked cell by cell against the tables' columns. The other 27 are DOIs from the challenge's resource list (26) and one note of a message on the PSI site. Three online papers (ICES 2019, 2021 and 2024) were first read through an AI web-reading tool; once the files were attached, all of their quotes were checked the same way, and all matched. Problems found in the source files are recorded as caveats rather than silently fixed.
 
 **Hand check.** A person checked 30 values against the original files (`data/spot_check.csv`): 20 random fire tests drawn from `tests.csv` and 10 headline claims. All 30 quotes were found, and 29 of the 30 values matched. The one mismatch, CFI airflow recorded as 0 cm/s when the CFI report never states an airflow, is fixed: it is now "not stated", with still air given as our inference. The check also found seven places where our wording went further than the source, all now reworded; for example, BRE flames "generally" kept burning at 26.5% oxygen and above, and one 27% test went out by itself. It also found one new data problem: the FLEX report's Tables VIII and IX disagree on CO2, N2 and droplet size for tests 162-165. Every fix is listed in `data/records.json` under `meta.hand_check`. The smoke tables (PSI-101 and PSI-102) were machine-checked only. The answer-key corrections are listed for the same kind of hand check in `data/key_corrections_check.csv`.
+
+## Run and deploy
+The site is built by hand in Framer. This repo supplies the data, the Ask API and two Framer code components.
+
+```
+api/ask.js              Ask API (Vercel serverless function)
+framer/AskBox.tsx       Ask box component
+framer/MoonBaseMap.tsx  scatter of tests by pressure and oxygen
+vercel.json, package.json, .env.example
+```
+
+### The Ask API
+`POST /api/ask` with `{"question": "..."}` (300 characters at most) returns `{answer, cited_cards}`. It sends `data/cards_digest.json` to `claude-sonnet-5-5` as a cached system block and answers only from it, citing card, source and page or line. If the key is missing or the call fails, it returns the matching entry from `data/cached_answers.json`, or a friendly error. It allows 10 requests per IP per minute (counted per server instance, so a brake on casual abuse, not a guarantee), and only answers browsers from the origins in `ALLOWED_ORIGIN`.
+
+**Run it on your computer** (Node 18 or newer):
+```
+npm install
+export ANTHROPIC_API_KEY=your-key      # never put the key in a file in the repo
+npx vercel dev
+curl -X POST http://localhost:3000/api/ask -H "Content-Type: application/json" \
+  -d '{"question": "Does turning off the fans put out a fire in Moon Base air?"}'
+```
+Without a key the same call returns the saved answer for that question.
+
+**Deploy it on Vercel:**
+1. Push this repo to GitHub, then in Vercel choose Add New, Project and import it. Leave the framework as Other.
+2. Under Environment Variables add `ANTHROPIC_API_KEY` (your Anthropic key) and `ALLOWED_ORIGIN` (your Framer site's address, e.g. `https://your-site.framer.website`; separate several with commas, and include the custom domain once you have one).
+3. Deploy. Every push to `main` redeploys. The API is then at `https://YOUR-PROJECT.vercel.app/api/ask`.
+4. In the Anthropic Console, set a monthly spend limit for the key.
+
+### The Framer components
+In Framer, add a code component (Assets, Code, New), paste in a file from `framer/`, and drop it on the page.
+- `AskBox.tsx`: set **API URL** to your Vercel address. Each visitor gets 10 questions a day, counted in their browser (`localStorage`, with a fallback if storage is blocked). After 10, or if the API fails, it shows the saved answers instead. A visitor can reset the count by clearing site data, so the spend limit is the real cap.
+- `MoonBaseMap.tsx`: needs no setup. It plots every test with both oxygen and pressure (881 of 895) on a log pressure axis, shades the Moon Base zone and edge band, and shows test id, outcome and source on hover or tap. The axis ranges are properties.
+
+Both load their data from jsDelivr (`https://cdn.jsdelivr.net/gh/R-Nour/Flame-Atlas@main/data/...`), which caches files for up to about a day. After changing a data file, refresh it by opening `https://purge.jsdelivr.net/gh/R-Nour/Flame-Atlas@main/data/tests.csv` (and the same for `cached_answers.json`).
 
 ## Accuracy test
 Can an AI read NASA's raw experiment tables reliably? `tools/extract.py` has Claude Haiku 5.5 (`claude-haiku-5-5`) read 8 PSI tables in `data/raw/` on its own (881 tests). `tools/check.py` scores five values per test against a verified answer key (`data/answer_key.json`): oxygen, pressure (converted to psi), airflow, burn time and how the test ended. A number counts as correct within 0.05 (percentage points of oxygen, cm/s, or seconds) or within 1% for pressure.
