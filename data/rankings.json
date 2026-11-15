@@ -37,12 +37,18 @@
    "rank": 2,
    "id": "saffire-v",
    "name": "Saffire-V",
-   "reason": "Fan-off tests with real materials at raised oxygen and lowered pressure (25-26%, about 10.3-10.5 psi): two PMMA samples went out immediately, but a cotton flame survived 70 s with the fan off and grew back when the airflow returned.",
+   "reason": "Fan-off tests with real materials at raised oxygen and lowered pressure (25-26%, about 10.3-10.5 psi): two PMMA samples went out immediately, but only after 300 s at a reduced 5 cm/s airflow to cool them; a cotton flame survived 70 s with the fan off and grew back when the airflow returned.",
    "evidence": [
     {
      "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
      "where": "page 5",
      "quote": "when the fan was turned off in Saffire V-3 and V-4, the sample extinguished immediately",
+     "from": "data/records.json, test V-3"
+    },
+    {
+     "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
+     "where": "page 5",
+     "quote": "the air flow for Saffire V samples 3 and 4 was reduced from the starting condition of 20 cm/s to 5 cm/s and held at 5 cm/s for 300 seconds.",
      "from": "data/records.json, test V-3"
     },
     {
@@ -54,7 +60,7 @@
     {
      "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
      "where": "page 4",
-     "quote": "the flame grew back when the flow was turned on again",
+     "quote": "the flame grew back when the flow was turned on again and continued to burn for another 150 seconds until the material was consumed",
      "from": "data/records.json, test V-2"
     }
    ]
