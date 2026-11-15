@@ -398,5 +398,205 @@
    "clean_rows_flagged": "340 of 844",
    "failed_chunks": 0
   }
+ },
+ {
+  "ai": "data/runs/run5.json",
+  "key": "data/answer_key_v1.json",
+  "summary": {
+   "model": "claude-haiku-5-5",
+   "run_at": "2026-11-15T04:37:11",
+   "key_version": 1,
+   "key_frozen": "2026-11-14",
+   "main": {
+    "values_correct": 3020,
+    "values_scored": 3228,
+    "accuracy_pct": 93.6,
+    "note": "ambiguous values left out"
+   },
+   "strict": {
+    "values_correct": 3020,
+    "values_scored": 3228,
+    "accuracy_pct": 93.6,
+    "note": "every value, ambiguous ones scored against the key's first reading"
+   },
+   "ambiguous_values": 0,
+   "tests": 881,
+   "tests_fully_correct": 709,
+   "rows_missing_from_ai_output": 9,
+   "ai_rows_not_in_key": 8,
+   "duplicate_ai_rows": 0,
+   "per_field": {
+    "o2_pct": {
+     "correct": 871,
+     "scored": 881,
+     "pct": 98.9
+    },
+    "pressure_psi": {
+     "correct": 860,
+     "scored": 881,
+     "pct": 97.6
+    },
+    "flow_cm_s": {
+     "correct": 21,
+     "scored": 134,
+     "pct": 15.7
+    },
+    "burn_time_s": {
+     "correct": 412,
+     "scored": 464,
+     "pct": 88.8
+    },
+    "test_end": {
+     "correct": 856,
+     "scored": 868,
+     "pct": 98.6
+    }
+   },
+   "per_investigation": {
+    "FLEX": {
+     "correct": 1095,
+     "scored": 1096,
+     "pct": 99.9
+    },
+    "ACME CFI-G": {
+     "correct": 672,
+     "scored": 716,
+     "pct": 93.9
+    },
+    "ACME Flame Design": {
+     "correct": 610,
+     "scored": 621,
+     "pct": 98.2
+    },
+    "Saffire-I": {
+     "correct": 8,
+     "scored": 8,
+     "pct": 100.0
+    },
+    "CFI": {
+     "correct": 237,
+     "scored": 237,
+     "pct": 100.0
+    },
+    "Saffire-II": {
+     "correct": 0,
+     "scored": 36,
+     "pct": 0.0
+    },
+    "Saffire-III": {
+     "correct": 6,
+     "scored": 6,
+     "pct": 100.0
+    },
+    "BASS-II": {
+     "correct": 392,
+     "scored": 508,
+     "pct": 77.2
+    }
+   },
+   "known_problem_rows_flagged": "31 of 37",
+   "clean_rows_flagged": "395 of 844",
+   "failed_chunks": 1
+  }
+ },
+ {
+  "ai": "data/runs/run5.json",
+  "key": "data/answer_key.json",
+  "summary": {
+   "model": "claude-haiku-5-5",
+   "run_at": "2026-11-15T04:37:11",
+   "key_version": 2,
+   "key_frozen": "Version 1 frozen 2026-11-14 before any run. Version 2 corrected the evening of 2026-11-14, after run 3; see 'corrections'.",
+   "main": {
+    "values_correct": 3058,
+    "values_scored": 3104,
+    "accuracy_pct": 98.5,
+    "note": "ambiguous values left out"
+   },
+   "strict": {
+    "values_correct": 3077,
+    "values_scored": 3228,
+    "accuracy_pct": 95.3,
+    "note": "every value, ambiguous ones scored against the key's first reading"
+   },
+   "ambiguous_values": 124,
+   "tests": 881,
+   "tests_fully_correct": 862,
+   "rows_missing_from_ai_output": 9,
+   "ai_rows_not_in_key": 8,
+   "duplicate_ai_rows": 0,
+   "per_field": {
+    "o2_pct": {
+     "correct": 871,
+     "scored": 881,
+     "pct": 98.9
+    },
+    "pressure_psi": {
+     "correct": 871,
+     "scored": 881,
+     "pct": 98.9
+    },
+    "flow_cm_s": {
+     "correct": 4,
+     "scored": 13,
+     "pct": 30.8
+    },
+    "burn_time_s": {
+     "correct": 454,
+     "scored": 463,
+     "pct": 98.1
+    },
+    "test_end": {
+     "correct": 858,
+     "scored": 866,
+     "pct": 99.1
+    }
+   },
+   "per_investigation": {
+    "FLEX": {
+     "correct": 1095,
+     "scored": 1096,
+     "pct": 99.9
+    },
+    "ACME CFI-G": {
+     "correct": 713,
+     "scored": 713,
+     "pct": 100.0
+    },
+    "ACME Flame Design": {
+     "correct": 621,
+     "scored": 621,
+     "pct": 100.0
+    },
+    "Saffire-I": {
+     "correct": 8,
+     "scored": 8,
+     "pct": 100.0
+    },
+    "CFI": {
+     "correct": 237,
+     "scored": 237,
+     "pct": 100.0
+    },
+    "Saffire-II": {
+     "correct": 0,
+     "scored": 36,
+     "pct": 0.0
+    },
+    "Saffire-III": {
+     "correct": 6,
+     "scored": 6,
+     "pct": 100.0
+    },
+    "BASS-II": {
+     "correct": 378,
+     "scored": 387,
+     "pct": 97.7
+    }
+   },
+   "known_problem_rows_flagged": "31 of 37",
+   "clean_rows_flagged": "395 of 844",
+   "failed_chunks": 1
+  }
  }
 ]

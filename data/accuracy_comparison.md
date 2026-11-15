@@ -8,6 +8,8 @@ Main score leaves out the values the key marks ambiguous; the strict score count
 | run3.json | claude-haiku-5-5 | 2026-11-15T00:11:20 | answer_key.json (v2) | 3045 of 3104 (98.1%) | 3087 of 3228 (95.6%) | 846 of 881 | 2 |
 | run4.json | claude-haiku-5-5 | 2026-11-15T03:40:54 | answer_key_v1.json (v1) | 3065 of 3228 (95.0%) | 3065 of 3228 (95.0%) | 724 of 881 | 0 |
 | run4.json | claude-haiku-5-5 | 2026-11-15T03:40:54 | answer_key.json (v2) | 3096 of 3104 (99.7%) | 3119 of 3228 (96.6%) | 873 of 881 | 0 |
+| run5.json | claude-haiku-5-5 | 2026-11-15T04:37:11 | answer_key_v1.json (v1) | 3020 of 3228 (93.6%) | 3020 of 3228 (93.6%) | 709 of 881 | 9 |
+| run5.json | claude-haiku-5-5 | 2026-11-15T04:37:11 | answer_key.json (v2) | 3058 of 3104 (98.5%) | 3077 of 3228 (95.3%) | 862 of 881 | 9 |
 
 Main score by field:
 
@@ -17,3 +19,5 @@ Main score by field:
 | run3.json | answer_key.json (v2) | 99.1% of 881 | 99.2% of 881 | 100.0% of 13 | 94.0% of 463 | 98.2% of 866 |
 | run4.json | answer_key_v1.json (v1) | 100.0% of 881 | 99.0% of 881 | 25.4% of 134 | 90.7% of 464 | 98.7% of 868 |
 | run4.json | answer_key.json (v2) | 100.0% of 881 | 99.9% of 881 | 100.0% of 13 | 100.0% of 463 | 99.2% of 866 |
+| run5.json | answer_key_v1.json (v1) | 98.9% of 881 | 97.6% of 881 | 15.7% of 134 | 88.8% of 464 | 98.6% of 868 |
+| run5.json | answer_key.json (v2) | 98.9% of 881 | 98.9% of 881 | 30.8% of 13 | 98.1% of 463 | 99.1% of 866 |
