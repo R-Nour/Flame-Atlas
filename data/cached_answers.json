@@ -1,10 +1,10 @@
 {
  "generated": "2026-11-15",
- "source": "live Ask API (claude-sonnet-5-5) after hand-check data update",
+ "source": "live Ask API (claude-sonnet-5-5) after hand-check data update v2",
  "answers": [
   {
    "question": "Does turning off the fans put out a fire in Moon Base air?",
-   "answer": "The digest cannot confirm that it does. In station-like air, fans-off worked: BASS-II (Abstract, ICES 2019 paper) reports flames always quenched when the fan was turned off, but its tests were at 22.2% oxygen or less, so nothing at Moon Base levels. The ACME BRE report (page 40) found no-airflow flames self-extinguished in normal air within 40 s, yet at 26.5% oxygen and above they were quasi-steady, and at 34% oxygen and 8.2 psia (inside our Moon Base zone) generally persisted 3 minutes or more. Caveat: one 27% test went out at 45 s, and BRE burns gas to imitate solids. Saffire-IV/V (Section IV) say extinguishment in quiescent conditions cannot be assumed rapid at increased oxygen.",
+   "answer": "Not reliably, and no study here tests it directly in Moon Base air. BASS-II found flames always quenched when the fan was turned off (ICES-2019-101, page 1), but only up to 22.2% oxygen, below Moon Base levels (BASS-II card caveats). ACME BRE flames burned with no airflow at all: in 21% oxygen they self-extinguished within 40 s, but at 27% oxygen/10.2 psia and 34% oxygen/8.2 psia they generally persisted 3 minutes or more (BRE Final Report, pages 40 and 18). Saffire IV/V found extinguishment in still air 'cannot be assumed to occur rapidly' (ICES-2021-266, page 11). Our note: this suggests fans off alone is not a safe assumption.",
    "cited_cards": [
     {
      "id": "bass-ii",
@@ -26,7 +26,7 @@
   },
   {
    "question": "What tests exist at 30% oxygen or more and low pressure?",
-   "answer": "Few tests reach the Moon Base zone (30%+ oxygen, 10.2 psi or less). ACME CFI-G: 20 gas-flame tests at 33.2-39.3% oxygen and 0.51 bar (about 7.3 psi); 17 ignited, median 62 s burn (digest). ACME BRE: test 19070D1 at 34% oxygen, 8.2 psia burned steadily with no airflow (BRE final report, page 18). Saffire-VI: VI-2 and VI-3, about 29-31% oxygen at roughly 54-55 kPa (Urban et al., ICES-2024-365; no page given). FLEX has 17 tests at 30-34% oxygen and 10.3-10.5 psi, only edge-of-zone, just above the limit (Dietrich et al., NASA/TP-2015-216046). Note: BASS-II and ACME Flame Design tested nothing inside the zone. Oxygen values at 'edge' are not strictly inside.",
+   "answer": "Few tests, mostly gas or droplet flames, not cabin materials. ACME CFI-G (PSI table, tests_by_zone): 20 tests inside the zone, 33.2-39.3% oxygen at 0.51 bar (about 7.3 psi); 17 flames ignited, median 62 s. ACME BRE: test 19070D1, 34% oxygen at 8.2 psia, steady burning with no airflow (BRE Final Report, page 18). Saffire-VI: VI-2 and VI-3, about 29-31% oxygen at about 54-55 kPa (Urban et al., ICES-2024-365). FLEX: 17 edge tests, 30-34% oxygen at 10.3-10.5 psi, just above the 10.2 psi limit. BASS-II tested only up to 22.2% oxygen.",
    "cited_cards": [
     {
      "id": "acme-cfi-g",
@@ -47,42 +47,34 @@
     {
      "id": "bass-ii",
      "name": "BASS-II"
-    },
-    {
-     "id": "acme-flame-design",
-     "name": "ACME Flame Design"
     }
    ]
   },
   {
    "question": "Which materials behaved differently in microgravity than on Earth?",
-   "answer": "Several cards show microgravity differences. BASS-II (Summary Report, page 84): PMMA burned down to about 13.5% oxygen in weak flow, below the 15.4% upward-burning limit on Earth. ACME CLD (overview, page 4): methane and ethylene flames had five to eight times more soot than equivalent Earth flames. SPICE (Dotson thesis, page 1): in microgravity, faster airflow or a smaller burner lengthened smoke-point flames. SAME (final report, page 66): smoke particles were typically 50% larger than on Earth. Saffire-II (PSI-99 table, lines 2-5): silicone did not spread in any microgravity sample. These are gas, fuel and smoke tests mostly at near-normal oxygen, not Moon Base conditions.",
+   "answer": "Silicone: in Saffire-II's microgravity burns it did not spread in any of four samples, though two burned completely in the 1-g comparison (Saffire-II, PSI-99 table, lines 2-5). PMMA: BASS-II found it burns at lower oxygen in microgravity, a flammability boundary bottoming at about 13.5% oxygen versus 15.4% for upward burning on Earth (BASS-II, Summary Report, page 84). Smoke: SAME found low-gravity smoke particles typically 50% larger than on Earth (SAME final report, page 66). Gas flames: ACME CLD found 5-8 times more soot in microgravity (ACME overview, page 4). Caveat: these come from different tests and conditions.",
    "cited_cards": [
+    {
+     "id": "saffire-ii",
+     "name": "Saffire-II"
+    },
     {
      "id": "bass-ii",
      "name": "BASS-II"
-    },
-    {
-     "id": "acme-cld",
-     "name": "ACME CLD Flame"
-    },
-    {
-     "id": "spice",
-     "name": "SPICE"
     },
     {
      "id": "same",
      "name": "SAME"
     },
     {
-     "id": "saffire-ii",
-     "name": "Saffire-II"
+     "id": "acme-cld",
+     "name": "ACME CLD Flame"
     }
    ]
   },
   {
    "question": "Can a flame relight after it seems to go out?",
-   "answer": "Yes, in at least one experiment. The CFI report (Nayagam & Dietrich, Cool Flame Investigation Science Final Report, page 6) saw \"multiple reignition cycles\": the hot flame went out from radiative heat loss, a cool flame followed, then it relit, repeating until the droplet was consumed. The report says this happened at higher pressures (page 8), and CFI notes it was seen above about 2 atm, so it is not Moon Base evidence. The ACME Flame Design final report (page 26) also says a flame may partially extinguish and then reform before complete extinction. CFI data are not fully analyzed (page 7).",
+   "answer": "Yes, in some droplet experiments. The Cool Flames Investigation (CFI) reports that above about 2 atm, flames often relit on their own, \"multiple reignition cycles\" where a hot flame goes out from radiative heat loss, a cool flame follows, and then a hot flame reignites, repeating until the fuel droplet is gone (CFI, Science Final Report, page 6). Warm flames also appeared after radiative extinction, and the flame is not visible in the color camera (page 8). Caveats: the CFI data isn't fully analyzed, and Moon Base pressure (about 0.7 atm) is far lower, so this is not Moon Base evidence. ACME Flame Design (final report, page 26) also notes a flame may partially extinguish and then reform before complete extinction.",
    "cited_cards": [
     {
      "id": "cfi",
@@ -96,11 +88,15 @@
   },
   {
    "question": "How long does smoke take to reach a detector on the ISS?",
-   "answer": "The digest gives no specific time. The closest evidence is a SAME computer model of the station's US Lab: it found mixing dominates smoke transport, so detection lags are longer than in normal gravity, and detection \"can be quite long and strongly dependent on location and the presence of obstructions\" (SAME final science report, pages 4 and 66). In some low-smoke cases a detector never alarmed in the 300 s simulated (page 65). Our note, not the source's: the model kept the station's normal ventilation on.",
+   "answer": "The digest gives no single detection time. SAME's computer model of the ISS US Lab found that \"detection time lags are longer than in normal gravity\" and \"actual detection times can be quite long and strongly dependent on location and the presence of obstructions\" (Urban et al., SAME final science report, page 4 and page 66). In some low-smoke cases a detector never alarmed in the 300 s simulated, after a 30 s source delay (SAME card; page 65). SAME-R's report (SAMER Final Report, page 5) does not give transport times. The SAME model used normal station ventilation.",
    "cited_cards": [
     {
      "id": "same",
      "name": "SAME"
+    },
+    {
+     "id": "same-r",
+     "name": "SAME-R"
     }
    ]
   }
