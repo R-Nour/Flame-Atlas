@@ -31,7 +31,7 @@ Rules:
 - The cards' caveats include many data problems found in the PSI files (spreadsheet auto-fill errors, wrong dates, duplicate rows, mislabelled units). These are a feature of the site ("what we found in NASA's data").
 
 ## Tasks, in order. Stop after each one and show me the result.
-0. **Accuracy test: done.** Run 4 against key version 2 scored 3,096 of 3,104 unambiguous values (99.7%); the README's accuracy section has every run and every disclosure, and `data/accuracy_comparison.md` has the full table. Raw outputs are in `data/runs/`.
+0. **Accuracy test: done.** Against key version 2, run 4 scored 3,096 of 3,104 unambiguous values (99.7%) and run 5, an identical repeat that lost one 9-row chunk, scored 3,058 of 3,104 (98.5%); the README's accuracy section has every run and every disclosure, and `data/accuracy_comparison.md` has the full table. Raw outputs are in `data/runs/`.
    - The API key comes from a Codespaces secret named `ANTHROPIC_API_KEY` (GitHub → Settings → Secrets and variables → Codespaces). Never write it into a file.
    - Don't change either answer key, `tools/check.py`, `tools/extract.py` or the prompt, and don't start a new run unless I ask. Every run gets reported, so if I do ask for one, keep its output in `data/runs/` and add it to the README table.
 1. **Ask API.** Create a Vercel serverless function `api/ask.js` (Node 18+, `@anthropic-ai/sdk`). POST `{question}` (max 300 characters) returns `{answer, cited_cards}`.
