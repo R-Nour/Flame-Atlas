@@ -9,7 +9,7 @@
 // - After the daily limit it says so and offers the prepared answers instead.
 //
 // Paste this file into a Framer code component, then set "API URL" in the properties panel
-// to https://YOUR-PROJECT.vercel.app/api/ask
+// to https://flame-atlas.vercel.app/api/ask
 
 import * as React from "react"
 import { addPropertyControls, ControlType } from "framer"
@@ -292,7 +292,7 @@ export default function AskBox(props: Props) {
 }
 
 AskBox.defaultProps = {
-    apiUrl: "https://YOUR-PROJECT.vercel.app/api/ask",
+    apiUrl: "https://flame-atlas.vercel.app/api/ask",
     cachedUrl: CACHED_URL,
     dailyLimit: 10,
     accentColor: "#c2410c",
