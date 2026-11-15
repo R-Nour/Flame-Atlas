@@ -1441,34 +1441,34 @@
    },
    "findings": {
     "outcome": {
-     "text": "Turning the fan off did not reliably put the fire out; it depended on the material",
+     "text": "Turning the fan off did not reliably put the fire out; it depended on the material and on how the airflow was cut. In near-normal air (22% oxygen, 14.5 psi), a thick PMMA sample kept burning through a 15 s fan-off, kept alive by bubbling jets of fuel vapor, and grew substantially when the airflow restarted.",
      "evidence": [
+      {
+       "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
+       "file": "ICES_2021-266_0503-2021_final.pdf",
+       "where": "page 5",
+       "quote": "These jets of fuel emerging from the surface provided sufficient mixing to keep the flame alive over the 15 second interval of no flow.",
+       "kind": "result"
+      },
+      {
+       "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
+       "file": "ICES_2021-266_0503-2021_final.pdf",
+       "where": "page 5",
+       "quote": "the flame recovered and grew substantially when the air flow was restarted",
+       "kind": "result"
+      },
+      {
+       "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
+       "file": "ICES_2021-266_0503-2021_final.pdf",
+       "where": "page 5",
+       "quote": "Instead of abruptly turning off the flow after a 65 s interval of reduced air flow as in Saffire IV-2",
+       "kind": "result"
+      },
       {
        "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
        "file": "ICES_2021-266_0503-2021_final.pdf",
        "where": "page 11",
        "quote": "Extinguishment of thin charring fuels at increased oxygen cannot be assumed to occur rapidly in quiescent conditions.",
-       "kind": "result"
-      },
-      {
-       "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
-       "file": "ICES_2021-266_0503-2021_final.pdf",
-       "where": "page 11",
-       "quote": "Extinguishment of bubbling polymers cannot be assumed to occur rapidly in quiescent conditions",
-       "kind": "result"
-      },
-      {
-       "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
-       "file": "ICES_2021-266_0503-2021_final.pdf",
-       "where": "page 11",
-       "quote": "In some circumstances, reducing air flow to a small value rather than quiescent conditions may be useful to disperse fuel vapor and help cool the material to enable extinction",
-       "kind": "result"
-      },
-      {
-       "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
-       "file": "ICES_2021-266_0503-2021_final.pdf",
-       "where": "page 11",
-       "quote": "Overheated materials in quiescent conditions or in low-flow zones in low gravity can produce stratified fuel mixtures that can result in dramatic deflagrations during ignition.",
        "kind": "result"
       }
      ]
@@ -1505,34 +1505,34 @@
    },
    "findings": {
     "outcome": {
-     "text": "Turning the fan off did not reliably put the fire out; it depended on the material",
+     "text": "Turning the fan off did not reliably put the fire out; it depended on the material and on how the airflow was cut. At 25-26% oxygen and about 10.3-10.5 psi, two PMMA samples went out immediately when the fan was turned off, but only after their airflow had been held at a reduced 5 cm/s for 300 s to cool them. A cotton sample's flame survived 70 s with the fan off and grew back when the airflow returned. The authors conclude that extinction cannot be assumed to happen quickly in still air, and that thin materials, higher oxygen and a heated fuel all support extended burning.",
      "evidence": [
       {
        "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
        "file": "ICES_2021-266_0503-2021_final.pdf",
-       "where": "page 11",
-       "quote": "Extinguishment of thin charring fuels at increased oxygen cannot be assumed to occur rapidly in quiescent conditions.",
+       "where": "page 5",
+       "quote": "when the fan was turned off in Saffire V-3 and V-4, the sample extinguished immediately",
        "kind": "result"
       },
       {
        "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
        "file": "ICES_2021-266_0503-2021_final.pdf",
-       "where": "page 11",
-       "quote": "Extinguishment of bubbling polymers cannot be assumed to occur rapidly in quiescent conditions",
+       "where": "page 5",
+       "quote": "the air flow for Saffire V samples 3 and 4 was reduced from the starting condition of 20 cm/s to 5 cm/s and held at 5 cm/s for 300 seconds.",
        "kind": "result"
       },
       {
        "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
        "file": "ICES_2021-266_0503-2021_final.pdf",
-       "where": "page 11",
-       "quote": "In some circumstances, reducing air flow to a small value rather than quiescent conditions may be useful to disperse fuel vapor and help cool the material to enable extinction",
+       "where": "page 4",
+       "quote": "the fan was turned off and remained off for 70 seconds",
        "kind": "result"
       },
       {
        "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
        "file": "ICES_2021-266_0503-2021_final.pdf",
-       "where": "page 11",
-       "quote": "Overheated materials in quiescent conditions or in low-flow zones in low gravity can produce stratified fuel mixtures that can result in dramatic deflagrations during ignition.",
+       "where": "page 5",
+       "quote": "Thin materials, higher oxygen concentrations and heating of the solid fuel can all support extended burning.",
        "kind": "result"
       }
      ]

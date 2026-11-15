@@ -33,8 +33,8 @@
     "counts": {
       "investigations": 30,
       "tests": 895,
-      "quotes_checked": 2712,
-      "quotes_found": 2712
+      "quotes_checked": 2721,
+      "quotes_found": 2721
     }
   },
   "sources": {
@@ -24078,8 +24078,29 @@
         "note": "not stated in the resource overview"
       },
       "outcome": {
-        "value": "Turning the fan off did not reliably put the fire out; it depended on the material",
+        "value": "Turning the fan off did not reliably put the fire out; it depended on the material and on how the airflow was cut. In near-normal air (22% oxygen, 14.5 psi), a thick PMMA sample kept burning through a 15 s fan-off, kept alive by bubbling jets of fuel vapor, and grew substantially when the airflow restarted.",
         "evidence": [
+          {
+            "source": "ices2021-266",
+            "quote": "These jets of fuel emerging from the surface provided sufficient mixing to keep the flame alive over the 15 second interval of no flow.",
+            "kind": "result",
+            "page": 5,
+            "check": "found word for word in source"
+          },
+          {
+            "source": "ices2021-266",
+            "quote": "the flame recovered and grew substantially when the air flow was restarted",
+            "kind": "result",
+            "page": 5,
+            "check": "found word for word in source"
+          },
+          {
+            "source": "ices2021-266",
+            "quote": "Instead of abruptly turning off the flow after a 65 s interval of reduced air flow as in Saffire IV-2",
+            "kind": "result",
+            "page": 5,
+            "check": "found word for word in source"
+          },
           {
             "source": "ices2021-266",
             "quote": "Extinguishment of thin charring fuels at increased oxygen cannot be assumed to occur rapidly in quiescent conditions.",
@@ -24224,8 +24245,43 @@
         "note": "not stated in the resource overview"
       },
       "outcome": {
-        "value": "Turning the fan off did not reliably put the fire out; it depended on the material",
+        "value": "Turning the fan off did not reliably put the fire out; it depended on the material and on how the airflow was cut. At 25-26% oxygen and about 10.3-10.5 psi, two PMMA samples went out immediately when the fan was turned off, but only after their airflow had been held at a reduced 5 cm/s for 300 s to cool them. A cotton sample's flame survived 70 s with the fan off and grew back when the airflow returned. The authors conclude that extinction cannot be assumed to happen quickly in still air, and that thin materials, higher oxygen and a heated fuel all support extended burning.",
         "evidence": [
+          {
+            "source": "ices2021-266",
+            "quote": "when the fan was turned off in Saffire V-3 and V-4, the sample extinguished immediately",
+            "kind": "result",
+            "page": 5,
+            "check": "found word for word in source"
+          },
+          {
+            "source": "ices2021-266",
+            "quote": "the air flow for Saffire V samples 3 and 4 was reduced from the starting condition of 20 cm/s to 5 cm/s and held at 5 cm/s for 300 seconds.",
+            "kind": "result",
+            "page": 5,
+            "check": "found word for word in source"
+          },
+          {
+            "source": "ices2021-266",
+            "quote": "the fan was turned off and remained off for 70 seconds",
+            "kind": "result",
+            "page": 4,
+            "check": "found word for word in source"
+          },
+          {
+            "source": "ices2021-266",
+            "quote": "Thin materials, higher oxygen concentrations and heating of the solid fuel can all support extended burning.",
+            "kind": "result",
+            "page": 5,
+            "check": "found word for word in source"
+          },
+          {
+            "source": "ices2021-266",
+            "quote": "the flame grew back when the flow was turned on again and continued to burn for another 150 seconds until the material was consumed",
+            "kind": "result",
+            "page": 4,
+            "check": "found word for word in source"
+          },
           {
             "source": "ices2021-266",
             "quote": "Extinguishment of thin charring fuels at increased oxygen cannot be assumed to occur rapidly in quiescent conditions.",
@@ -25471,7 +25527,7 @@
         "pressure_psi": 14.5
       },
       "in_moon_base_zone": false,
-      "outcome": "Stayed lit through 15 s with no airflow",
+      "outcome": "Kept burning through a 15 s fan-off (after 65 s of reduced airflow): bubbling jets of fuel vapor kept the flame alive, and it grew substantially when the airflow restarted",
       "evidence": [
         {
           "source": "ices2021-266",
@@ -25484,6 +25540,20 @@
         {
           "source": "ices2021-266",
           "quote": "These jets of fuel emerging from the surface provided sufficient mixing to keep the flame alive over the 15 second interval of no flow.",
+          "kind": "result",
+          "page": 5,
+          "check": "found word for word in source"
+        },
+        {
+          "source": "ices2021-266",
+          "quote": "Instead of abruptly turning off the flow after a 65 s interval of reduced air flow as in Saffire IV-2",
+          "kind": "result",
+          "page": 5,
+          "check": "found word for word in source"
+        },
+        {
+          "source": "ices2021-266",
+          "quote": "the flame recovered and grew substantially when the air flow was restarted",
           "kind": "result",
           "page": 5,
           "check": "found word for word in source"
@@ -25512,7 +25582,7 @@
         "pressure_psi": 10.25
       },
       "in_moon_base_zone": false,
-      "outcome": "Fan off for 70 s; flame grew back when airflow resumed",
+      "outcome": "Fan off for 70 s: a small flame survived, and the fire grew back when the airflow returned and burned until the cotton was used up",
       "evidence": [
         {
           "source": "ices2021-266",
@@ -25543,6 +25613,20 @@
           "kind": "result",
           "page": 4,
           "check": "found word for word in source"
+        },
+        {
+          "source": "ices2021-266",
+          "quote": "the flame grew back when the flow was turned on again and continued to burn for another 150 seconds until the material was consumed",
+          "kind": "result",
+          "page": 4,
+          "check": "found word for word in source"
+        },
+        {
+          "source": "ices2021-266",
+          "quote": "it is likely that survival of a flamelet led to the reignition",
+          "kind": "result",
+          "page": 5,
+          "check": "found word for word in source"
         }
       ],
       "confidence": null,
@@ -25568,7 +25652,7 @@
         "pressure_psi": 10.34
       },
       "in_moon_base_zone": false,
-      "outcome": "Went out immediately when the fan was turned off",
+      "outcome": "Went out immediately when the fan was turned off, after the airflow had been held at a reduced 5 cm/s for 300 s to cool the sample",
       "evidence": [
         {
           "source": "ices2021-266",
@@ -25581,6 +25665,13 @@
         {
           "source": "ices2021-266",
           "quote": "when the fan was turned off in Saffire V-3 and V-4, the sample extinguished immediately",
+          "kind": "result",
+          "page": 5,
+          "check": "found word for word in source"
+        },
+        {
+          "source": "ices2021-266",
+          "quote": "the air flow for Saffire V samples 3 and 4 was reduced from the starting condition of 20 cm/s to 5 cm/s and held at 5 cm/s for 300 seconds.",
           "kind": "result",
           "page": 5,
           "check": "found word for word in source"
@@ -25609,7 +25700,7 @@
         "pressure_psi": 10.53
       },
       "in_moon_base_zone": false,
-      "outcome": "Went out immediately when the fan was turned off",
+      "outcome": "Went out immediately when the fan was turned off, after the airflow had been held at a reduced 5 cm/s for 300 s to cool the sample",
       "evidence": [
         {
           "source": "ices2021-266",
@@ -25622,6 +25713,13 @@
         {
           "source": "ices2021-266",
           "quote": "when the fan was turned off in Saffire V-3 and V-4, the sample extinguished immediately",
+          "kind": "result",
+          "page": 5,
+          "check": "found word for word in source"
+        },
+        {
+          "source": "ices2021-266",
+          "quote": "the air flow for Saffire V samples 3 and 4 was reduced from the starting condition of 20 cm/s to 5 cm/s and held at 5 cm/s for 300 seconds.",
           "kind": "result",
           "page": 5,
           "check": "found word for word in source"
