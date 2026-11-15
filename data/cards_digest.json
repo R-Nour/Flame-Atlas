@@ -74,15 +74,15 @@
       },
       {
        "source": "Olson S, Ferkul P, Fernandez-Pello C, Miller F, Wichman I, Bhattacharjee S, T'ien J. Flammability Limits from BASS-II Testing in Microgravity Compared to Normal Gravity Limits. 49th ICES, 2019.",
-       "file": "",
-       "where": "Abstract",
+       "file": "ICES-2019-101.pdf",
+       "where": "page 1",
        "quote": "At the other extreme, the flames always quenched when the fan was turned off.",
        "kind": "result"
       },
       {
        "source": "Olson S, Ferkul P, Fernandez-Pello C, Miller F, Wichman I, Bhattacharjee S, T'ien J. Flammability Limits from BASS-II Testing in Microgravity Compared to Normal Gravity Limits. 49th ICES, 2019.",
-       "file": "",
-       "where": "Abstract",
+       "file": "ICES-2019-101.pdf",
+       "where": "page 1",
        "quote": "Flame extinctions occurred under conditions indicating that materials can burn at a lower oxygen concentration in microgravity compared to normal gravity.",
        "kind": "result"
       }
@@ -1445,29 +1445,29 @@
      "evidence": [
       {
        "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
-       "file": "",
-       "where": "Section IV, Summary of Results",
+       "file": "ICES_2021-266_0503-2021_final.pdf",
+       "where": "page 11",
        "quote": "Extinguishment of thin charring fuels at increased oxygen cannot be assumed to occur rapidly in quiescent conditions.",
        "kind": "result"
       },
       {
        "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
-       "file": "",
-       "where": "Section IV, Summary of Results",
+       "file": "ICES_2021-266_0503-2021_final.pdf",
+       "where": "page 11",
        "quote": "Extinguishment of bubbling polymers cannot be assumed to occur rapidly in quiescent conditions",
        "kind": "result"
       },
       {
        "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
-       "file": "",
-       "where": "Section IV, Summary of Results",
+       "file": "ICES_2021-266_0503-2021_final.pdf",
+       "where": "page 11",
        "quote": "In some circumstances, reducing air flow to a small value rather than quiescent conditions may be useful to disperse fuel vapor and help cool the material to enable extinction",
        "kind": "result"
       },
       {
        "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
-       "file": "",
-       "where": "Section IV, Summary of Results",
+       "file": "ICES_2021-266_0503-2021_final.pdf",
+       "where": "page 11",
        "quote": "Overheated materials in quiescent conditions or in low-flow zones in low gravity can produce stratified fuel mixtures that can result in dramatic deflagrations during ignition.",
        "kind": "result"
       }
@@ -1509,29 +1509,29 @@
      "evidence": [
       {
        "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
-       "file": "",
-       "where": "Section IV, Summary of Results",
+       "file": "ICES_2021-266_0503-2021_final.pdf",
+       "where": "page 11",
        "quote": "Extinguishment of thin charring fuels at increased oxygen cannot be assumed to occur rapidly in quiescent conditions.",
        "kind": "result"
       },
       {
        "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
-       "file": "",
-       "where": "Section IV, Summary of Results",
+       "file": "ICES_2021-266_0503-2021_final.pdf",
+       "where": "page 11",
        "quote": "Extinguishment of bubbling polymers cannot be assumed to occur rapidly in quiescent conditions",
        "kind": "result"
       },
       {
        "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
-       "file": "",
-       "where": "Section IV, Summary of Results",
+       "file": "ICES_2021-266_0503-2021_final.pdf",
+       "where": "page 11",
        "quote": "In some circumstances, reducing air flow to a small value rather than quiescent conditions may be useful to disperse fuel vapor and help cool the material to enable extinction",
        "kind": "result"
       },
       {
        "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
-       "file": "",
-       "where": "Section IV, Summary of Results",
+       "file": "ICES_2021-266_0503-2021_final.pdf",
+       "where": "page 11",
        "quote": "Overheated materials in quiescent conditions or in low-flow zones in low gravity can produce stratified fuel mixtures that can result in dramatic deflagrations during ignition.",
        "kind": "result"
       }
@@ -1573,22 +1573,22 @@
      "evidence": [
       {
        "source": "Urban DL et al. Preliminary Results from the Saffire VI Experiment. ICES-2024-365.",
-       "file": "",
-       "where": "",
+       "file": "Saffire-ICES-2024-ICES-365-accepted_final.pdf",
+       "where": "page 6",
        "quote": "the heat from the fire is not the principal hazard and rather the smoke and gaseous products are a much greater concern.",
        "kind": "result"
       },
       {
        "source": "Urban DL et al. Preliminary Results from the Saffire VI Experiment. ICES-2024-365.",
-       "file": "",
-       "where": "",
+       "file": "Saffire-ICES-2024-ICES-365-accepted_final.pdf",
+       "where": "page 5",
        "quote": "As can be seen in Table 2, the allowable CO2 level was exceeded by both of the PMMA tests on Saffire VI.",
        "kind": "result"
       },
       {
        "source": "Urban DL et al. Preliminary Results from the Saffire VI Experiment. ICES-2024-365.",
-       "file": "",
-       "where": "",
+       "file": "Saffire-ICES-2024-ICES-365-accepted_final.pdf",
+       "where": "page 5",
        "quote": "Selecting 1 mg/m3 as a relatively tight alarm threshold, the FFD detector reached that threshold at 981 seconds.",
        "kind": "result"
       }

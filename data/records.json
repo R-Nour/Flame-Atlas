@@ -3,7 +3,7 @@
     "title": "Flame Atlas records (first pass)",
     "generated": "2026-11-15",
     "schema_version": "0.1",
-    "how_made": "Drafted with Claude from the challenge resources and NASA papers. Quotes from local files are machine-checked word for word with page or line numbers. Quotes from three online papers (ICES 2019, 2021, 2024) were read through an AI web-reading tool and are not machine-checked; five of them were confirmed by hand in the spot check. 'confidence' is left empty for you to fill after your own check.",
+    "how_made": "Drafted with Claude from the challenge resources and NASA papers. Every quote is machine-checked word for word against its source file, with page or line numbers; values written out from the Saffire papers' Table 1 are checked cell by cell against the table's columns. The three ICES papers were first read through an AI web-reading tool and were checked against the attached files on 2026-11-15. 'confidence' is left empty for you to fill after your own check.",
     "hand_check": {
       "date": "2026-11-15",
       "file": "data/spot_check.csv",
@@ -96,17 +96,20 @@
     "ices2021-266": {
       "title": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
       "type": "conference paper (NASA NTRS)",
-      "url": "https://ntrs.nasa.gov/api/citations/20210011521/downloads/ICES%202021-266%200503-2021%20final.pdf"
+      "url": "https://ntrs.nasa.gov/api/citations/20210011521/downloads/ICES%202021-266%200503-2021%20final.pdf",
+      "file": "ICES_2021-266_0503-2021_final.pdf"
     },
     "ices2024-365": {
       "title": "Urban DL et al. Preliminary Results from the Saffire VI Experiment. ICES-2024-365.",
       "type": "conference paper (NASA NTRS)",
-      "url": "https://ntrs.nasa.gov/api/citations/20240002981/downloads/Saffire-ICES-2024-ICES-365-accepted%20final.pdf"
+      "url": "https://ntrs.nasa.gov/api/citations/20240002981/downloads/Saffire-ICES-2024-ICES-365-accepted%20final.pdf",
+      "file": "Saffire-ICES-2024-ICES-365-accepted_final.pdf"
     },
     "ices2019-bass2": {
       "title": "Olson S, Ferkul P, Fernandez-Pello C, Miller F, Wichman I, Bhattacharjee S, T'ien J. Flammability Limits from BASS-II Testing in Microgravity Compared to Normal Gravity Limits. 49th ICES, 2019.",
       "type": "conference paper (abstract, Texas Tech repository)",
-      "url": "https://ttu-ir.tdl.org/items/1922ad9f-ef4c-4f52-96a4-980c23debe5e"
+      "url": "https://ttu-ir.tdl.org/items/1922ad9f-ef4c-4f52-96a4-980c23debe5e",
+      "file": "ICES-2019-101.pdf"
     },
     "asgsr2014-bass2": {
       "title": "Ferkul PV, Bhattacharjee S, Fernandez-Pello C, Miller F, Olson SL, Takahashi F, T'ien JS. Combustion of Solids in Microgravity: Results from the BASS-II Experiment. ASGSR poster, 2014.",
@@ -500,8 +503,8 @@
           "source": "ices2024-365",
           "quote": "Further work will be needed to extend these results to the partial gravity environment",
           "kind": "result",
-          "where": null,
-          "check": "read through an AI web-reading tool, not checked word for word against the paper"
+          "page": 6,
+          "check": "found word for word in source"
         }
       ]
     },
@@ -17343,22 +17346,22 @@
             "source": "ices2019-bass2",
             "quote": "At the other extreme, the flames always quenched when the fan was turned off.",
             "kind": "result",
-            "where": "Abstract",
-            "check": "read through an AI web-reading tool, not checked word for word against the paper"
+            "page": 1,
+            "check": "found word for word in source"
           },
           {
             "source": "ices2019-bass2",
             "quote": "Flame extinctions occurred under conditions indicating that materials can burn at a lower oxygen concentration in microgravity compared to normal gravity.",
             "kind": "result",
-            "where": "Abstract",
-            "check": "read through an AI web-reading tool, not checked word for word against the paper"
+            "page": 1,
+            "check": "found word for word in source"
           },
           {
             "source": "ices2019-bass2",
             "quote": "Previous quiescent testing at elevated oxygen concentrations, however, suggests that ventilation may not be necessary for a flame to survive under conditions that may be present in high oxygen low pressure atmospheres in spacecraft or in partial gravity environments, so this mitigation strategy may not be applicable in future exploration missions.",
             "kind": "result",
-            "where": "Abstract",
-            "check": "read through an AI web-reading tool, not checked word for word against the paper"
+            "page": 1,
+            "check": "found word for word in source"
           },
           {
             "source": "asgsr2014-bass2",
@@ -24038,8 +24041,8 @@
             "source": "ices2021-266",
             "quote": "These jets of fuel emerging from the surface provided sufficient mixing to keep the flame alive over the 15 second interval of no flow.",
             "kind": "result",
-            "where": "Section III.A (test IV-2)",
-            "check": "confirmed by hand against the paper (spot check, 2026-11-15)"
+            "page": 5,
+            "check": "found word for word in source"
           }
         ]
       },
@@ -24052,8 +24055,9 @@
             "source": "ices2021-266",
             "quote": "IV-1 | 100.0 kPa | 22.0 mol% O2; IV-2 | 100.0 kPa | 22.0 mol% O2",
             "kind": "table",
+            "page": 3,
             "where": "Table 1",
-            "check": "read through an AI web-reading tool, not checked word for word against the paper; the quote is the table row written out, not prose"
+            "check": "values checked against Table 1, which lists them column by column; the quote writes out those values"
           }
         ]
       },
@@ -24080,29 +24084,29 @@
             "source": "ices2021-266",
             "quote": "Extinguishment of thin charring fuels at increased oxygen cannot be assumed to occur rapidly in quiescent conditions.",
             "kind": "result",
-            "where": "Section IV, Summary of Results",
-            "check": "read through an AI web-reading tool, not checked word for word against the paper"
+            "page": 11,
+            "check": "found word for word in source"
           },
           {
             "source": "ices2021-266",
             "quote": "Extinguishment of bubbling polymers cannot be assumed to occur rapidly in quiescent conditions",
             "kind": "result",
-            "where": "Section IV, Summary of Results",
-            "check": "read through an AI web-reading tool, not checked word for word against the paper"
+            "page": 11,
+            "check": "found word for word in source"
           },
           {
             "source": "ices2021-266",
             "quote": "In some circumstances, reducing air flow to a small value rather than quiescent conditions may be useful to disperse fuel vapor and help cool the material to enable extinction",
             "kind": "result",
-            "where": "Section IV, Summary of Results",
-            "check": "read through an AI web-reading tool, not checked word for word against the paper"
+            "page": 11,
+            "check": "found word for word in source"
           },
           {
             "source": "ices2021-266",
             "quote": "Overheated materials in quiescent conditions or in low-flow zones in low gravity can produce stratified fuel mixtures that can result in dramatic deflagrations during ignition.",
             "kind": "result",
-            "where": "Section IV, Summary of Results",
-            "check": "read through an AI web-reading tool, not checked word for word against the paper"
+            "page": 11,
+            "check": "found word for word in source"
           }
         ]
       },
@@ -24177,8 +24181,8 @@
             "source": "ices2021-266",
             "quote": "the fan was turned off and remained off for 70 seconds",
             "kind": "result",
-            "where": "test V-2",
-            "check": "read through an AI web-reading tool, not checked word for word against the paper"
+            "page": 4,
+            "check": "found word for word in source"
           }
         ]
       },
@@ -24197,8 +24201,9 @@
             "source": "ices2021-266",
             "quote": "V-2 | 70.7 kPa | 26.2 mol% O2; V-3 | 71.3 kPa | 25.4 mol% O2; V-4 | 72.6 kPa | 25.7 mol% O2",
             "kind": "table",
+            "page": 3,
             "where": "Table 1",
-            "check": "read through an AI web-reading tool, not checked word for word against the paper; the quote is the table row written out, not prose"
+            "check": "values checked against Table 1, which lists them column by column; the quote writes out those values"
           }
         ]
       },
@@ -24225,29 +24230,29 @@
             "source": "ices2021-266",
             "quote": "Extinguishment of thin charring fuels at increased oxygen cannot be assumed to occur rapidly in quiescent conditions.",
             "kind": "result",
-            "where": "Section IV, Summary of Results",
-            "check": "read through an AI web-reading tool, not checked word for word against the paper"
+            "page": 11,
+            "check": "found word for word in source"
           },
           {
             "source": "ices2021-266",
             "quote": "Extinguishment of bubbling polymers cannot be assumed to occur rapidly in quiescent conditions",
             "kind": "result",
-            "where": "Section IV, Summary of Results",
-            "check": "read through an AI web-reading tool, not checked word for word against the paper"
+            "page": 11,
+            "check": "found word for word in source"
           },
           {
             "source": "ices2021-266",
             "quote": "In some circumstances, reducing air flow to a small value rather than quiescent conditions may be useful to disperse fuel vapor and help cool the material to enable extinction",
             "kind": "result",
-            "where": "Section IV, Summary of Results",
-            "check": "read through an AI web-reading tool, not checked word for word against the paper"
+            "page": 11,
+            "check": "found word for word in source"
           },
           {
             "source": "ices2021-266",
             "quote": "Overheated materials in quiescent conditions or in low-flow zones in low gravity can produce stratified fuel mixtures that can result in dramatic deflagrations during ignition.",
             "kind": "result",
-            "where": "Section IV, Summary of Results",
-            "check": "read through an AI web-reading tool, not checked word for word against the paper"
+            "page": 11,
+            "check": "found word for word in source"
           }
         ]
       },
@@ -24336,8 +24341,9 @@
             "source": "ices2024-365",
             "quote": "VI-2 SIBAL Cloth / VI-3 Two-Sided PMMA / VI-4 One-Sided PMMA",
             "kind": "table",
+            "page": 3,
             "where": "Table 1",
-            "check": "read through an AI web-reading tool, not checked word for word against the paper"
+            "check": "values checked against Table 1, which lists them column by column; the quote writes out those values"
           }
         ]
       },
@@ -24360,22 +24366,22 @@
             "source": "ices2024-365",
             "quote": "the heat from the fire is not the principal hazard and rather the smoke and gaseous products are a much greater concern.",
             "kind": "result",
-            "where": null,
-            "check": "read through an AI web-reading tool, not checked word for word against the paper"
+            "page": 6,
+            "check": "found word for word in source"
           },
           {
             "source": "ices2024-365",
             "quote": "As can be seen in Table 2, the allowable CO2 level was exceeded by both of the PMMA tests on Saffire VI.",
             "kind": "result",
-            "where": null,
-            "check": "read through an AI web-reading tool, not checked word for word against the paper"
+            "page": 5,
+            "check": "found word for word in source"
           },
           {
             "source": "ices2024-365",
             "quote": "Selecting 1 mg/m3 as a relatively tight alarm threshold, the FFD detector reached that threshold at 981 seconds.",
             "kind": "result",
-            "where": null,
-            "check": "read through an AI web-reading tool, not checked word for word against the paper"
+            "page": 5,
+            "check": "found word for word in source"
           }
         ]
       },
@@ -24391,8 +24397,8 @@
           "source": "ices2024-365",
           "quote": "Further work will be needed to extend these results to the partial gravity environment",
           "kind": "result",
-          "where": null,
-          "check": "read through an AI web-reading tool, not checked word for word against the paper"
+          "page": 6,
+          "check": "found word for word in source"
         }
       ],
       "operated": {
@@ -25429,15 +25435,17 @@
           "source": "ices2021-266",
           "quote": "IV-1 | SIBAL cloth | 100.0 kPa | 22.0 mol% O2 | concurrent | 20 cm/s",
           "kind": "table",
+          "page": 3,
           "where": "Table 1",
-          "check": "read through an AI web-reading tool, not checked word for word against the paper; the quote is the table row written out, not prose"
+          "check": "values checked against Table 1, which lists them column by column; the quote writes out those values"
         },
         {
           "source": "ices2024-365",
           "quote": "IV-1 | 100.0 kPa | 22.0 mol% O2 | 20 cm/s | Concurrent",
           "kind": "table",
+          "page": 3,
           "where": "Table 1",
-          "check": "read through an AI web-reading tool, not checked word for word against the paper; the quote is the table row written out, not prose"
+          "check": "values checked against Table 1, which lists them column by column; the quote writes out those values"
         }
       ],
       "confidence": null,
@@ -25469,15 +25477,16 @@
           "source": "ices2021-266",
           "quote": "IV-2 | 2-sided PMMA | 100.0 kPa | 22.0 mol% O2 | concurrent | 20 cm/s",
           "kind": "table",
+          "page": 3,
           "where": "Table 1",
-          "check": "confirmed by hand against the paper (spot check, 2026-11-15); the quote is the table row written out, not prose"
+          "check": "values checked against Table 1, which lists them column by column; the quote writes out those values"
         },
         {
           "source": "ices2021-266",
           "quote": "These jets of fuel emerging from the surface provided sufficient mixing to keep the flame alive over the 15 second interval of no flow.",
           "kind": "result",
-          "where": "Section III.A",
-          "check": "confirmed by hand against the paper (spot check, 2026-11-15)"
+          "page": 5,
+          "check": "found word for word in source"
         }
       ],
       "confidence": null,
@@ -25509,29 +25518,31 @@
           "source": "ices2021-266",
           "quote": "V-2 | Cotton jersey | 70.7 kPa | 26.2 mol% O2 | concurrent | 20 cm/s",
           "kind": "table",
+          "page": 3,
           "where": "Table 1",
-          "check": "read through an AI web-reading tool, not checked word for word against the paper; the quote is the table row written out, not prose"
+          "check": "values checked against Table 1, which lists them column by column; the quote writes out those values"
         },
         {
           "source": "ices2024-365",
           "quote": "V-2 | 70.7 kPa | 26.2 mol% O2 | 20 cm/s | Concurrent",
           "kind": "table",
+          "page": 3,
           "where": "Table 1",
-          "check": "read through an AI web-reading tool, not checked word for word against the paper; the quote is the table row written out, not prose"
+          "check": "values checked against Table 1, which lists them column by column; the quote writes out those values"
         },
         {
           "source": "ices2021-266",
           "quote": "the fan was turned off and remained off for 70 seconds",
           "kind": "result",
-          "where": null,
-          "check": "read through an AI web-reading tool, not checked word for word against the paper"
+          "page": 4,
+          "check": "found word for word in source"
         },
         {
           "source": "ices2021-266",
           "quote": "the flame grew back when the flow was turned on again",
           "kind": "result",
-          "where": null,
-          "check": "read through an AI web-reading tool, not checked word for word against the paper"
+          "page": 4,
+          "check": "found word for word in source"
         }
       ],
       "confidence": null,
@@ -25563,15 +25574,16 @@
           "source": "ices2021-266",
           "quote": "V-3 | 1-sided PMMA | 71.3 kPa | 25.4 mol% O2 | concurrent | 20 cm/s",
           "kind": "table",
+          "page": 3,
           "where": "Table 1",
-          "check": "read through an AI web-reading tool, not checked word for word against the paper; the quote is the table row written out, not prose"
+          "check": "values checked against Table 1, which lists them column by column; the quote writes out those values"
         },
         {
           "source": "ices2021-266",
           "quote": "when the fan was turned off in Saffire V-3 and V-4, the sample extinguished immediately",
           "kind": "result",
-          "where": null,
-          "check": "confirmed by hand against the paper (spot check, 2026-11-15)"
+          "page": 5,
+          "check": "found word for word in source"
         }
       ],
       "confidence": null,
@@ -25603,15 +25615,16 @@
           "source": "ices2021-266",
           "quote": "V-4 | Structured PMMA | 72.6 kPa | 25.7 mol% O2 | opposed | 20 cm/s",
           "kind": "table",
+          "page": 3,
           "where": "Table 1",
-          "check": "confirmed by hand against the paper (spot check, 2026-11-15); the quote is the table row written out, not prose"
+          "check": "values checked against Table 1, which lists them column by column; the quote writes out those values"
         },
         {
           "source": "ices2021-266",
           "quote": "when the fan was turned off in Saffire V-3 and V-4, the sample extinguished immediately",
           "kind": "result",
-          "where": null,
-          "check": "confirmed by hand against the paper (spot check, 2026-11-15)"
+          "page": 5,
+          "check": "found word for word in source"
         }
       ],
       "confidence": null,
@@ -25643,8 +25656,9 @@
           "source": "ices2024-365",
           "quote": "VI-2 | SIBAL Cloth | 54.1 kPa | 31.0 mol% O2 | concurrent | 20 cm/s",
           "kind": "table",
+          "page": 3,
           "where": "Table 1",
-          "check": "confirmed by hand against the paper (spot check, 2026-11-15); the quote is the table row written out, not prose"
+          "check": "values checked against Table 1, which lists them column by column; the quote writes out those values"
         }
       ],
       "confidence": null,
@@ -25676,15 +25690,16 @@
           "source": "ices2024-365",
           "quote": "VI-3 | Two-Sided PMMA | 54.6 kPa | 30.3 mol% O2 | concurrent | 20 cm/s",
           "kind": "table",
+          "page": 3,
           "where": "Table 1",
-          "check": "read through an AI web-reading tool, not checked word for word against the paper; the quote is the table row written out, not prose"
+          "check": "values checked against Table 1, which lists them column by column; the quote writes out those values"
         },
         {
           "source": "ices2024-365",
           "quote": "As can be seen in Table 2, the allowable CO2 level was exceeded by both of the PMMA tests on Saffire VI.",
           "kind": "result",
-          "where": null,
-          "check": "read through an AI web-reading tool, not checked word for word against the paper"
+          "page": 5,
+          "check": "found word for word in source"
         }
       ],
       "confidence": null,
@@ -25716,15 +25731,16 @@
           "source": "ices2024-365",
           "quote": "VI-4 | One-Sided PMMA | 55.2 kPa | 28.8 mol% O2 | concurrent | 20 cm/s",
           "kind": "table",
+          "page": 3,
           "where": "Table 1",
-          "check": "read through an AI web-reading tool, not checked word for word against the paper; the quote is the table row written out, not prose"
+          "check": "values checked against Table 1, which lists them column by column; the quote writes out those values"
         },
         {
           "source": "ices2024-365",
           "quote": "As can be seen in Table 2, the allowable CO2 level was exceeded by both of the PMMA tests on Saffire VI.",
           "kind": "result",
-          "where": null,
-          "check": "read through an AI web-reading tool, not checked word for word against the paper"
+          "page": 5,
+          "check": "found word for word in source"
         }
       ],
       "confidence": null,
