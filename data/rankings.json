@@ -1,0 +1,551 @@
+{
+ "about": "The 28 in-scope investigations ranked by how directly they inform the headline question: does shutting off the fans still stop a fire in Moon Base air (30%+ oxygen at 10.2 psi or less)? Reasons are ours; evidence is copied word for word from data/cards_digest.json, except Saffire-IV and Saffire-V test results, which come from data/records.json (the digest does not carry them).",
+ "rankings": [
+  {
+   "rank": 1,
+   "id": "acme-bre",
+   "name": "ACME BRE",
+   "reason": "With no airflow, flames in normal air went out within 40 s, but at 26.5% oxygen and above they generally kept burning, including at 34% oxygen and 8.2 psia, inside the Moon Base zone.",
+   "evidence": [
+    {
+     "source": "ACME/BRE Final Report (2022), 1 Feb. 2022 (Advanced Combustion via Microgravity Experiments, Burning Rate Emulator).",
+     "where": "page 40",
+     "quote": "All flames ignited in normal atmosphere self-extinguished within 40 s.",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "source": "ACME/BRE Final Report (2022), 1 Feb. 2022 (Advanced Combustion via Microgravity Experiments, Burning Rate Emulator).",
+     "where": "page 40",
+     "quote": "In contrast, oxygen mole fractions of 0.265 and above resulted in quasi-steady flames.",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "source": "ACME/BRE Final Report (2022), 1 Feb. 2022 (Advanced Combustion via Microgravity Experiments, Burning Rate Emulator).",
+     "where": "page 18",
+     "quote": "At conditions of 27% oxygen, 10.2 psia and 34% oxygen, 8.2 psia, the flames generally persisted for 3 minutes or more.",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "source": "ACME/BRE Final Report (2022), 1 Feb. 2022 (Advanced Combustion via Microgravity Experiments, Burning Rate Emulator).",
+     "where": "page 40",
+     "quote": "Quasi-steady burning corresponding to various condensed-phase materials (such as PMMA and Nylon) was observed in microgravity despite the absence of air flow, where the cessation of ventilation is an established step in putting out spacecraft fires.",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 2,
+   "id": "saffire-v",
+   "name": "Saffire-V",
+   "reason": "Fan-off tests with real materials at raised oxygen and lowered pressure (25-26%, about 10.3-10.5 psi): two PMMA samples went out immediately, but a cotton flame survived 70 s with the fan off and grew back when the airflow returned.",
+   "evidence": [
+    {
+     "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
+     "where": "page 5",
+     "quote": "when the fan was turned off in Saffire V-3 and V-4, the sample extinguished immediately",
+     "from": "data/records.json, test V-3"
+    },
+    {
+     "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
+     "where": "page 4",
+     "quote": "the fan was turned off and remained off for 70 seconds",
+     "from": "data/records.json, test V-2"
+    },
+    {
+     "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
+     "where": "page 4",
+     "quote": "the flame grew back when the flow was turned on again",
+     "from": "data/records.json, test V-2"
+    }
+   ]
+  },
+  {
+   "rank": 3,
+   "id": "bass-ii",
+   "name": "BASS-II",
+   "reason": "The main fan-off evidence: flames always quenched when the fan was turned off, but only up to 22.2% oxygen at about 1 atm, so it does not cover Moon Base air.",
+   "evidence": [
+    {
+     "source": "Olson S, Ferkul P, Fernandez-Pello C, Miller F, Wichman I, Bhattacharjee S, T'ien J. Flammability Limits from BASS-II Testing in Microgravity Compared to Normal Gravity Limits. 49th ICES, 2019.",
+     "where": "page 1",
+     "quote": "At the other extreme, the flames always quenched when the fan was turned off.",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "source": "Olson S, Ferkul P, Fernandez-Pello C, Miller F, Wichman I, Bhattacharjee S, T'ien J. Flammability Limits from BASS-II Testing in Microgravity Compared to Normal Gravity Limits. 49th ICES, 2019.",
+     "where": "page 1",
+     "quote": "Flame extinctions occurred under conditions indicating that materials can burn at a lower oxygen concentration in microgravity compared to normal gravity.",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "source": "NASA PSI-25 (BASS-II) experiment table",
+     "where": "line 15",
+     "quote": "Bhattacharjee,B14,7/2/2014,183,174m,1 cm wide 200 micron thick PMMA,2,pot 0.9   0.5 and down,5  3  2   ext,250,44,15,none,0,none,0.2,none",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 4,
+   "id": "flex",
+   "name": "FLEX",
+   "reason": "17 still-air droplet tests at 30-34% oxygen and 10.3-10.5 psi, just outside the zone: none of the flames went out on their own.",
+   "evidence": [
+    {
+     "source": "Flame Extinguishment Experiment (FLEX) overview (FLEX, FLEX-2, FLEX-2J, FLEX-ICE-GA)",
+     "where": "page 1",
+     "quote": "At high oxygen concentrations, however, the chemical times are small enough (relative to the characteristic flow times) such that the droplets will burn to completion rather than exhibiting flame extinction.",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "source": "Dietrich DL, Ferkul PV, Bryg VM, Nayagam MV, Hicks MC, Williams FA, Dryer FL, Shaw BD, Choi MY, Avedisian CT. Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011. NASA/TP-2015-216046.",
+     "where": "page 17",
+     "quote": "As testing progressed, however, the science team noticed a propensity for the droplets to burn disruptively and not exhibit flame extinction (at a finite-sized droplet diameter).",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "field": "moon_base_coverage",
+     "text": "edge of the zone: 17 tests at 30-34% oxygen and 10.3-10.5 psi (just above the 10.2 psi limit); none strictly inside",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "field": "findings.outcome.text",
+     "text": "Near Moon Base conditions (30-34% oxygen, 10.3-10.5 psi, still air), none of 17 droplet flames went out on their own: 15 broke apart and 2 burned to completion. Methanol kept burning down to about 12-13% oxygen.",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 5,
+   "id": "saffire-iv",
+   "name": "Saffire-IV",
+   "reason": "Near-normal air (22% oxygen): a thick PMMA flame stayed lit through 15 s with no airflow.",
+   "evidence": [
+    {
+     "source": "Urban DL et al. Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires. ICES-2021-266.",
+     "where": "page 5",
+     "quote": "These jets of fuel emerging from the surface provided sufficient mixing to keep the flame alive over the 15 second interval of no flow.",
+     "from": "data/records.json, test IV-2"
+    }
+   ]
+  },
+  {
+   "rank": 6,
+   "id": "acme-cfi-g",
+   "name": "ACME CFI-G",
+   "reason": "20 tests inside the Moon Base zone, but they are gas flames with no stated airflow, so they show flames survive there rather than what fans do.",
+   "evidence": [
+    {
+     "field": "moon_base_coverage",
+     "text": "yes: 20 tests inside the Moon Base zone (33.2-39.3% oxygen at 0.51 bar, about 7.3 psi); gas flames, not cabin materials",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 7,
+   "id": "saffire-vi",
+   "name": "Saffire-VI",
+   "reason": "Two tests inside the Moon Base zone with 20 cm/s airflow; finds smoke and gas, not heat, are the main hazard, but it does not test fans off.",
+   "evidence": [
+    {
+     "source": "Urban DL et al. Preliminary Results from the Saffire VI Experiment. ICES-2024-365.",
+     "where": "page 6",
+     "quote": "the heat from the fire is not the principal hazard and rather the smoke and gaseous products are a much greater concern.",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "source": "Urban DL et al. Preliminary Results from the Saffire VI Experiment. ICES-2024-365.",
+     "where": "page 5",
+     "quote": "As can be seen in Table 2, the allowable CO2 level was exceeded by both of the PMMA tests on Saffire VI.",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "source": "Urban DL et al. Preliminary Results from the Saffire VI Experiment. ICES-2024-365.",
+     "where": "page 5",
+     "quote": "Selecting 1 mg/m3 as a relatively tight alarm threshold, the FFD detector reached that threshold at 981 seconds.",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 8,
+   "id": "same",
+   "name": "SAME",
+   "reason": "Modelled smoke transport in the ISS US Lab with ventilation on: detection can be slow and depends on mixing, so it bears on what happens to detection if fans stop, but fans-off was never tested.",
+   "evidence": [
+    {
+     "source": "Urban DL, Ruff GA, Sheredy W. Smoke Aerosol Measurement Experiment (SAME) final science report, March 2010, with four conference papers attached (Appendices B-E).",
+     "where": "page 4",
+     "quote": "The smoke transport model demonstrated that mixing dominates the smoke transport and that consequently detection time lags are longer than in normal gravity.",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "source": "Urban DL, Ruff GA, Sheredy W. Smoke Aerosol Measurement Experiment (SAME) final science report, March 2010, with four conference papers attached (Appendices B-E).",
+     "where": "page 66",
+     "quote": "Numerical modeling of smoke transport in the US Lab Module of the ISS predicted that actual detection times can be quite long and strongly dependent on location and the presence of obstructions.",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 9,
+   "id": "acme-flame-design",
+   "name": "ACME Flame Design",
+   "reason": "Tests at 30-40% oxygen, but at 13.7-19.3 psi, above the Moon Base pressure limit; shows how flames go out by radiation, not by airflow.",
+   "evidence": [
+    {
+     "source": "Stocker DP, Axelbaum RL, Sunderland PB, Irace PH. ACME/Flame Design Final Report (6 April 2023)",
+     "where": "page 25",
+     "quote": "Despite this broad range of conditions, all flames extinguish at a critical extinction temperature of 1130 K",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "source": "Stocker DP, Axelbaum RL, Sunderland PB, Irace PH. ACME/Flame Design Final Report (6 April 2023)",
+     "where": "page 26",
+     "quote": "Radiative extinction is observed when, at constant reactant flow rate, the flame expands until radiation heat loss approaches the chemical heat release.",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 10,
+   "id": "cfi",
+   "name": "CFI",
+   "reason": "Low-pressure tests (0.5 and 0.75 atm) but at 21% oxygen or less; shows flames can relight after going out, at higher pressures.",
+   "evidence": [
+    {
+     "source": "Nayagam V, Dietrich DL. Cool Flame Investigation (CFI) Science Final Report, 7-23-2020.",
+     "where": "page 8",
+     "quote": "Warm flames were observed typically at higher pressures following radiative extinction and the flame is not visible in the color camera.",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "source": "Nayagam V, Dietrich DL. Cool Flame Investigation (CFI) Science Final Report, 7-23-2020.",
+     "where": "page 8",
+     "quote": "Subsequently, a hot flame is ignited which quickly extinguishes to form a cool flame.",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 11,
+   "id": "flex-2",
+   "name": "FLEX-2",
+   "reason": "Might include 30% oxygen at 0.5 atm, but the table does not say whether any test combined them; droplets burn out or go out in still air.",
+   "evidence": [
+    {
+     "source": "Flame Extinguishment Experiment (FLEX) overview (FLEX, FLEX-2, FLEX-2J, FLEX-ICE-GA)",
+     "where": "page 3-4",
+     "quote": "The ignited droplets either burn to completion or the flame extinguishes at a finite droplet radius in a quiescent ambient.",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 12,
+   "id": "acme-s-flame",
+   "name": "ACME s-Flame",
+   "reason": "Studies radiative and convective extinction limits at up to about 30% oxygen, but at about 1 atm, so outside the zone.",
+   "evidence": [
+    {
+     "source": "Advanced Combustion via Microgravity Experiments (ACME) overview",
+     "where": "page 6",
+     "quote": "One experiment objective is to identify the extinction limits for both radiative and convective extinction",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 13,
+   "id": "bass",
+   "name": "BASS",
+   "reason": "Fan-driven airflow 5-50 cm/s and nitrogen suppressant flow, but the PSI table is a run log with no oxygen, airflow or results.",
+   "evidence": [
+    {
+     "field": "moon_base_coverage",
+     "text": "not stated",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 14,
+   "id": "bass-m",
+   "name": "BASS-M",
+   "reason": "Fan-driven duct tests like BASS, but the digest gives no oxygen, pressure or results.",
+   "evidence": [
+    {
+     "field": "moon_base_coverage",
+     "text": "not stated",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 15,
+   "id": "same-r",
+   "name": "SAME-R",
+   "reason": "Smoke particle sizes by airflow (8 cm/s down to none): smoke made in slow or still air had bigger particles, which matters for detection when fans are off.",
+   "evidence": [
+    {
+     "source": "Urban DL, Ruff GA, Sheredy W, Meyer M, Cleary T, Yang J, Mulholland G, Yuan ZG. Smoke Aerosol Measurement Experiment Re-flight (SAMER) Final Report, June 2, 2014.",
+     "where": "page 5",
+     "quote": "The comparatively much smaller diameters for the Kapton and Teflon will make detection of this smoke challenging for light scattering devices, on the other hand the large sizes seen with the lamp wick and silicone would generate very large signals on a light scattering system.",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "source": "Urban DL, Ruff GA, Sheredy W, Meyer M, Cleary T, Yang J, Mulholland G, Yuan ZG. Smoke Aerosol Measurement Experiment Re-flight (SAMER) Final Report, June 2, 2014.",
+     "where": "page 5",
+     "quote": "These figures show a strong trend of increased particle size at low flow rates.",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 16,
+   "id": "saffire-ii",
+   "name": "Saffire-II",
+   "reason": "Silicone and other materials in fan-driven duct at about 22% oxygen; no fans-off result and pressure not listed.",
+   "evidence": [
+    {
+     "source": "NASA PSI-99 (Saffire-II) experiment table",
+     "where": "line 2",
+     "quote": "2-1,Silicone,0.27 mm,29 cm,5 cm,20 cm/s,~ 21.5,80 W,9.2 s,Insignificant,Concurrent,~ 0,n/a,Complete,Acceleratory,S1C1,S1C2",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "source": "NASA PSI-99 ISA metadata (i_Investigation.txt): Spacecraft Fire Experiment-II",
+     "where": "line 58",
+     "quote": "The objectives of SAFFIRE-II are to determine how rapidly a large scale fire grows in low-gravity and to investigate the low-g flammability limits compared to those obtained in NASA’s normal gravity material flammability screening test.",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 17,
+   "id": "saffire-i",
+   "name": "Saffire-I",
+   "reason": "Large fabric fire at 20 cm/s and about 21.5% oxygen: spreading with the airflow burned 6 times longer (420 s) than against it (70 s).",
+   "evidence": [
+    {
+     "source": "NASA PSI-98 (Saffire-I) experiment table",
+     "where": "line 2",
+     "quote": "S1,SIBAL Fabric,0.37,40.6,94,20,21.5 - 21.7,182,8,420,Concurrent,S1C1,S1C2",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "source": "NASA PSI-98 (Saffire-I) experiment table",
+     "where": "line 3",
+     "quote": "S2,SIBAL Fabric,0.37,40.6,94,20,~ 21.5,182,8,70,Opposed,S2C1,S2C2",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 18,
+   "id": "saffire-iii",
+   "name": "Saffire-III",
+   "reason": "Large-fire test at 30 cm/s; oxygen and pressure are not listed.",
+   "evidence": [
+    {
+     "field": "moon_base_coverage",
+     "text": "unknown: oxygen and pressure not listed",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 19,
+   "id": "daft",
+   "name": "DAFT",
+   "reason": "Measured ISS air particles to check the smoke detector hardware; relevant to detection, not fire out-or-not.",
+   "evidence": [
+    {
+     "source": "Urban D, Ruff G, Sheredy W, Funk G, Funk N, Yuan ZG. Dust Aerosol measurement Feasibility Test (DAFT) final report, 24 June 2008.",
+     "where": "line 28",
+     "quote": "However, these tests did provide the first measurement of the particulate air quality on the ISS.",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "source": "Urban D, Ruff G, Sheredy W, Funk G, Funk N, Yuan ZG. Dust Aerosol measurement Feasibility Test (DAFT) final report, 24 June 2008.",
+     "where": "line 172",
+     "quote": "Overall, the readings from these instruments are almost an order of magnitude below those that would normally be seen in a typical laboratory environment (~ 4,000 - 6,000 pt/cc for P-Trak), but were not totally unexpected, due to the presence of a HEPA filter on the ISS air handling system.",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 20,
+   "id": "garrick-same",
+   "name": "Smoke model from SAME (Garrick & Hicks)",
+   "reason": "Computer model of smoke in microgravity: particles about twice as large as on Earth, which affects detector design.",
+   "evidence": [
+    {
+     "source": "Garrick SC. Utilization of the SAME Data for Advanced Modeling and Simulation of Smoke Generation in Microgravity. NASA Grant NNX17AF08A Final Report, August 15, 2020.",
+     "where": "page 3",
+     "quote": "Without recirculation, the mode particle diameter in microgravity is ∼ 10 µm, or approximately twice that of terrestrial smoke.",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "source": "Garrick SC. Utilization of the SAME Data for Advanced Modeling and Simulation of Smoke Generation in Microgravity. NASA Grant NNX17AF08A Final Report, August 15, 2020.",
+     "where": "page 4",
+     "quote": "systems developed and calibrated for terrestrial use may not perform correctly in microgravity because of inappropriate particle size sensitivities",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 21,
+   "id": "spice",
+   "name": "SPICE",
+   "reason": "Gas-jet flames in cabin air: in microgravity, faster coflow lengthened smoke-point flames, a link between airflow and smoke.",
+   "evidence": [
+    {
+     "source": "Dotson KT. Smoke Points of Microgravity and Normal Gravity Coflow Diffusion Flames. M.S. thesis, University of Maryland, 2009.",
+     "where": "page 1",
+     "quote": "In microgravity conditions increasing the coflow velocity or decreasing the burner diameter increased the smoke point flame length.",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "source": "Dotson KT. Smoke Points of Microgravity and Normal Gravity Coflow Diffusion Flames. M.S. thesis, University of Maryland, 2009.",
+     "where": "page 74",
+     "quote": "The effect of coflow velocity could also be explained by increased O2 transport if soot oxidation downstream of the flame sheet is transport limited.",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 22,
+   "id": "acme-cld",
+   "name": "ACME CLD Flame",
+   "reason": "Gas flames with air coflow; weak diluted flames are more stable in microgravity, oxygen and pressure not listed.",
+   "evidence": [
+    {
+     "source": "Advanced Combustion via Microgravity Experiments (ACME) overview",
+     "where": "page 4",
+     "quote": "The data has shown that for highly diluted weak flames, microgravity flames are more stable than their normal gravity counterparts.",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "source": "NASA PSI-21 ISA metadata (i_Investigation.txt): ACME Coflow Laminar Diffusion Flame",
+     "where": "line 76",
+     "quote": "an understanding of those factors that affect flame extinction in diffusion flames is critical in the suppression of fires and in improving engine efficiency.",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 23,
+   "id": "slice",
+   "name": "SLICE",
+   "reason": "Gas-jet flames in station air: tests how airflow speed changes flame stability and liftoff.",
+   "evidence": [
+    {
+     "source": "NASA PSI-106 ISA metadata (i_Investigation.txt): Structure and Liftoff In Combustion Experiment",
+     "where": "line 48",
+     "quote": "The hypothesis is that the structure and stability of laminar diffusion flames in microgravity are significantly influenced by burner diameter, coflow velocity, and fuel composition and are fundamentally different than flames observed on Earth.",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 24,
+   "id": "desjardin-urban",
+   "name": "BASS flame spread model (DesJardin & Urban)",
+   "reason": "Computer model of flame spread in the BASS tests, including the \"Goldilocks\" airflow zone; a model, not an experiment.",
+   "evidence": [
+    {
+     "source": "NASA PSI-62 ISA metadata (i_Investigation.txt): Concurrent Flame Spread Modeling using Flamelet Generated Manifolds in Microgravity",
+     "where": "line 49",
+     "quote": "including phenomena such as the \"Goldilocks\" flammability zone",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "source": "NASA PSI-62 ISA metadata (i_Investigation.txt): Concurrent Flame Spread Modeling using Flamelet Generated Manifolds in Microgravity",
+     "where": "line 67",
+     "quote": "This research provides predictive tools for screening new materials' flammability limits, which can lead to the design of safer spacecrafts.",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 25,
+   "id": "ju-counterflow",
+   "name": "Cool flame transitions (Ju, Reuter & Dietrich)",
+   "reason": "Ground and simulation study; its pressure work goes up, not down to Moon Base levels.",
+   "evidence": [
+    {
+     "source": "NASA PSI-142 ISA metadata (i_Investigation.txt): Quantitative Studies of Cool Flame Transitions at Radiation / Stretch Extinction Using Counterflow Flames",
+     "where": "line 72",
+     "quote": "The results showed that the warm flame has a double reaction zone structure and plays a critical role in the transition between cool flames and hot flames.",
+     "from": "data/cards_digest.json"
+    },
+    {
+     "source": "NASA PSI-142 ISA metadata (i_Investigation.txt): Quantitative Studies of Cool Flame Transitions at Radiation / Stretch Extinction Using Counterflow Flames",
+     "where": "line 72",
+     "quote": "At elevated pressures, it was found that the flammable region of warm flames and cool flames expands due to the increase in low-temperature and intermediate-temperature reactivity with pressure.",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 26,
+   "id": "farouk-hicks",
+   "name": "Cool flame CFD (Farouk & Hicks)",
+   "reason": "Computer model of when cool flames start, persist or go out; no oxygen or pressure values given.",
+   "evidence": [
+    {
+     "source": "NASA PSI-117 ISA metadata (i_Investigation.txt): Effect of External Thermo-Convective Perturbation on Cool Flame Dynamics",
+     "where": "line 42",
+     "quote": "stability maps that delineated conditions for cool-flame onset, persistence, and quenching",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 27,
+   "id": "smooke-spice",
+   "name": "SPICE analysis (Smooke, Long & Dietrich)",
+   "reason": "Reanalysis of SPICE flames in cabin-like air; the digest gives only an expectation of more soot in microgravity.",
+   "evidence": [
+    {
+     "source": "NASA PSI-60 ISA metadata (i_Investigation.txt): Computational and Experimental Analysis of SPICE Data Sets",
+     "where": "line 48",
+     "quote": "Microgravity conditions would produce longer, more diffuse flames with lower temperatures and increased soot concentrations compared to normal gravity",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  },
+  {
+   "rank": 28,
+   "id": "acme-efield",
+   "name": "ACME E-FIELD Flames",
+   "reason": "Electric-field flames used to mimic partial gravity; oxygen and pressure not listed and nothing on airflow.",
+   "evidence": [
+    {
+     "source": "ACME/E-FIELD Flames 30-Day Operational Accomplishments Report for ISS Increments 55 and 56, 15 Nov. 2018.",
+     "where": "page 8",
+     "quote": "The results also show that the electric body force can produce flame oscillations similar to those driven by buoyancy in normal gravity",
+     "from": "data/cards_digest.json"
+    }
+   ]
+  }
+ ],
+ "not_ranked": [
+  {
+   "id": "riaz-pool-boiling",
+   "name": "Pool boiling (MABE / NPBX)",
+   "status": "not ranked: out of scope",
+   "reason": "Fluid physics, not combustion.",
+   "from": "caveat in data/cards_digest.json: Excluded from ranking: fluid physics, not combustion"
+  },
+  {
+   "id": "elf6-pronto",
+   "name": "ELF-6 PRONTO (oxide liquids)",
+   "status": "not ranked: out of scope",
+   "reason": "Materials science (oxide liquids), not combustion.",
+   "from": "caveat in data/cards_digest.json: Excluded from ranking: materials science, not combustion"
+  }
+ ]
+}
