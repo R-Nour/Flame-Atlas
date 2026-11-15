@@ -8,12 +8,61 @@ Built for the NASA Space Apps Challenge 2026, "Flame in Freefall".
 - `data/records.json`: 30 investigations, 895 tests and 69 sources (NASA PSI datasets, reports and papers, with DOIs and links).
 - `data/tests.csv`: one row per test, with oxygen, pressure, airflow, Moon Base zone and outcome.
 - `data/cards_digest.json`: a compact summary of each investigation.
+- `data/raw/`: the original NASA PSI experiment tables.
 
 ## How the data was built and checked
-Values were extracted with Claude from NASA PSI experiment tables, metadata and reports. Every value is tied to a verbatim quote with a page or line number, and all 2,547 quotes were machine-checked word for word against the source files. A person then spot-checked 30 values against the originals (`data/spot_check.csv`). Problems found in the source files are recorded as caveats rather than silently fixed.
+Values were extracted with Claude from NASA PSI experiment tables, metadata and reports. Every value is tied to a verbatim quote with its page or line: 2,971 quotes in all. 2,906 were machine-checked word for word against the source files, and 36 from two online Saffire papers were confirmed against the fetched papers. The other 29 are DOIs from the challenge's resource list (26), two cross-checks against a paper's table, and one note of a message on the PSI site. Problems found in the source files are recorded as caveats rather than silently fixed.
+
+A person also checks values by hand against the original files: 30 values (20 random tests and 10 headline claims) in `data/spot_check.csv`, and every kind of answer-key correction described below in `data/key_corrections_check.csv`. The results are recorded in those two files.
 
 ## Accuracy test
-`data/answer_key.json` holds verified values for 881 tests from 8 NASA PSI experiment tables (`data/raw/`). `tools/extract.py` has Claude read the raw tables on its own, and `tools/check.py` scores its output against the key: oxygen, pressure (converted to psi), airflow, burn time and how each test ended, plus whether it flags the known problems in the tables. Results: `data/accuracy_report.md`.
+Can an AI read NASA's raw experiment tables reliably? `tools/extract.py` has Claude Haiku 5.5 (`claude-haiku-5-5`) read 8 PSI tables in `data/raw/` on its own (881 tests). `tools/check.py` scores five values per test against a verified answer key (`data/answer_key.json`): oxygen, pressure (converted to psi), airflow, burn time and how the test ended. A number counts as correct within 0.05 (percentage points of oxygen, cm/s, or seconds) or within 1% for pressure.
+
+**Result (run 4, answer key version 2): 3,096 of 3,104 values correct (99.7%); 873 of 881 tests fully correct.**
+
+The 3,104 values are the ones with one clear right answer. Another 124 are marked ambiguous because the source itself doesn't settle them: BASS-II airflow, whose unit the table never states (121 values), and three values in two ACME CFI-G rows that contradict themselves. Counting those against our first reading, the score is 3,119 of 3,228 (96.6%). Against the original, uncorrected key it is 3,065 of 3,228 (95.0%).
+
+Every run is scored against both versions of the key (`data/accuracy_comparison.md`):
+
+| Run | Key | Main score | Strict score (every value) | Tests fully correct | Rows missing |
+| - | - | - | - | - | - |
+| 3 | version 1 | 3,037 / 3,228 (94.1%) | 3,037 / 3,228 (94.1%) | 719 / 881 | 2 |
+| 3 | version 2 | 3,045 / 3,104 (98.1%) | 3,087 / 3,228 (95.6%) | 846 / 881 | 2 |
+| 4 | version 1 | 3,065 / 3,228 (95.0%) | 3,065 / 3,228 (95.0%) | 724 / 881 | 0 |
+| 4 | version 2 | 3,096 / 3,104 (99.7%) | 3,119 / 3,228 (96.6%) | 873 / 881 | 0 |
+
+The full report for the latest run, including every value it missed and how often it flagged the known problems in the tables, is `data/accuracy_report.md`. Raw output for runs 2 to 4 is in `data/runs/`.
+
+### What changed between runs, and why
+- **Runs 1 and 2.** Run 1 scored 2,120 of 3,228 (65.7%) against key version 1, with 298 rows missing from the output (`data/accuracy_report_run1.md`; its raw output was overwritten by the next run and is not kept). Run 2 scored 2,985 of 3,228 (92.5%) against key version 1, as first scored (2,992, 92.7%, with today's checker). The changes between runs 1 and 2 were to how the script ran: the fixed temperature setting (`temperature=0` in the first version) was removed, rows go to the model in chunks of 15 instead of 40, failed calls are retried up to 6 times with waits, replies may be longer (16,000 tokens instead of 8,000), and the script saves after every chunk and can resume. Run 3 added one general prompt line: `line` must be the number in the row's `L<n>` label, never a value from inside the row, and every row needs an object.
+- **Run 3 to run 4: how rows are matched.** In run 3 the model sometimes labelled rows with the table's own test number instead of the line label, which shifted answers onto the wrong rows in one stretch of the FLEX table. In run 4 the model returns exactly one answer per row, in order, each with the first 30 characters of its row and an `is_test` flag (false for header, note or blank rows). The script checks the count and every echo (ignoring case and extra spaces), retries a chunk that doesn't match up to 3 times and otherwise records it as failed, assigns line numbers itself from each row's position, and drops rows flagged `is_test` false. In the run 4 output, 12 chunk replies were retried and none failed. Nothing in this change refers to specific rows.
+- **An intermediate run.** Between runs 3 and 4 there was one run whose echo was only the row's first two cells. It scored 3,070 of 3,228 (95.1%) against key version 1 and 3,094 of 3,104 (99.7%) against version 2 with today's checker, with no rows missing (`data/runs/run3b_two_cell_row_start.json`). We lengthened the echo because in the CFI-G, Flame Design and BASS-II tables neighbouring rows begin with the same two cells. It is not in the table above.
+- **Key version 1 to version 2.** After run 3 we audited every miss against the source table and found errors in the key, listed in `data/answer_key.json` under "corrections":
+  - oxygen for ACME CFI-G and Flame Design is now the table's exact value instead of a rounded one;
+  - Flame Design pressure accepts any of the three values the table lists for a test (initial, final or mean);
+  - CFI-G burn time is the table's own number (0 for no ignition);
+  - four BASS-II test endings were re-read from the notes in the table's fan and airflow columns;
+  - oxygen cells that give a range now expect the midpoint, as the instructions say;
+  - values the source doesn't settle are marked ambiguous and left out of the main score.
+
+  Each reason for marking a value ambiguous was recorded as a caveat in `data/records.json` before any AI run. One correction counted against the AI: in run 3 it had, like key version 1, missed that BASS-II test M17 went out.
+- **Checker fix.** A difference exactly on a tolerance edge (39.05 against 39.1) was being rejected because of floating-point rounding. Fixing it moved run 3 against key version 1 from 3,033 (94.0%, as first reported) to 3,037 (94.1%).
+
+### Limits
+- The key corrections and the run 4 protocol were both developed on these same 8 tables after seeing run 3's errors, and there was no held-out table, so the scores are probably somewhat optimistic. That is why the scores against the original key are reported too.
+- Auditing the AI's misses can't find errors that the key and the AI share. The hand checks above are the independent check on the key; their result columns in `data/spot_check.csv` and `data/key_corrections_check.csv` are still blank.
+- The key is frozen at version 2: nothing was changed after run 4.
+- The test covers the PSI tables only, which are structured data and the easiest case. Values taken from PDF reports were checked by quote matching and by hand, not by this test.
+- The model runs without a fixed temperature, so scores can vary from run to run.
+
+### Running it
+```
+pip install -r requirements.txt
+export ANTHROPIC_API_KEY=...   # or set it as a GitHub Codespaces secret
+python tools/extract.py --chunk 15 --fresh
+python tools/check.py
+python tools/check.py --ai data/runs/run3.json data/runs/run4.json --key data/answer_key_v1.json data/answer_key.json
+```
 
 ## License
 MIT. NASA data is credited to its sources in `data/records.json`.
