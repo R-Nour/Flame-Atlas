@@ -122,6 +122,53 @@ export function parseTests(text: string): { plotted: Test[]; missing: number } {
     return { plotted, missing }
 }
 
+// ---------- style helpers ----------
+
+type RGBA = { r: number; g: number; b: number; a: number }
+
+/** Reads #rgb, #rrggbb, #rrggbbaa, rgb() and rgba(); returns null for anything else (named colours, tokens). */
+function parseColor(c: string): RGBA | null {
+    const s = String(c || "").trim().toLowerCase()
+    if (s === "transparent") return { r: 0, g: 0, b: 0, a: 0 }
+    let m = s.match(/^#([0-9a-f]{3,8})$/)
+    if (m) {
+        let h = m[1]
+        if (h.length === 3 || h.length === 4) h = h.split("").map((x) => x + x).join("")
+        if (h.length !== 6 && h.length !== 8) return null
+        return {
+            r: parseInt(h.slice(0, 2), 16),
+            g: parseInt(h.slice(2, 4), 16),
+            b: parseInt(h.slice(4, 6), 16),
+            a: h.length === 8 ? parseInt(h.slice(6, 8), 16) / 255 : 1,
+        }
+    }
+    m = s.match(/^rgba?\(([^)]+)\)$/)
+    if (m) {
+        const p = m[1].split(/[ ,/]+/).filter(Boolean).map(parseFloat)
+        if (p.length >= 3 && p.every((n) => isFinite(n))) return { r: p[0], g: p[1], b: p[2], a: p.length > 3 ? p[3] : 1 }
+    }
+    return null
+}
+
+const isTransparent = (c: string) => {
+    const p = parseColor(c)
+    return !!p && p.a === 0
+}
+
+/** Text colour that reads on `bg`: the light colour on dark backgrounds, the dark one on light backgrounds. */
+function readableOn(bg: string, light: string, dark: string): string {
+    const p = parseColor(bg)
+    if (!p) return light
+    const lum = (0.299 * p.r + 0.587 * p.g + 0.114 * p.b) / 255
+    return lum < 0.6 ? light : dark
+}
+
+/** Size multiplier when the Font control sets a size; 1 (today's look) otherwise. */
+function fontScale(font: any, base: number): number {
+    const n = font && font.fontSize != null ? parseFloat(String(font.fontSize)) : NaN
+    return isFinite(n) && n > 0 ? n / base : 1
+}
+
 // ---------- filters ----------
 
 type Filters = { investigation: string; zone: string; airflow: string; end: string }
@@ -146,8 +193,19 @@ type Props = {
     xMax: number
     yMin: number
     yMax: number
+    font?: Record<string, any>
     textColor: string
+    mutedColor: string
     backgroundColor: string
+    borderColor: string
+    radius: number
+    gridColor: string
+    zoneFill: string
+    edgeFill: string
+    tooltipBackground: string
+    tooltipText: string
+    filterColor: string
+    selectedFilterColor: string
     style?: React.CSSProperties
 }
 
@@ -156,7 +214,16 @@ const H = 440
 const M = { top: 16, right: 16, bottom: 48, left: 52 }
 
 export default function MoonBaseMap(props: Props) {
-    const { dataUrl, xMin, xMax, yMin, yMax, textColor, backgroundColor, style } = props
+    const {
+        dataUrl, xMin, xMax, yMin, yMax, font, textColor, mutedColor, backgroundColor, borderColor, radius,
+        gridColor, zoneFill, edgeFill, tooltipBackground, tooltipText, filterColor, selectedFilterColor, style,
+    } = props
+    const scale = fontScale(font, 14)
+    const fs = (px: number) => px * scale
+    // Only when a font is chosen do buttons and menus take it; otherwise they keep today's browser font.
+    const ctlFont: React.CSSProperties = font
+        ? { fontFamily: "inherit", fontStyle: "inherit", letterSpacing: "inherit" }
+        : {}
     const [tests, setTests] = React.useState<Test[]>([])
     const [missing, setMissing] = React.useState(0)
     const [status, setStatus] = React.useState<"loading" | "ok" | "error">("loading")
@@ -207,9 +274,10 @@ export default function MoonBaseMap(props: Props) {
     const clampX = (v: number) => Math.min(Math.max(v, x0), xMax)
     const clampY = (v: number) => Math.min(Math.max(v, y0), yMax)
 
-    const filterGroup: React.CSSProperties = { display: "flex", flexDirection: "column", gap: 4, fontSize: 14, fontWeight: 600 }
+    const filterGroup: React.CSSProperties = { display: "flex", flexDirection: "column", gap: 4, fontSize: fs(14), fontWeight: 600 }
     const selectStyle: React.CSSProperties = {
-        fontSize: 14,
+        ...ctlFont,
+        fontSize: fs(14),
         fontWeight: 400,
         padding: "6px 8px",
         borderRadius: 6,
@@ -220,13 +288,14 @@ export default function MoonBaseMap(props: Props) {
     }
     const segRow: React.CSSProperties = { display: "flex", flexWrap: "wrap", gap: 4 }
     const segButton = (on: boolean): React.CSSProperties => ({
-        fontSize: 14,
+        ...ctlFont,
+        fontSize: fs(14),
         fontWeight: 400,
         padding: "6px 10px",
         borderRadius: 6,
         border: `1px solid ${textColor}`,
-        background: on ? textColor : "transparent",
-        color: on ? backgroundColor : textColor,
+        background: on ? selectedFilterColor : filterColor,
+        color: on ? readableOn(selectedFilterColor, "#fafaf9", "#1c1917") : textColor,
         cursor: "pointer",
     })
 
@@ -238,13 +307,15 @@ export default function MoonBaseMap(props: Props) {
                 boxSizing: "border-box",
                 width: "100%",
                 padding: 16,
-                borderRadius: 12,
+                borderRadius: radius,
                 background: backgroundColor,
+                boxShadow: `inset 0 0 0 1px ${borderColor}`,
                 color: textColor,
                 fontFamily: "Inter, system-ui, sans-serif",
-                fontSize: 14,
+                fontSize: fs(14),
                 lineHeight: 1.4,
                 position: "relative",
+                ...font,
                 ...style,
             }}
         >
@@ -255,7 +326,7 @@ export default function MoonBaseMap(props: Props) {
 
             {status === "ok" && (
                 <>
-                    <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-end", gap: "10px 16px", marginBottom: 10, fontSize: 14 }}>
+                    <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-end", gap: "10px 16px", marginBottom: 10, fontSize: fs(14) }}>
                         <label style={filterGroup}>
                             Investigation
                             <select
@@ -331,7 +402,7 @@ export default function MoonBaseMap(props: Props) {
                             Reset
                         </button>
                     </div>
-                    <div role="status" style={{ fontSize: 14, marginBottom: 6 }}>
+                    <div role="status" style={{ fontSize: fs(14), marginBottom: 6 }}>
                         Showing {visible.length} of {tests.length} tests
                     </div>
 
@@ -349,7 +420,7 @@ export default function MoonBaseMap(props: Props) {
                             y={sy(clampY(yMax))}
                             width={sx(clampX(EDGE.psi)) - sx(x0)}
                             height={sy(clampY(EDGE.o2)) - sy(clampY(yMax))}
-                            fill="#E69F00"
+                            fill={edgeFill}
                             opacity={0.18}
                         />
                         <rect
@@ -357,36 +428,36 @@ export default function MoonBaseMap(props: Props) {
                             y={sy(clampY(yMax))}
                             width={sx(clampX(ZONE.psi)) - sx(x0)}
                             height={sy(clampY(ZONE.o2)) - sy(clampY(yMax))}
-                            fill="#D55E00"
+                            fill={zoneFill}
                             opacity={0.22}
                         />
-                        <text x={sx(x0) + 6} y={sy(yMax) + 14} fontSize={12} fill={textColor} fontWeight={600}>
+                        <text x={sx(x0) + 6} y={sy(yMax) + 14} fontSize={fs(12)} fill={textColor} fontWeight={600}>
                             Moon Base zone
                         </text>
 
                         {ticksX.map((v) => (
                             <g key={"x" + v}>
-                                <line x1={sx(v)} x2={sx(v)} y1={M.top} y2={M.top + ph} stroke={textColor} opacity={0.1} />
-                                <text x={sx(v)} y={M.top + ph + 16} fontSize={11} textAnchor="middle" fill={textColor}>
+                                <line x1={sx(v)} x2={sx(v)} y1={M.top} y2={M.top + ph} stroke={gridColor} opacity={0.1} />
+                                <text x={sx(v)} y={M.top + ph + 16} fontSize={fs(11)} textAnchor="middle" fill={textColor}>
                                     {v}
                                 </text>
                             </g>
                         ))}
                         {ticksY.map((v) => (
                             <g key={"y" + v}>
-                                <line x1={M.left} x2={M.left + pw} y1={sy(v)} y2={sy(v)} stroke={textColor} opacity={0.1} />
-                                <text x={M.left - 8} y={sy(v) + 4} fontSize={11} textAnchor="end" fill={textColor}>
+                                <line x1={M.left} x2={M.left + pw} y1={sy(v)} y2={sy(v)} stroke={gridColor} opacity={0.1} />
+                                <text x={M.left - 8} y={sy(v) + 4} fontSize={fs(11)} textAnchor="end" fill={textColor}>
                                     {v}
                                 </text>
                             </g>
                         ))}
-                        <rect x={M.left} y={M.top} width={pw} height={ph} fill="none" stroke={textColor} opacity={0.4} />
-                        <text x={M.left + pw / 2} y={H - 8} fontSize={12} textAnchor="middle" fill={textColor}>
+                        <rect x={M.left} y={M.top} width={pw} height={ph} fill="none" stroke={gridColor} opacity={0.4} />
+                        <text x={M.left + pw / 2} y={H - 8} fontSize={fs(12)} textAnchor="middle" fill={textColor}>
                             Pressure (psi, log scale)
                         </text>
                         <text
                             transform={`translate(14 ${M.top + ph / 2}) rotate(-90)`}
-                            fontSize={12}
+                            fontSize={fs(12)}
                             textAnchor="middle"
                             fill={textColor}
                         >
@@ -424,9 +495,9 @@ export default function MoonBaseMap(props: Props) {
                                 maxWidth: "min(300px, 70%)",
                                 padding: "8px 10px",
                                 borderRadius: 8,
-                                background: textColor,
-                                color: backgroundColor,
-                                fontSize: 13,
+                                background: tooltipBackground,
+                                color: tooltipText,
+                                fontSize: fs(13),
                                 pointerEvents: "none",
                                 boxShadow: "0 2px 8px rgba(0,0,0,0.25)",
                             }}
@@ -456,8 +527,9 @@ export default function MoonBaseMap(props: Props) {
                                     padding: 0,
                                     border: "none",
                                     background: "none",
+                                    ...ctlFont,
                                     color: textColor,
-                                    fontSize: 13,
+                                    fontSize: fs(13),
                                     cursor: "pointer",
                                     opacity: hidden[n] ? 0.4 : 1,
                                 }}
@@ -476,7 +548,7 @@ export default function MoonBaseMap(props: Props) {
                         ))}
                     </div>
 
-                    <div style={{ marginTop: 8, fontSize: 12, opacity: 0.8 }}>
+                    <div style={{ marginTop: 8, fontSize: fs(12), color: mutedColor }}>
                         Dark shading: Moon Base zone (oxygen {ZONE.o2}% or more, {ZONE.psi} psi or less). Light shading: edge
                         (oxygen {EDGE.o2}% or more, {EDGE.psi} psi or less). Click a name to hide or show it.
                         {outOfView > 0 && ` ${outOfView} tests lie outside this view.`}
@@ -495,7 +567,17 @@ MoonBaseMap.defaultProps = {
     yMin: 10,
     yMax: 42,
     textColor: "#1c1917",
+    mutedColor: "rgba(28, 25, 23, 0.8)",
     backgroundColor: "#fafaf9",
+    borderColor: "rgba(0, 0, 0, 0)",
+    radius: 12,
+    gridColor: "#1c1917",
+    zoneFill: "#D55E00",
+    edgeFill: "#E69F00",
+    tooltipBackground: "#1c1917",
+    tooltipText: "#fafaf9",
+    filterColor: "rgba(0, 0, 0, 0)",
+    selectedFilterColor: "#1c1917",
 }
 
 addPropertyControls(MoonBaseMap, {
@@ -504,6 +586,17 @@ addPropertyControls(MoonBaseMap, {
     xMax: { type: ControlType.Number, title: "Pressure max (psi)", min: 12, max: 100, step: 1 },
     yMin: { type: ControlType.Number, title: "Oxygen min (%)", min: 0, max: 25, step: 1 },
     yMax: { type: ControlType.Number, title: "Oxygen max (%)", min: 31, max: 100, step: 1 },
-    textColor: { type: ControlType.Color, title: "Text" },
+    font: { type: ControlType.Font, title: "Font", controls: "extended", defaultFontType: "sans-serif", defaultFontSize: "14px" },
+    textColor: { type: ControlType.Color, title: "Text color" },
+    mutedColor: { type: ControlType.Color, title: "Muted text color" },
     backgroundColor: { type: ControlType.Color, title: "Background" },
+    borderColor: { type: ControlType.Color, title: "Border color" },
+    radius: { type: ControlType.Number, title: "Corner radius", min: 0, max: 60, step: 1 },
+    gridColor: { type: ControlType.Color, title: "Grid and axis color" },
+    zoneFill: { type: ControlType.Color, title: "Moon Base zone fill" },
+    edgeFill: { type: ControlType.Color, title: "Edge band fill" },
+    tooltipBackground: { type: ControlType.Color, title: "Tooltip background" },
+    tooltipText: { type: ControlType.Color, title: "Tooltip text color" },
+    filterColor: { type: ControlType.Color, title: "Filter button color" },
+    selectedFilterColor: { type: ControlType.Color, title: "Selected filter button" },
 })

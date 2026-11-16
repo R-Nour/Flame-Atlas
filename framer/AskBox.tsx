@@ -87,20 +87,84 @@ export function findPrepared(question: string, list: Answer[]): Answer | null {
     return bestScore >= 0.6 ? best : null
 }
 
+// ---------- style helpers ----------
+
+type RGBA = { r: number; g: number; b: number; a: number }
+
+/** Reads #rgb, #rrggbb, #rrggbbaa, rgb() and rgba(); returns null for anything else (named colours, tokens). */
+function parseColor(c: string): RGBA | null {
+    const s = String(c || "").trim().toLowerCase()
+    if (s === "transparent") return { r: 0, g: 0, b: 0, a: 0 }
+    let m = s.match(/^#([0-9a-f]{3,8})$/)
+    if (m) {
+        let h = m[1]
+        if (h.length === 3 || h.length === 4) h = h.split("").map((x) => x + x).join("")
+        if (h.length !== 6 && h.length !== 8) return null
+        return {
+            r: parseInt(h.slice(0, 2), 16),
+            g: parseInt(h.slice(2, 4), 16),
+            b: parseInt(h.slice(4, 6), 16),
+            a: h.length === 8 ? parseInt(h.slice(6, 8), 16) / 255 : 1,
+        }
+    }
+    m = s.match(/^rgba?\(([^)]+)\)$/)
+    if (m) {
+        const p = m[1].split(/[ ,/]+/).filter(Boolean).map(parseFloat)
+        if (p.length >= 3 && p.every((n) => isFinite(n))) return { r: p[0], g: p[1], b: p[2], a: p.length > 3 ? p[3] : 1 }
+    }
+    return null
+}
+
+const isTransparent = (c: string) => {
+    const p = parseColor(c)
+    return !!p && p.a === 0
+}
+
+/** Text colour that reads on `bg`: the light colour on dark backgrounds, the dark one on light backgrounds. */
+function readableOn(bg: string, light: string, dark: string): string {
+    const p = parseColor(bg)
+    if (!p) return light
+    const lum = (0.299 * p.r + 0.587 * p.g + 0.114 * p.b) / 255
+    return lum < 0.6 ? light : dark
+}
+
+/** Size multiplier when the Font control sets a size; 1 (today's look) otherwise. */
+function fontScale(font: any, base: number): number {
+    const n = font && font.fontSize != null ? parseFloat(String(font.fontSize)) : NaN
+    return isFinite(n) && n > 0 ? n / base : 1
+}
+
 // ---------- component ----------
 
 type Props = {
     apiUrl: string
     cachedUrl: string
     dailyLimit: number
-    accentColor: string
+    font?: Record<string, any>
+    accentColor: string // the "Button color"
+    buttonTextColor: string
     textColor: string
+    mutedColor: string
+    linkColor: string
     backgroundColor: string
+    inputBackground: string
+    answerBackground: string
+    borderColor: string
+    radius: number
     style?: React.CSSProperties
 }
 
 export default function AskBox(props: Props) {
-    const { apiUrl, cachedUrl, dailyLimit, accentColor, textColor, backgroundColor, style } = props
+    const {
+        apiUrl, cachedUrl, dailyLimit, font, accentColor, buttonTextColor, textColor, mutedColor, linkColor,
+        backgroundColor, inputBackground, answerBackground, borderColor, radius, style,
+    } = props
+    const scale = fontScale(font, 16)
+    const fs = (px: number) => px * scale
+    // Only when a font is chosen do the input and buttons take it; otherwise they keep today's browser font.
+    const ctlFont: React.CSSProperties = font
+        ? { fontFamily: "inherit", fontStyle: "inherit", letterSpacing: "inherit" }
+        : {}
     const limit = Math.max(1, Math.round(dailyLimit || 10))
 
     const [question, setQuestion] = React.useState("")
@@ -178,34 +242,38 @@ export default function AskBox(props: Props) {
         boxSizing: "border-box",
         width: "100%",
         padding: 20,
-        borderRadius: 12,
+        borderRadius: radius,
         background: backgroundColor,
+        boxShadow: `inset 0 0 0 1px ${borderColor}`,
         color: textColor,
         fontFamily: "Inter, system-ui, sans-serif",
-        fontSize: 16,
+        fontSize: fs(16),
         lineHeight: 1.5,
         display: "flex",
         flexDirection: "column",
         gap: 12,
+        ...font,
         ...style,
     }
     const button: React.CSSProperties = {
         padding: "10px 16px",
         borderRadius: 8,
+        ...ctlFont,
         border: "none",
         background: accentColor,
-        color: "#fff",
-        fontSize: 16,
+        color: buttonTextColor,
+        fontSize: fs(16),
         cursor: "pointer",
     }
     const chip: React.CSSProperties = {
         textAlign: "left",
         padding: "8px 12px",
         borderRadius: 8,
+        ...ctlFont,
         border: `1px solid ${accentColor}`,
         background: "transparent",
         color: textColor,
-        fontSize: 14,
+        fontSize: fs(14),
         cursor: "pointer",
     }
 
@@ -254,15 +322,17 @@ export default function AskBox(props: Props) {
                                 minWidth: 0,
                                 padding: "10px 12px",
                                 borderRadius: 8,
+                                ...ctlFont,
                                 border: "1px solid #999",
-                                fontSize: 16,
+                                background: inputBackground,
+                                fontSize: fs(16),
                             }}
                         />
                         <button type="button" style={button} onClick={ask} disabled={loading || !question.trim()}>
                             {loading ? "Asking…" : "Ask"}
                         </button>
                     </div>
-                    <span style={{ fontSize: 13, opacity: 0.75 }}>
+                    <span style={{ fontSize: fs(13), color: mutedColor }}>
                         {left} of {limit} questions left today
                     </span>
                     {examples}
@@ -272,15 +342,23 @@ export default function AskBox(props: Props) {
             <div aria-live="polite" style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {message && <span>{message}</span>}
                 {result && (
-                    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                    <div
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: 8,
+                            background: answerBackground,
+                            ...(isTransparent(answerBackground) ? {} : { padding: 12, borderRadius: 8 }),
+                        }}
+                    >
                         <span style={{ whiteSpace: "pre-wrap" }}>{result.answer}</span>
                         {result.cited_cards && result.cited_cards.length > 0 && (
-                            <span style={{ fontSize: 14, opacity: 0.85 }}>
+                            <span style={{ fontSize: fs(14), opacity: 0.85, color: linkColor }}>
                                 Cards cited: {result.cited_cards.map((c) => c.name).join(", ")}
                             </span>
                         )}
                         {result.cached && (
-                            <span style={{ fontSize: 13, opacity: 0.75 }}>
+                            <span style={{ fontSize: fs(13), color: mutedColor }}>
                                 This is a prepared answer, not a live one.
                             </span>
                         )}
@@ -296,15 +374,30 @@ AskBox.defaultProps = {
     cachedUrl: CACHED_URL,
     dailyLimit: 10,
     accentColor: "#c2410c",
+    buttonTextColor: "#ffffff",
     textColor: "#1c1917",
+    mutedColor: "rgba(28, 25, 23, 0.75)",
+    linkColor: "#1c1917",
     backgroundColor: "#fafaf9",
+    inputBackground: "#ffffff",
+    answerBackground: "rgba(0, 0, 0, 0)",
+    borderColor: "rgba(0, 0, 0, 0)",
+    radius: 12,
 }
 
 addPropertyControls(AskBox, {
     apiUrl: { type: ControlType.String, title: "API URL" },
     cachedUrl: { type: ControlType.String, title: "Prepared answers URL" },
     dailyLimit: { type: ControlType.Number, title: "Questions per day", min: 1, max: 50, step: 1 },
-    accentColor: { type: ControlType.Color, title: "Accent" },
-    textColor: { type: ControlType.Color, title: "Text" },
+    font: { type: ControlType.Font, title: "Font", controls: "extended", defaultFontType: "sans-serif", defaultFontSize: "16px" },
+    textColor: { type: ControlType.Color, title: "Text color" },
+    mutedColor: { type: ControlType.Color, title: "Muted text color" },
     backgroundColor: { type: ControlType.Color, title: "Background" },
+    borderColor: { type: ControlType.Color, title: "Border color" },
+    radius: { type: ControlType.Number, title: "Corner radius", min: 0, max: 60, step: 1 },
+    inputBackground: { type: ControlType.Color, title: "Input background" },
+    accentColor: { type: ControlType.Color, title: "Button color" },
+    buttonTextColor: { type: ControlType.Color, title: "Button text color" },
+    answerBackground: { type: ControlType.Color, title: "Answer card background" },
+    linkColor: { type: ControlType.Color, title: "Link color" },
 })
