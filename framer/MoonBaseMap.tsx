@@ -39,6 +39,9 @@ type Test = {
     psi: number
     outcome: string
     source: string
+    zone: string
+    flow: number | null // cm/s; null when the table leaves it blank
+    testEnd: string // exactly as written in tests.csv
 }
 
 // ---------- CSV ----------
@@ -89,6 +92,9 @@ export function parseTests(text: string): { plotted: Test[]; missing: number } {
         psi: col("pressure_psi"),
         out: col("outcome"),
         src: col("source"),
+        zone: col("moon_base_zone"),
+        flow: col("flow_cm_s"),
+        end: col("test_end"),
     }
     const plotted: Test[] = []
     let missing = 0
@@ -108,9 +114,28 @@ export function parseTests(text: string): { plotted: Test[]; missing: number } {
             psi,
             outcome: r[c.out] || "",
             source: r[c.src] || "",
+            zone: r[c.zone] || "",
+            flow: isFinite(parseFloat(r[c.flow])) ? parseFloat(r[c.flow]) : null,
+            testEnd: r[c.end] || "",
         })
     }
     return { plotted, missing }
+}
+
+// ---------- filters ----------
+
+type Filters = { investigation: string; zone: string; airflow: string; end: string }
+const NO_FILTERS: Filters = { investigation: "", zone: "", airflow: "", end: "" }
+const BLANK_END = "\u0000blank" // marks tests whose test_end cell is empty
+
+function passes(t: Test, f: Filters): boolean {
+    if (f.investigation && t.investigation !== f.investigation) return false
+    if (f.zone && t.zone !== f.zone) return false
+    if (f.airflow === "still" && t.flow !== 0) return false
+    if (f.airflow === "flow" && !(t.flow !== null && t.flow > 0)) return false
+    if (f.airflow === "none" && t.flow !== null) return false
+    if (f.end === BLANK_END ? t.testEnd !== "" : f.end && t.testEnd !== f.end) return false
+    return true
 }
 
 // ---------- component ----------
@@ -136,6 +161,7 @@ export default function MoonBaseMap(props: Props) {
     const [missing, setMissing] = React.useState(0)
     const [status, setStatus] = React.useState<"loading" | "ok" | "error">("loading")
     const [active, setActive] = React.useState<Test | null>(null)
+    const [filters, setFilters] = React.useState<Filters>(NO_FILTERS)
     const [hidden, setHidden] = React.useState<Record<string, boolean>>({})
 
     React.useEffect(() => {
@@ -166,7 +192,11 @@ export default function MoonBaseMap(props: Props) {
     const inView = tests.filter((t) => t.psi >= x0 && t.psi <= xMax && t.o2 >= y0 && t.o2 <= yMax)
     const outOfView = tests.length - inView.length
     const names = Array.from(new Set(tests.map((t) => t.investigation)))
-    const visible = inView.filter((t) => !hidden[t.investigation])
+    const visible = inView.filter((t) => !hidden[t.investigation] && passes(t, filters))
+    const investigations = [...names].sort((a, b) => a.localeCompare(b))
+    const ends = Array.from(new Set(tests.map((t) => t.testEnd).filter((e) => e !== ""))).sort((a, b) => a.localeCompare(b))
+    const hasBlankEnd = tests.some((t) => t.testEnd === "")
+    const filtered = Object.keys(hidden).some((k) => hidden[k]) || JSON.stringify(filters) !== JSON.stringify(NO_FILTERS)
     const colorOf = (n: string) => COLORS[n] || FALLBACK
 
     const ticksX: number[] = []
@@ -176,6 +206,29 @@ export default function MoonBaseMap(props: Props) {
 
     const clampX = (v: number) => Math.min(Math.max(v, x0), xMax)
     const clampY = (v: number) => Math.min(Math.max(v, y0), yMax)
+
+    const filterGroup: React.CSSProperties = { display: "flex", flexDirection: "column", gap: 4, fontSize: 14, fontWeight: 600 }
+    const selectStyle: React.CSSProperties = {
+        fontSize: 14,
+        fontWeight: 400,
+        padding: "6px 8px",
+        borderRadius: 6,
+        border: `1px solid ${textColor}`,
+        background: backgroundColor,
+        color: textColor,
+        maxWidth: "100%",
+    }
+    const segRow: React.CSSProperties = { display: "flex", flexWrap: "wrap", gap: 4 }
+    const segButton = (on: boolean): React.CSSProperties => ({
+        fontSize: 14,
+        fontWeight: 400,
+        padding: "6px 10px",
+        borderRadius: 6,
+        border: `1px solid ${textColor}`,
+        background: on ? textColor : "transparent",
+        color: on ? backgroundColor : textColor,
+        cursor: "pointer",
+    })
 
     const tipLeft = active ? Math.min(Math.max(sx(active.psi) / W, 0.02), 0.98) : 0
 
@@ -202,6 +255,86 @@ export default function MoonBaseMap(props: Props) {
 
             {status === "ok" && (
                 <>
+                    <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-end", gap: "10px 16px", marginBottom: 10, fontSize: 14 }}>
+                        <label style={filterGroup}>
+                            Investigation
+                            <select
+                                value={filters.investigation}
+                                onChange={(e) => setFilters({ ...filters, investigation: e.target.value })}
+                                style={selectStyle}
+                            >
+                                <option value="">All investigations</option>
+                                {investigations.map((n) => (
+                                    <option key={n} value={n}>
+                                        {n}
+                                    </option>
+                                ))}
+                            </select>
+                        </label>
+                        <div style={filterGroup} role="group" aria-label="Zone">
+                            Zone
+                            <div style={segRow}>
+                                {[["", "All"], ["inside", "Inside"], ["edge", "Edge"], ["outside", "Outside"]].map(([v, label]) => (
+                                    <button
+                                        key={label}
+                                        type="button"
+                                        aria-pressed={filters.zone === v}
+                                        onClick={() => setFilters({ ...filters, zone: v })}
+                                        style={segButton(filters.zone === v)}
+                                    >
+                                        {label}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                        <div style={filterGroup} role="group" aria-label="Airflow">
+                            Airflow
+                            <div style={segRow}>
+                                {[["", "All"], ["still", "Still air"], ["flow", "With airflow"], ["none", "Not stated"]].map(([v, label]) => (
+                                    <button
+                                        key={label}
+                                        type="button"
+                                        aria-pressed={filters.airflow === v}
+                                        onClick={() => setFilters({ ...filters, airflow: v })}
+                                        style={segButton(filters.airflow === v)}
+                                    >
+                                        {label}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                        <label style={filterGroup}>
+                            How it ended
+                            <select
+                                value={filters.end}
+                                onChange={(e) => setFilters({ ...filters, end: e.target.value })}
+                                style={selectStyle}
+                            >
+                                <option value="">Any</option>
+                                {ends.map((n) => (
+                                    <option key={n} value={n}>
+                                        {n}
+                                    </option>
+                                ))}
+                                {hasBlankEnd && <option value={BLANK_END}>(blank in table)</option>}
+                            </select>
+                        </label>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                setFilters(NO_FILTERS)
+                                setHidden({})
+                            }}
+                            disabled={!filtered}
+                            style={{ ...segButton(false), opacity: filtered ? 1 : 0.5, cursor: filtered ? "pointer" : "default" }}
+                        >
+                            Reset
+                        </button>
+                    </div>
+                    <div role="status" style={{ fontSize: 14, marginBottom: 6 }}>
+                        Showing {visible.length} of {tests.length} tests
+                    </div>
+
                     <svg
                         viewBox={`0 0 ${W} ${H}`}
                         width="100%"
