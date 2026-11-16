@@ -1,3 +1,4 @@
+// Written with AI assistance (Anthropic’s Claude) and reviewed by the author.
 // Flame Atlas "Ask" box: a Framer code component.
 //
 // - Sends the visitor's question to the deployed Ask API (api/ask.js on Vercel).

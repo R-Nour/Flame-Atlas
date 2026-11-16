@@ -109,5 +109,14 @@ python tools/check.py
 python tools/check.py --ai data/runs/run3.json data/runs/run4.json data/runs/run5.json --key data/answer_key_v1.json data/answer_key.json
 ```
 
+## AI use
+Flame Atlas was directed, built and verified by a person, with AI assistance:
+
+Human: set the project’s direction, built the website in Framer, reviewed the AI’s output, checked 30 values by hand against the original NASA files, and caught errors that were then corrected: a quote that could not be found in its source, an airflow value the source never stated, seven overstatements, and a wrong figure in an Ask-box answer.
+AI (Anthropic’s Claude and Claude Code): extracted values from NASA sources with verbatim quotes, wrote most of the code in tools/, api/ and framer/ under human direction and review, generates the Ask-box answers (Claude Sonnet 5.5), and helped draft the site text, slide deck and submission.
+Checks: quotes are machine-checked against the source files, and every AI accuracy run is reported above.
+
+No AI-generated images, video or audio are used, and no NASA branding appears in AI-generated content.
+
 ## License
 MIT. NASA data is credited to its sources in `data/records.json`.

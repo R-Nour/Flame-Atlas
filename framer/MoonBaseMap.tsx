@@ -1,3 +1,4 @@
+// Written with AI assistance (Anthropic’s Claude) and reviewed by the author.
 // Flame Atlas "Moon Base map": a Framer code component.
 //
 // A scatter of every test in data/tests.csv that lists both oxygen and pressure:

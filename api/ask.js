@@ -1,3 +1,4 @@
+// Written with AI assistance (Anthropic’s Claude) and reviewed by the author.
 // Flame Atlas "Ask" API: POST { question } -> { answer, cited_cards }
 //
 // Answers only from data/cards_digest.json (sent as a cached system block).

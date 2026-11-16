@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Written with AI assistance (Anthropic’s Claude) and reviewed by the author.
 """Accuracy test, step 2: score the AI's extraction against the frozen answer key.
 
 How a value is scored

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Written with AI assistance (Anthropic’s Claude) and reviewed by the author.
 """Accuracy test, step 1: Claude reads the raw PSI tables and extracts test records.
 
 Reads data/answer_key.json only for the list of files and the test-end definitions
